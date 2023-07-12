@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alakazam | Pokémon Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      display: flex;
+      background: #ffffff;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .card-image-container {
+      position: relative;
+      flex: 1;
+      border: 2px solid #cccccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+.zoomed-image {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid #000;
+  opacity: 0; 
+  pointer-events: none;
+  z-index: 999;
+  transition: opacity 0.3s ease; 
+}
+
+.zoomed-image.zoom-in {
+  opacity: 1; 
+}
+
+    .card-image-container:hover .zoomed-image,
+    .card-image-container:hover .zoomed-overlay {
+      display: block;
+    }
+
+    .card-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .card-details-container {
+      flex: 1;
+      border: 2px solid #cccccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    .card-details {
+      padding-left: 20px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .card-info {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .card-price {
+      color: #4CAF50;
+      font-size: 24px;
+    }
+
+    .quantity {
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #45a049;
+    }
+
+    .card-image-container:hover .zoomed-image {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="zoomed-image"></div>
+  <div class="container">
+    <div class="card">
+      <div class="card-image-container">
+        <div class="zoomed-overlay"></div>
+        <img class="card-image" src="https://images.pokemontcg.io/base1/1.png" alt="Alakazam">
+      </div>
+      <div class="card-details-container">
+        <div class="card-details">
+          <h1 class="card-title">Alakazam</h1>
+          <div class="card-info">
+            <p><strong>From:</strong> Base Series</p>
+            <p><strong>National Pokedex Number:</strong> 65</p>
+          </div>
+          <p class="card-price">$43.70</p>
+          <div class="quantity">
+            <label for="quantity">Quantity:</label>
+            <select id="quantity" name="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <a href="#" class="add-to-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+const zoomContainer = document.querySelector(".zoomed-image");
+const zoomOverlay = document.querySelector(".zoomed-overlay");
+const cardImageContainer = document.querySelector(".card-image-container");
+const cardImage = document.querySelector(".card-image");
+
+cardImage.addEventListener("mousemove", (event) => {
+  const imageWidth = cardImage.offsetWidth;
+  const imageHeight = cardImage.offsetHeight;
+  const containerWidth = cardImageContainer.offsetWidth;
+  const containerHeight = cardImageContainer.offsetHeight;
+
+  const x = event.offsetX;
+  const y = event.offsetY;
+
+  const zoomWidth = zoomContainer.offsetWidth;
+  const zoomHeight = zoomContainer.offsetHeight;
+
+  const backgroundPositionX = Math.min(Math.max(0, x - zoomWidth / 2), imageWidth - zoomWidth);
+  const backgroundPositionY = Math.min(Math.max(0, y - zoomHeight / 2), imageHeight - zoomHeight);
+
+  const scale = imageWidth / containerWidth;
+
+  const offsetX = (x - zoomWidth / 2) * scale;
+  const offsetY = (y - zoomHeight / 2) * scale;
+
+  zoomContainer.style.backgroundImage = `url(${cardImage.src})`;
+  zoomContainer.style.backgroundPosition = `${-backgroundPositionX}px ${-backgroundPositionY}px`;
+  zoomContainer.style.backgroundSize = `${imageWidth}px ${imageHeight}px`;
+  zoomContainer.style.transform = `scale(${scale})`;
+  zoomContainer.style.left = `${x - offsetX - 50}px`;
+  zoomContainer.style.top = `${y - offsetY + containerHeight - 350}px`; // Move the zoomed image downwards
+  zoomContainer.style.opacity = "1";
+  zoomContainer.style.display = "block";
+  zoomOverlay.style.display = "block";
+});
+
+cardImage.addEventListener("mouseleave", () => {
+  zoomContainer.style.opacity = "0";
+  zoomContainer.style.display = "none";
+  zoomOverlay.style.display = "none";
+});
+</script>
+</body>
+
+</html>
