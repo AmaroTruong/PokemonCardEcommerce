@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Cards</title>
+  {% block header %}
+  <link rel="stylesheet" type="text/css" href="/static/catalogue.css">
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="dropdown">
+        <button class="dropdown-btn"></button>
+        <div class="popovermenu">
+          <ul>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 2</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 3</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 4</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 5</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 6</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>Gen 7</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="buttontext">
+                <span>All Cards</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="logo">
+        <img src="/static/transparent.png" alt="Logo" style="height: 150px;">
+      </div>
+      <form class="search-form">
+        <input type="text" placeholder="Search">
+        <button class="search-btn" type="submit"><img src="/static/search-icon-png-21.png" alt="Search" style="height: 15px;"></button>
+      </form>
+      <div class="cart">
+        <button class="cart-btn">Cart <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;"></button>
+      </div>
+      <div class="login">
+        <button class="login-btn">Login</button>
+        <div class="login-popup">
+          <form class="form-container">
+            <h1>Login</h1>
+            <p>Enter your email and password:</p>
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="psw" required>
+            <button type="submit" class="btn">Login</button>
+            <p>New Customer? <a>Create your Account</a></p>
+            <p>Lost password? <a>Recover password</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  {% block footer %}
+  <div class="footer-basic">
+    <footer>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Home</a></li>
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Pokèfinder Online © 2023</p>
+    </footer>
+</div>
+  {% endblock %}
+
+  <script src="/static/dropdown-menu.js"></script>
+  <script src="/static/login-popup.js"></script>
+</body>
+</html>

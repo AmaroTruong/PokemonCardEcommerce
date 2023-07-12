@@ -1,132 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>All Cards</title>
-  <link rel="stylesheet" type="text/css" href="/static/catalogue.css">
-</head>
-<body>
-  <header>
-    <div class="header-container">
-      <div class="dropdown">
-        <button class="dropdown-btn"></button>
-        <div class="popovermenu">
-    <ul>
-       <li>
-           <a href="#" class="buttontext">
-               <span>Gen 1</span>
-           </a>
-       </li>
-       <li>
-           <a href="#" class="buttontext">
-               <span>Gen 2</span>
-           </a>
-       </li>
-       <li>
-           <a href="#" class="buttontext">
-               <span>Gen 3</span>
-           </a>
-       </li>
-       <li>
-           <a href="#" class="buttontext">
-               <span>Gen 4</span>
-           </a>
-       </li>
-       <li>
-           <a href="#" class="buttontext">
-               <span>Gen 5</span>
-           </a>
-       </li>
-        <li>
-           <a href="#" class="buttontext">
-               <span>Gen 6</span>
-           </a>
-       </li>
-      <li>
-           <a href="#" class="buttontext">
-               <span>Gen 7</span>
-           </a>
-       </li>
-      <li>
-           <a href="#" class="buttontext">
-               <span>All Cards</span>
-           </a>
-       </li>
-    </ul>
+{% extends "headerAndFooter.html" %}
+{% block header %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="pokemon-card-container">
+  <div class="pokemon-card-section">
+<div class="section-header">
+  <div class="section-banner">
+    <img src="/static/logo.png" alt="Logo" style="height: 100px;" class="section-image">
+  </div>
+  <div class = "section-text">
+  <h2 class="section-title">All Cards</h2>
+  </div>
+  <div class="dropdowns-container">
+  <label for="sort-by">Sort By:</label>
+  <select id="sort-by">
+    <option value="alphabetically">Alphabetically</option>
+    <option value="price">Price (Lowest to Highest)</option>
+    <option value="date">Date</option>
+  </select>
 </div>
-      </div>
-      <div class="logo">
-        <img src="/static/transparent.png" alt="Logo" style="height: 150px;">
-      </div>
-      <form class="search-form">
-        <input type="text" placeholder="Search">
-        <button class="search-btn" type="submit"><img src="/static/search-icon-png-21.png" alt="Search" style="height: 15px;"></button>
-      </form>
-      <div class="cart">
-        <button class="cart-btn">Cart <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;"></button>
-      </div>
-      <div class="login">
-      <button class="login-btn">Login</button>
-        <div class="login-popup">
-  <form class="form-container">
-    <h1>Login</h1>
-    <p>Enter your email and password: </p>
-
-    <input type="text" placeholder="Email" name="email" required>
-
-    <input type="password" placeholder="Password" name="psw" required>
-
-    <button type="submit" class="btn">Login</button>
-
-    <p>New Cusomter? <a>Create your Account</a></p>
-    <p>Lost password? <a>Recover password</a></p>
-  </form>
-    </div>
-      </div>
-  </header>
-  <div class="pokemon-card-container">
-    <div class="pokemon-card-section">
-  <div class="section-header">
-    <div class="section-banner">
-      <img src="/static/logo.png" alt="Logo" style="height: 100px;" class="section-image">
-    </div>
-    <div class = "section-text">
-    <h2 class="section-title">All Cards</h2>
-    </div>
-    <div class="dropdowns-container">
-    <label for="sort-by">Sort By:</label>
-    <select id="sort-by">
-      <option value="alphabetically">Alphabetically</option>
-      <option value="price">Price (Lowest to Highest)</option>
-      <option value="date">Date</option>
-    </select>
   </div>
-    </div>
-  <div class="grid-container">
-    {% for card in cards %}
-  <a class="pokemon-card" href="{{ url_for('profiles', card_id=card['id']) }}">
-    <h3>{{ card['name'] }}</h3>
-    <img src="{{ card['imageUrl'] }}" style="height: 280px;">
-    <h3>Series: {{ card['series'] }}</h3>
-    <h6>Pokedex Number: {{ card['facts'][0] }}</h6>
-    <h6>${{ card['marketValue'] }}</h6>
-  </a>
+<div class="grid-container">
+  {% for card in cards %}
+<a class="pokemon-card" href="{{ url_for('profiles', card_id=card['id']) }}">
+  <h3>{{ card['name'] }}</h3>
+  <img src="{{ card['imageUrl'] }}" style="height: 280px;">
+  <h3>Series: {{ card['series'] }}</h3>
+  <h6>Pokedex Number: {{ card['facts'][0] }}</h6>
+  <h6>${{ card['marketValue'] }}</h6>
+</a>
 {% endfor %}
-      </div>
-  </div>
-  </div>
-  <div class="footer-basic">
-        <footer>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Contact</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">Pokèfinder Online © 2023</p>
-        </footer>
-  </div>
-  <script src="/static/dropdown-menu.js"></script>
-  <script src="static/login-popup.js"></script>
-</body>
-</html>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}
 
