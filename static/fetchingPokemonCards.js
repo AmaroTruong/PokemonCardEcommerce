@@ -43,18 +43,28 @@ class PokemonCard {
 
   createProfile() {
     var html = `
-      <html>
-      <head>
-        <title>${this.name}</title>
-      </head>
-      <body>
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>${this.name} | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
         <img class="card-image" src="${this.imageUrl}" alt="${this.name}">
         <h2>${this.name}</h2>
         <p><strong>From:</strong> ${this.series} Series</p>
         <p><strong>Market Value:</strong> $${this.marketValue}</p>
         <p>National Pokedex Number: ${this.facts}</p>
-      </body>
-      </html>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
     `;
 
     saveProfileToRepository(this.cardId, html);

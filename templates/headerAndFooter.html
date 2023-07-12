@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% block title %}
   <title>All Cards</title>
+  {% endblock %}
   {% block header %}
   <link rel="stylesheet" type="text/css" href="/static/catalogue.css">
   {% endblock %}
@@ -99,8 +101,9 @@
     </footer>
 </div>
   {% endblock %}
-
+  {% block script %}
   <script src="/static/dropdown-menu.js"></script>
   <script src="/static/login-popup.js"></script>
+  {% endblock %}
 </body>
 </html>

@@ -1,6 +1,10 @@
 {% extends "headerAndFooter.html" %}
+{% block title %}
+{{ super() }}
+{% endblock %}
 {% block header %}
 {{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/catalogue.css">
 {% endblock %}
 {% block content %}
 <div class="pokemon-card-container">
@@ -38,4 +42,9 @@
 {% block footer %}
 {{ super() }}
 {% endblock %}
+{% block script %}
+{{ super() }}
+<script src="/static/cardZooming.js"></script>
+{% endblock %}
+
 
