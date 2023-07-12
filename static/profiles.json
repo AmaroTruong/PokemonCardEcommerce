@@ -1,0 +1,2444 @@
+[
+  {
+    "id": "hgss4-1",
+    "name": "Aggron",
+    "imageUrl": "https://images.pokemontcg.io/hgss4/1.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 1.72,
+    "facts": [
+      306
+    ]
+  },
+  {
+    "id": "ex3-1",
+    "name": "Absol",
+    "imageUrl": "https://images.pokemontcg.io/ex3/1.png",
+    "series": "EX",
+    "marketValue": 51.81,
+    "facts": [
+      359
+    ]
+  },
+  {
+    "id": "det1-1",
+    "name": "Bulbasaur",
+    "imageUrl": "https://images.pokemontcg.io/det1/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.32,
+    "facts": [
+      1
+    ]
+  },
+  {
+    "id": "ex9-2",
+    "name": "Deoxys",
+    "imageUrl": "https://images.pokemontcg.io/ex9/2.png",
+    "series": "EX",
+    "marketValue": 22.68,
+    "facts": [
+      386
+    ]
+  },
+  {
+    "id": "hgss1-1",
+    "name": "Arcanine",
+    "imageUrl": "https://images.pokemontcg.io/hgss1/1.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 26.62,
+    "facts": [
+      59
+    ]
+  },
+  {
+    "id": "ex7-1",
+    "name": "Azumarill",
+    "imageUrl": "https://images.pokemontcg.io/ex7/1.png",
+    "series": "EX",
+    "marketValue": 31.22,
+    "facts": [
+      184
+    ]
+  },
+  {
+    "id": "ru1-1",
+    "name": "Venusaur",
+    "imageUrl": "https://images.pokemontcg.io/ru1/1.png",
+    "series": "Other",
+    "marketValue": 60,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "dp3-1",
+    "name": "Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/dp3/1.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 6.06,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "ex3-2",
+    "name": "Altaria",
+    "imageUrl": "https://images.pokemontcg.io/ex3/2.png",
+    "series": "EX",
+    "marketValue": 17.14,
+    "facts": [
+      334
+    ]
+  },
+  {
+    "id": "xy5-1",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/xy5/1.png",
+    "series": "XY",
+    "marketValue": 0.18,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "ex12-1",
+    "name": "Aerodactyl",
+    "imageUrl": "https://images.pokemontcg.io/ex12/1.png",
+    "series": "EX",
+    "marketValue": 15.37,
+    "facts": [
+      142
+    ]
+  },
+  {
+    "id": "pl1-1",
+    "name": "Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/pl1/1.png",
+    "series": "Platinum",
+    "marketValue": 11.16,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "ex11-1",
+    "name": "Beedrill δ",
+    "imageUrl": "https://images.pokemontcg.io/ex11/1.png",
+    "series": "EX",
+    "marketValue": 19.77,
+    "facts": [
+      15
+    ]
+  },
+  {
+    "id": "pop7-2",
+    "name": "Gallade",
+    "imageUrl": "https://images.pokemontcg.io/pop7/2.png",
+    "series": "POP",
+    "marketValue": 12.47,
+    "facts": [
+      475
+    ]
+  },
+  {
+    "id": "sm1-1",
+    "name": "Caterpie",
+    "imageUrl": "https://images.pokemontcg.io/sm1/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.11,
+    "facts": [
+      10
+    ]
+  },
+  {
+    "id": "sm9-1",
+    "name": "Celebi & Venusaur-GX",
+    "imageUrl": "https://images.pokemontcg.io/sm9/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 10.75,
+    "facts": [
+      3,
+      251
+    ]
+  },
+  {
+    "id": "gym1-1",
+    "name": "Blaine's Moltres",
+    "imageUrl": "https://images.pokemontcg.io/gym1/1.png",
+    "series": "Gym",
+    "marketValue": 183.81,
+    "facts": [
+      146
+    ]
+  },
+  {
+    "id": "mcd19-1",
+    "name": "Caterpie",
+    "imageUrl": "https://images.pokemontcg.io/mcd19/1.png",
+    "series": "Other",
+    "marketValue": 5.45,
+    "facts": [
+      10
+    ]
+  },
+  {
+    "id": "sm2-1",
+    "name": "Bellsprout",
+    "imageUrl": "https://images.pokemontcg.io/sm2/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.1,
+    "facts": [
+      69
+    ]
+  },
+  {
+    "id": "base4-1",
+    "name": "Alakazam",
+    "imageUrl": "https://images.pokemontcg.io/base4/1.png",
+    "series": "Base",
+    "marketValue": 32.24,
+    "facts": [
+      65
+    ]
+  },
+  {
+    "id": "sm9-2",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/sm9/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.17,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "xy1-1",
+    "name": "Venusaur-EX",
+    "imageUrl": "https://images.pokemontcg.io/xy1/1.png",
+    "series": "XY",
+    "marketValue": 3.44,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "ex8-1",
+    "name": "Altaria",
+    "imageUrl": "https://images.pokemontcg.io/ex8/1.png",
+    "series": "EX",
+    "marketValue": 19.45,
+    "facts": [
+      334
+    ]
+  },
+  {
+    "id": "bw4-1",
+    "name": "Pinsir",
+    "imageUrl": "https://images.pokemontcg.io/bw4/1.png",
+    "series": "Black & White",
+    "marketValue": 0.57,
+    "facts": [
+      127
+    ]
+  },
+  {
+    "id": "mcd19-4",
+    "name": "Alolan Sandshrew",
+    "imageUrl": "https://images.pokemontcg.io/mcd19/4.png",
+    "series": "Other",
+    "marketValue": 9.4,
+    "facts": [
+      27
+    ]
+  },
+  {
+    "id": "sm115-3",
+    "name": "Butterfree",
+    "imageUrl": "https://images.pokemontcg.io/sm115/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.16,
+    "facts": [
+      12
+    ]
+  },
+  {
+    "id": "bw8-1",
+    "name": "Turtwig",
+    "imageUrl": "https://images.pokemontcg.io/bw8/1.png",
+    "series": "Black & White",
+    "marketValue": 0.24,
+    "facts": [
+      387
+    ]
+  },
+  {
+    "id": "pl4-1",
+    "name": "Charizard",
+    "imageUrl": "https://images.pokemontcg.io/pl4/1.png",
+    "series": "Platinum",
+    "marketValue": 42.4,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "pop7-3",
+    "name": "Latias",
+    "imageUrl": "https://images.pokemontcg.io/pop7/3.png",
+    "series": "POP",
+    "marketValue": 5.99,
+    "facts": [
+      380
+    ]
+  },
+  {
+    "id": "pop6-2",
+    "name": "Lucario",
+    "imageUrl": "https://images.pokemontcg.io/pop6/2.png",
+    "series": "POP",
+    "marketValue": 4.31,
+    "facts": [
+      448
+    ]
+  },
+  {
+    "id": "ex9-3",
+    "name": "Exploud",
+    "imageUrl": "https://images.pokemontcg.io/ex9/3.png",
+    "series": "EX",
+    "marketValue": 8.38,
+    "facts": [
+      295
+    ]
+  },
+  {
+    "id": "pop6-4",
+    "name": "Pachirisu",
+    "imageUrl": "https://images.pokemontcg.io/pop6/4.png",
+    "series": "POP",
+    "marketValue": 2.61,
+    "facts": [
+      417
+    ]
+  },
+  {
+    "id": "sm8-1",
+    "name": "Tangela",
+    "imageUrl": "https://images.pokemontcg.io/sm8/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.12,
+    "facts": [
+      114
+    ]
+  },
+  {
+    "id": "hgss1-4",
+    "name": "Gyarados",
+    "imageUrl": "https://images.pokemontcg.io/hgss1/4.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 12.42,
+    "facts": [
+      130
+    ]
+  },
+  {
+    "id": "dp4-1",
+    "name": "Blaziken",
+    "imageUrl": "https://images.pokemontcg.io/dp4/1.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 13.49,
+    "facts": [
+      257
+    ]
+  },
+  {
+    "id": "det1-4",
+    "name": "Charmander",
+    "imageUrl": "https://images.pokemontcg.io/det1/4.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.22,
+    "facts": [
+      4
+    ]
+  },
+  {
+    "id": "ex8-2",
+    "name": "Beautifly",
+    "imageUrl": "https://images.pokemontcg.io/ex8/2.png",
+    "series": "EX",
+    "marketValue": 10.87,
+    "facts": [
+      267
+    ]
+  },
+  {
+    "id": "ex4-2",
+    "name": "Team Aqua's Crawdaunt",
+    "imageUrl": "https://images.pokemontcg.io/ex4/2.png",
+    "series": "EX",
+    "marketValue": 7.68,
+    "facts": [
+      342
+    ]
+  },
+  {
+    "id": "bw7-2",
+    "name": "Gloom",
+    "imageUrl": "https://images.pokemontcg.io/bw7/2.png",
+    "series": "Black & White",
+    "marketValue": 0.34,
+    "facts": [
+      44
+    ]
+  },
+  {
+    "id": "pop4-2",
+    "name": "Deoxys δ",
+    "imageUrl": "https://images.pokemontcg.io/pop4/2.png",
+    "series": "POP",
+    "marketValue": 17.38,
+    "facts": [
+      386
+    ]
+  },
+  {
+    "id": "pl1-4",
+    "name": "Delcatty",
+    "imageUrl": "https://images.pokemontcg.io/pl1/4.png",
+    "series": "Platinum",
+    "marketValue": 4.77,
+    "facts": [
+      301
+    ]
+  },
+  {
+    "id": "bw1-2",
+    "name": "Snivy",
+    "imageUrl": "https://images.pokemontcg.io/bw1/2.png",
+    "series": "Black & White",
+    "marketValue": 0.29,
+    "facts": [
+      495
+    ]
+  },
+  {
+    "id": "ex12-2",
+    "name": "Aggron",
+    "imageUrl": "https://images.pokemontcg.io/ex12/2.png",
+    "series": "EX",
+    "marketValue": 12.05,
+    "facts": [
+      306
+    ]
+  },
+  {
+    "id": "swsh35-3",
+    "name": "Kakuna",
+    "imageUrl": "https://images.pokemontcg.io/swsh35/3.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.03,
+    "facts": [
+      14
+    ]
+  },
+  {
+    "id": "dv1-4",
+    "name": "Dragonair",
+    "imageUrl": "https://images.pokemontcg.io/dv1/4.png",
+    "series": "Black & White",
+    "marketValue": 6.49,
+    "facts": [
+      148
+    ]
+  },
+  {
+    "id": "si1-3",
+    "name": "Onix",
+    "imageUrl": "https://images.pokemontcg.io/si1/3.png",
+    "series": "Other",
+    "marketValue": 17.52,
+    "facts": [
+      95
+    ]
+  },
+  {
+    "id": "hgss4-2",
+    "name": "Altaria",
+    "imageUrl": "https://images.pokemontcg.io/hgss4/2.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 2.11,
+    "facts": [
+      334
+    ]
+  },
+  {
+    "id": "xy2-1",
+    "name": "Caterpie",
+    "imageUrl": "https://images.pokemontcg.io/xy2/1.png",
+    "series": "XY",
+    "marketValue": 0.16,
+    "facts": [
+      10
+    ]
+  },
+  {
+    "id": "pop1-2",
+    "name": "Metagross",
+    "imageUrl": "https://images.pokemontcg.io/pop1/2.png",
+    "series": "POP",
+    "marketValue": 4.95,
+    "facts": [
+      376
+    ]
+  },
+  {
+    "id": "dp4-2",
+    "name": "Cresselia",
+    "imageUrl": "https://images.pokemontcg.io/dp4/2.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 7.36,
+    "facts": [
+      488
+    ]
+  },
+  {
+    "id": "ex3-4",
+    "name": "Flygon",
+    "imageUrl": "https://images.pokemontcg.io/ex3/4.png",
+    "series": "EX",
+    "marketValue": 25.18,
+    "facts": [
+      330
+    ]
+  },
+  {
+    "id": "pop5-2",
+    "name": "Lugia",
+    "imageUrl": "https://images.pokemontcg.io/pop5/2.png",
+    "series": "POP",
+    "marketValue": 11.92,
+    "facts": [
+      249
+    ]
+  },
+  {
+    "id": "base6-2",
+    "name": "Articuno",
+    "imageUrl": "https://images.pokemontcg.io/base6/2.png",
+    "series": "Other",
+    "marketValue": 35.11,
+    "facts": [
+      144
+    ]
+  },
+  {
+    "id": "ex11-4",
+    "name": "Espeon δ",
+    "imageUrl": "https://images.pokemontcg.io/ex11/4.png",
+    "series": "EX",
+    "marketValue": 50.01,
+    "facts": [
+      196
+    ]
+  },
+  {
+    "id": "pl3-1",
+    "name": "Absol G",
+    "imageUrl": "https://images.pokemontcg.io/pl3/1.png",
+    "series": "Platinum",
+    "marketValue": 8.29,
+    "facts": [
+      359
+    ]
+  },
+  {
+    "id": "gym1-2",
+    "name": "Brock's Rhydon",
+    "imageUrl": "https://images.pokemontcg.io/gym1/2.png",
+    "series": "Gym",
+    "marketValue": 60.42,
+    "facts": [
+      112
+    ]
+  },
+  {
+    "id": "base4-4",
+    "name": "Charizard",
+    "imageUrl": "https://images.pokemontcg.io/base4/4.png",
+    "series": "Base",
+    "marketValue": 236.32,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "pop6-1",
+    "name": "Bastiodon",
+    "imageUrl": "https://images.pokemontcg.io/pop6/1.png",
+    "series": "POP",
+    "marketValue": 1.49,
+    "facts": [
+      411
+    ]
+  },
+  {
+    "id": "dv1-1",
+    "name": "Dratini",
+    "imageUrl": "https://images.pokemontcg.io/dv1/1.png",
+    "series": "Black & White",
+    "marketValue": 1.34,
+    "facts": [
+      147
+    ]
+  },
+  {
+    "id": "base3-1",
+    "name": "Aerodactyl",
+    "imageUrl": "https://images.pokemontcg.io/base3/1.png",
+    "series": "Base",
+    "marketValue": 52.83,
+    "facts": [
+      142
+    ]
+  },
+  {
+    "id": "hgss1-2",
+    "name": "Azumarill",
+    "imageUrl": "https://images.pokemontcg.io/hgss1/2.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 4.81,
+    "facts": [
+      184
+    ]
+  },
+  {
+    "id": "xy11-3",
+    "name": "Hoppip",
+    "imageUrl": "https://images.pokemontcg.io/xy11/3.png",
+    "series": "XY",
+    "marketValue": 0.07,
+    "facts": [
+      187
+    ]
+  },
+  {
+    "id": "dp3-4",
+    "name": "Entei",
+    "imageUrl": "https://images.pokemontcg.io/dp3/4.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 13.41,
+    "facts": [
+      244
+    ]
+  },
+  {
+    "id": "ex13-3",
+    "name": "Deoxys δ",
+    "imageUrl": "https://images.pokemontcg.io/ex13/3.png",
+    "series": "EX",
+    "marketValue": 18.37,
+    "facts": [
+      386
+    ]
+  },
+  {
+    "id": "pop3-2",
+    "name": "Flareon",
+    "imageUrl": "https://images.pokemontcg.io/pop3/2.png",
+    "series": "POP",
+    "marketValue": 16.62,
+    "facts": [
+      136
+    ]
+  },
+  {
+    "id": "swsh1-2",
+    "name": "Roselia",
+    "imageUrl": "https://images.pokemontcg.io/swsh1/2.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.04,
+    "facts": [
+      315
+    ]
+  },
+  {
+    "id": "hgss4-4",
+    "name": "Drapion",
+    "imageUrl": "https://images.pokemontcg.io/hgss4/4.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 2.13,
+    "facts": [
+      452
+    ]
+  },
+  {
+    "id": "sm3-2",
+    "name": "Metapod",
+    "imageUrl": "https://images.pokemontcg.io/sm3/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.06,
+    "facts": [
+      11
+    ]
+  },
+  {
+    "id": "xy7-3",
+    "name": "Vileplume",
+    "imageUrl": "https://images.pokemontcg.io/xy7/3.png",
+    "series": "XY",
+    "marketValue": 0.47,
+    "facts": [
+      45
+    ]
+  },
+  {
+    "id": "bw10-3",
+    "name": "Lileep",
+    "imageUrl": "https://images.pokemontcg.io/bw10/3.png",
+    "series": "Black & White",
+    "marketValue": 0.5,
+    "facts": [
+      345
+    ]
+  },
+  {
+    "id": "hgss4-5",
+    "name": "Mamoswine",
+    "imageUrl": "https://images.pokemontcg.io/hgss4/5.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 2.43,
+    "facts": [
+      473
+    ]
+  },
+  {
+    "id": "sm5-3",
+    "name": "Yanmega",
+    "imageUrl": "https://images.pokemontcg.io/sm5/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.12,
+    "facts": [
+      469
+    ]
+  },
+  {
+    "id": "sm5-2",
+    "name": "Yanma",
+    "imageUrl": "https://images.pokemontcg.io/sm5/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.07,
+    "facts": [
+      193
+    ]
+  },
+  {
+    "id": "si1-4",
+    "name": "Togepi",
+    "imageUrl": "https://images.pokemontcg.io/si1/4.png",
+    "series": "Other",
+    "marketValue": 36.04,
+    "facts": [
+      175
+    ]
+  },
+  {
+    "id": "sm12-3",
+    "name": "Gloom",
+    "imageUrl": "https://images.pokemontcg.io/sm12/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.12,
+    "facts": [
+      44
+    ]
+  },
+  {
+    "id": "ex10-1",
+    "name": "Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/ex10/1.png",
+    "series": "EX",
+    "marketValue": 16.83,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "bw6-1",
+    "name": "Hoppip",
+    "imageUrl": "https://images.pokemontcg.io/bw6/1.png",
+    "series": "Black & White",
+    "marketValue": 0.22,
+    "facts": [
+      187
+    ]
+  },
+  {
+    "id": "ex7-4",
+    "name": "Dark Electrode",
+    "imageUrl": "https://images.pokemontcg.io/ex7/4.png",
+    "series": "EX",
+    "marketValue": 25.96,
+    "facts": [
+      101
+    ]
+  },
+  {
+    "id": "xy5-4",
+    "name": "Tangela",
+    "imageUrl": "https://images.pokemontcg.io/xy5/4.png",
+    "series": "XY",
+    "marketValue": 0.09,
+    "facts": [
+      114
+    ]
+  },
+  {
+    "id": "pl4-3",
+    "name": "Heatran",
+    "imageUrl": "https://images.pokemontcg.io/pl4/3.png",
+    "series": "Platinum",
+    "marketValue": 2.28,
+    "facts": [
+      485
+    ]
+  },
+  {
+    "id": "ex9-4",
+    "name": "Gardevoir",
+    "imageUrl": "https://images.pokemontcg.io/ex9/4.png",
+    "series": "EX",
+    "marketValue": 19.74,
+    "facts": [
+      282
+    ]
+  },
+  {
+    "id": "base3-5",
+    "name": "Gengar",
+    "imageUrl": "https://images.pokemontcg.io/base3/5.png",
+    "series": "Base",
+    "marketValue": 160.02,
+    "facts": [
+      94
+    ]
+  },
+  {
+    "id": "bw10-4",
+    "name": "Cradily",
+    "imageUrl": "https://images.pokemontcg.io/bw10/4.png",
+    "series": "Black & White",
+    "marketValue": 1.27,
+    "facts": [
+      346
+    ]
+  },
+  {
+    "id": "bw1-3",
+    "name": "Servine",
+    "imageUrl": "https://images.pokemontcg.io/bw1/3.png",
+    "series": "Black & White",
+    "marketValue": 0.31,
+    "facts": [
+      496
+    ]
+  },
+  {
+    "id": "pop4-3",
+    "name": "Flygon",
+    "imageUrl": "https://images.pokemontcg.io/pop4/3.png",
+    "series": "POP",
+    "marketValue": 15.46,
+    "facts": [
+      330
+    ]
+  },
+  {
+    "id": "ru1-2",
+    "name": "Cherrim",
+    "imageUrl": "https://images.pokemontcg.io/ru1/2.png",
+    "series": "Other",
+    "marketValue": 14.99,
+    "facts": [
+      421
+    ]
+  },
+  {
+    "id": "ex7-2",
+    "name": "Dark Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/ex7/2.png",
+    "series": "EX",
+    "marketValue": 61.29,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "base4-2",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/base4/2.png",
+    "series": "Base",
+    "marketValue": 72.14,
+    "facts": [
+      9
+    ]
+  },
+  {
+    "id": "dp4-3",
+    "name": "Darkrai",
+    "imageUrl": "https://images.pokemontcg.io/dp4/3.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 10.62,
+    "facts": [
+      491
+    ]
+  },
+  {
+    "id": "ex4-3",
+    "name": "Team Aqua's Kyogre",
+    "imageUrl": "https://images.pokemontcg.io/ex4/3.png",
+    "series": "EX",
+    "marketValue": 21.61,
+    "facts": [
+      382
+    ]
+  },
+  {
+    "id": "base3-2",
+    "name": "Articuno",
+    "imageUrl": "https://images.pokemontcg.io/base3/2.png",
+    "series": "Base",
+    "marketValue": 105.99,
+    "facts": [
+      144
+    ]
+  },
+  {
+    "id": "dp1-3",
+    "name": "Electivire",
+    "imageUrl": "https://images.pokemontcg.io/dp1/3.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 4.93,
+    "facts": [
+      466
+    ]
+  },
+  {
+    "id": "bw1-1",
+    "name": "Snivy",
+    "imageUrl": "https://images.pokemontcg.io/bw1/1.png",
+    "series": "Black & White",
+    "marketValue": 0.27,
+    "facts": [
+      495
+    ]
+  },
+  {
+    "id": "dv1-5",
+    "name": "Dragonite",
+    "imageUrl": "https://images.pokemontcg.io/dv1/5.png",
+    "series": "Black & White",
+    "marketValue": 9.13,
+    "facts": [
+      149
+    ]
+  },
+  {
+    "id": "ex8-3",
+    "name": "Breloom",
+    "imageUrl": "https://images.pokemontcg.io/ex8/3.png",
+    "series": "EX",
+    "marketValue": 23.2,
+    "facts": [
+      286
+    ]
+  },
+  {
+    "id": "pl1-2",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/pl1/2.png",
+    "series": "Platinum",
+    "marketValue": 21.62,
+    "facts": [
+      9
+    ]
+  },
+  {
+    "id": "ex10-2",
+    "name": "Ariados",
+    "imageUrl": "https://images.pokemontcg.io/ex10/2.png",
+    "series": "EX",
+    "marketValue": 6.72,
+    "facts": [
+      168
+    ]
+  },
+  {
+    "id": "gym2-4",
+    "name": "Erika's Venusaur",
+    "imageUrl": "https://images.pokemontcg.io/gym2/4.png",
+    "series": "Gym",
+    "marketValue": 165,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "xy5-2",
+    "name": "Kakuna",
+    "imageUrl": "https://images.pokemontcg.io/xy5/2.png",
+    "series": "XY",
+    "marketValue": 0.16,
+    "facts": [
+      14
+    ]
+  },
+  {
+    "id": "pl1-5",
+    "name": "Dialga",
+    "imageUrl": "https://images.pokemontcg.io/pl1/5.png",
+    "series": "Platinum",
+    "marketValue": 9.75,
+    "facts": [
+      483
+    ]
+  },
+  {
+    "id": "xy7-4",
+    "name": "Bellossom",
+    "imageUrl": "https://images.pokemontcg.io/xy7/4.png",
+    "series": "XY",
+    "marketValue": 0.35,
+    "facts": [
+      182
+    ]
+  },
+  {
+    "id": "sm3-1",
+    "name": "Caterpie",
+    "imageUrl": "https://images.pokemontcg.io/sm3/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.06,
+    "facts": [
+      10
+    ]
+  },
+  {
+    "id": "pop1-3",
+    "name": "Rayquaza",
+    "imageUrl": "https://images.pokemontcg.io/pop1/3.png",
+    "series": "POP",
+    "marketValue": 9.73,
+    "facts": [
+      384
+    ]
+  },
+  {
+    "id": "bw4-3",
+    "name": "Kricketot",
+    "imageUrl": "https://images.pokemontcg.io/bw4/3.png",
+    "series": "Black & White",
+    "marketValue": 0.24,
+    "facts": [
+      401
+    ]
+  },
+  {
+    "id": "pl3-2",
+    "name": "Blaziken FB",
+    "imageUrl": "https://images.pokemontcg.io/pl3/2.png",
+    "series": "Platinum",
+    "marketValue": 15.05,
+    "facts": [
+      257
+    ]
+  },
+  {
+    "id": "base6-3",
+    "name": "Charizard",
+    "imageUrl": "https://images.pokemontcg.io/base6/3.png",
+    "series": "Other",
+    "marketValue": 399.99,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "pop7-1",
+    "name": "Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/pop7/1.png",
+    "series": "POP",
+    "marketValue": 5.95,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "sm1-2",
+    "name": "Metapod",
+    "imageUrl": "https://images.pokemontcg.io/sm1/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.1,
+    "facts": [
+      11
+    ]
+  },
+  {
+    "id": "sm12-1",
+    "name": "Venusaur & Snivy-GX",
+    "imageUrl": "https://images.pokemontcg.io/sm12/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 5.48,
+    "facts": [
+      3,
+      495
+    ]
+  },
+  {
+    "id": "hgss2-2",
+    "name": "Magmortar",
+    "imageUrl": "https://images.pokemontcg.io/hgss2/2.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 3.14,
+    "facts": [
+      467
+    ]
+  },
+  {
+    "id": "ex13-1",
+    "name": "Armaldo δ",
+    "imageUrl": "https://images.pokemontcg.io/ex13/1.png",
+    "series": "EX",
+    "marketValue": 10.6,
+    "facts": [
+      348
+    ]
+  },
+  {
+    "id": "ex13-2",
+    "name": "Cradily δ",
+    "imageUrl": "https://images.pokemontcg.io/ex13/2.png",
+    "series": "EX",
+    "marketValue": 9.41,
+    "facts": [
+      346
+    ]
+  },
+  {
+    "id": "mcd19-2",
+    "name": "Alolan Exeggutor",
+    "imageUrl": "https://images.pokemontcg.io/mcd19/2.png",
+    "series": "Other",
+    "marketValue": 4.37,
+    "facts": [
+      103
+    ]
+  },
+  {
+    "id": "gym2-2",
+    "name": "Blaine's Charizard",
+    "imageUrl": "https://images.pokemontcg.io/gym2/2.png",
+    "series": "Gym",
+    "marketValue": 748.97,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "swsh35-4",
+    "name": "Beedrill",
+    "imageUrl": "https://images.pokemontcg.io/swsh35/4.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.09,
+    "facts": [
+      15
+    ]
+  },
+  {
+    "id": "neo3-2",
+    "name": "Blissey",
+    "imageUrl": "https://images.pokemontcg.io/neo3/2.png",
+    "series": "Neo",
+    "marketValue": 69.47,
+    "facts": [
+      242
+    ]
+  },
+  {
+    "id": "bw11-3",
+    "name": "Shuckle",
+    "imageUrl": "https://images.pokemontcg.io/bw11/3.png",
+    "series": "Black & White",
+    "marketValue": 0.8,
+    "facts": [
+      213
+    ]
+  },
+  {
+    "id": "sm75-2",
+    "name": "Charmeleon",
+    "imageUrl": "https://images.pokemontcg.io/sm75/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.8,
+    "facts": [
+      5
+    ]
+  },
+  {
+    "id": "xy10-2",
+    "name": "Burmy",
+    "imageUrl": "https://images.pokemontcg.io/xy10/2.png",
+    "series": "XY",
+    "marketValue": 0.05,
+    "facts": [
+      412
+    ]
+  },
+  {
+    "id": "pop7-4",
+    "name": "Latios",
+    "imageUrl": "https://images.pokemontcg.io/pop7/4.png",
+    "series": "POP",
+    "marketValue": 9.16,
+    "facts": [
+      381
+    ]
+  },
+  {
+    "id": "sm115-4",
+    "name": "Paras",
+    "imageUrl": "https://images.pokemontcg.io/sm115/4.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.06,
+    "facts": [
+      46
+    ]
+  },
+  {
+    "id": "det1-5",
+    "name": "Charizard",
+    "imageUrl": "https://images.pokemontcg.io/det1/5.png",
+    "series": "Sun & Moon",
+    "marketValue": 8.65,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "xy2-5",
+    "name": "Seedot",
+    "imageUrl": "https://images.pokemontcg.io/xy2/5.png",
+    "series": "XY",
+    "marketValue": 0.24,
+    "facts": [
+      273
+    ]
+  },
+  {
+    "id": "bw10-2",
+    "name": "Masquerain",
+    "imageUrl": "https://images.pokemontcg.io/bw10/2.png",
+    "series": "Black & White",
+    "marketValue": 0.33,
+    "facts": [
+      284
+    ]
+  },
+  {
+    "id": "bw7-3",
+    "name": "Vileplume",
+    "imageUrl": "https://images.pokemontcg.io/bw7/3.png",
+    "series": "Black & White",
+    "marketValue": 3.21,
+    "facts": [
+      45
+    ]
+  },
+  {
+    "id": "sm115-1",
+    "name": "Caterpie",
+    "imageUrl": "https://images.pokemontcg.io/sm115/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.09,
+    "facts": [
+      10
+    ]
+  },
+  {
+    "id": "xy2-3",
+    "name": "Butterfree",
+    "imageUrl": "https://images.pokemontcg.io/xy2/3.png",
+    "series": "XY",
+    "marketValue": 0.43,
+    "facts": [
+      12
+    ]
+  },
+  {
+    "id": "swsh35-2",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/swsh35/2.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.07,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "pl3-3",
+    "name": "Drifblim FB",
+    "imageUrl": "https://images.pokemontcg.io/pl3/3.png",
+    "series": "Platinum",
+    "marketValue": 5.42,
+    "facts": [
+      426
+    ]
+  },
+  {
+    "id": "xy5-3",
+    "name": "Beedrill",
+    "imageUrl": "https://images.pokemontcg.io/xy5/3.png",
+    "series": "XY",
+    "marketValue": 0.39,
+    "facts": [
+      15
+    ]
+  },
+  {
+    "id": "dp1-1",
+    "name": "Dialga",
+    "imageUrl": "https://images.pokemontcg.io/dp1/1.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 13.25,
+    "facts": [
+      483
+    ]
+  },
+  {
+    "id": "ex9-1",
+    "name": "Blaziken",
+    "imageUrl": "https://images.pokemontcg.io/ex9/1.png",
+    "series": "EX",
+    "marketValue": 20.61,
+    "facts": [
+      257
+    ]
+  },
+  {
+    "id": "xy7-1",
+    "name": "Oddish",
+    "imageUrl": "https://images.pokemontcg.io/xy7/1.png",
+    "series": "XY",
+    "marketValue": 0.17,
+    "facts": [
+      43
+    ]
+  },
+  {
+    "id": "xy11-1",
+    "name": "Tangela",
+    "imageUrl": "https://images.pokemontcg.io/xy11/1.png",
+    "series": "XY",
+    "marketValue": 0.09,
+    "facts": [
+      114
+    ]
+  },
+  {
+    "id": "ex11-3",
+    "name": "Dragonite δ",
+    "imageUrl": "https://images.pokemontcg.io/ex11/3.png",
+    "series": "EX",
+    "marketValue": 70.67,
+    "facts": [
+      149
+    ]
+  },
+  {
+    "id": "pop6-3",
+    "name": "Manaphy",
+    "imageUrl": "https://images.pokemontcg.io/pop6/3.png",
+    "series": "POP",
+    "marketValue": 1.36,
+    "facts": [
+      490
+    ]
+  },
+  {
+    "id": "sm12-2",
+    "name": "Oddish",
+    "imageUrl": "https://images.pokemontcg.io/sm12/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.12,
+    "facts": [
+      43
+    ]
+  },
+  {
+    "id": "swsh35-1",
+    "name": "Venusaur V",
+    "imageUrl": "https://images.pokemontcg.io/swsh35/1.png",
+    "series": "Sword & Shield",
+    "marketValue": 1.99,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "base4-3",
+    "name": "Chansey",
+    "imageUrl": "https://images.pokemontcg.io/base4/3.png",
+    "series": "Base",
+    "marketValue": 16.33,
+    "facts": [
+      113
+    ]
+  },
+  {
+    "id": "base5-1",
+    "name": "Dark Alakazam",
+    "imageUrl": "https://images.pokemontcg.io/base5/1.png",
+    "series": "Base",
+    "marketValue": 68.64,
+    "facts": [
+      65
+    ]
+  },
+  {
+    "id": "si1-2",
+    "name": "Pidgeot",
+    "imageUrl": "https://images.pokemontcg.io/si1/2.png",
+    "series": "Other",
+    "marketValue": 11.71,
+    "facts": [
+      18
+    ]
+  },
+  {
+    "id": "col1-1",
+    "name": "Clefable",
+    "imageUrl": "https://images.pokemontcg.io/col1/1.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 2.63,
+    "facts": [
+      36
+    ]
+  },
+  {
+    "id": "swsh1-1",
+    "name": "Celebi V",
+    "imageUrl": "https://images.pokemontcg.io/swsh1/1.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.94,
+    "facts": [
+      251
+    ]
+  },
+  {
+    "id": "ex11-2",
+    "name": "Crobat δ",
+    "imageUrl": "https://images.pokemontcg.io/ex11/2.png",
+    "series": "EX",
+    "marketValue": 9.3,
+    "facts": [
+      169
+    ]
+  },
+  {
+    "id": "dp3-2",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/dp3/2.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 29.79,
+    "facts": [
+      9
+    ]
+  },
+  {
+    "id": "xy2-2",
+    "name": "Metapod",
+    "imageUrl": "https://images.pokemontcg.io/xy2/2.png",
+    "series": "XY",
+    "marketValue": 0.21,
+    "facts": [
+      11
+    ]
+  },
+  {
+    "id": "ex7-3",
+    "name": "Dark Crobat",
+    "imageUrl": "https://images.pokemontcg.io/ex7/3.png",
+    "series": "EX",
+    "marketValue": 17.2,
+    "facts": [
+      169
+    ]
+  },
+  {
+    "id": "ex14-1",
+    "name": "Banette",
+    "imageUrl": "https://images.pokemontcg.io/ex14/1.png",
+    "series": "EX",
+    "marketValue": 4.76,
+    "facts": [
+      354
+    ]
+  },
+  {
+    "id": "ru1-3",
+    "name": "Ninetales",
+    "imageUrl": "https://images.pokemontcg.io/ru1/3.png",
+    "series": "Other",
+    "marketValue": 28.81,
+    "facts": [
+      38
+    ]
+  },
+  {
+    "id": "hgss4-3",
+    "name": "Celebi",
+    "imageUrl": "https://images.pokemontcg.io/hgss4/3.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 6.35,
+    "facts": [
+      251
+    ]
+  },
+  {
+    "id": "dv1-2",
+    "name": "Dratini",
+    "imageUrl": "https://images.pokemontcg.io/dv1/2.png",
+    "series": "Black & White",
+    "marketValue": 6.67,
+    "facts": [
+      147
+    ]
+  },
+  {
+    "id": "ex4-1",
+    "name": "Team Aqua's Cacturne",
+    "imageUrl": "https://images.pokemontcg.io/ex4/1.png",
+    "series": "EX",
+    "marketValue": 16.79,
+    "facts": [
+      332
+    ]
+  },
+  {
+    "id": "xy4-1",
+    "name": "Venonat",
+    "imageUrl": "https://images.pokemontcg.io/xy4/1.png",
+    "series": "XY",
+    "marketValue": 0.22,
+    "facts": [
+      48
+    ]
+  },
+  {
+    "id": "hgss1-3",
+    "name": "Clefable",
+    "imageUrl": "https://images.pokemontcg.io/hgss1/3.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 4.17,
+    "facts": [
+      36
+    ]
+  },
+  {
+    "id": "xy7-2",
+    "name": "Gloom",
+    "imageUrl": "https://images.pokemontcg.io/xy7/2.png",
+    "series": "XY",
+    "marketValue": 0.16,
+    "facts": [
+      44
+    ]
+  },
+  {
+    "id": "mcd19-3",
+    "name": "Magmar",
+    "imageUrl": "https://images.pokemontcg.io/mcd19/3.png",
+    "series": "Other",
+    "marketValue": 3.36,
+    "facts": [
+      126
+    ]
+  },
+  {
+    "id": "bw11-1",
+    "name": "Tangela",
+    "imageUrl": "https://images.pokemontcg.io/bw11/1.png",
+    "series": "Black & White",
+    "marketValue": 0.29,
+    "facts": [
+      114
+    ]
+  },
+  {
+    "id": "bw11-2",
+    "name": "Tangrowth",
+    "imageUrl": "https://images.pokemontcg.io/bw11/2.png",
+    "series": "Black & White",
+    "marketValue": 0.4,
+    "facts": [
+      465
+    ]
+  },
+  {
+    "id": "sm9-3",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/sm9/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.14,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "col1-2",
+    "name": "Deoxys",
+    "imageUrl": "https://images.pokemontcg.io/col1/2.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 11.38,
+    "facts": [
+      386
+    ]
+  },
+  {
+    "id": "ex12-3",
+    "name": "Cradily",
+    "imageUrl": "https://images.pokemontcg.io/ex12/3.png",
+    "series": "EX",
+    "marketValue": 4.91,
+    "facts": [
+      346
+    ]
+  },
+  {
+    "id": "pop4-1",
+    "name": "Chimecho δ",
+    "imageUrl": "https://images.pokemontcg.io/pop4/1.png",
+    "series": "POP",
+    "marketValue": 349.99,
+    "facts": [
+      358
+    ]
+  },
+  {
+    "id": "sm5-1",
+    "name": "Exeggcute",
+    "imageUrl": "https://images.pokemontcg.io/sm5/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.12,
+    "facts": [
+      102
+    ]
+  },
+  {
+    "id": "pop5-1",
+    "name": "Ho-Oh",
+    "imageUrl": "https://images.pokemontcg.io/pop5/1.png",
+    "series": "POP",
+    "marketValue": 2.56,
+    "facts": [
+      250
+    ]
+  },
+  {
+    "id": "dpp-DP02",
+    "name": "Chimchar",
+    "imageUrl": "https://images.pokemontcg.io/dpp/DP02.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 3.98,
+    "facts": [
+      390
+    ]
+  },
+  {
+    "id": "swsh4-1",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/swsh4/1.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.02,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "gym1-3",
+    "name": "Erika's Clefable",
+    "imageUrl": "https://images.pokemontcg.io/gym1/3.png",
+    "series": "Gym",
+    "marketValue": 52.97,
+    "facts": [
+      36
+    ]
+  },
+  {
+    "id": "si1-1",
+    "name": "Mew",
+    "imageUrl": "https://images.pokemontcg.io/si1/1.png",
+    "series": "Other",
+    "marketValue": 110.54,
+    "facts": [
+      151
+    ]
+  },
+  {
+    "id": "dv1-3",
+    "name": "Dragonair",
+    "imageUrl": "https://images.pokemontcg.io/dv1/3.png",
+    "series": "Black & White",
+    "marketValue": 2.17,
+    "facts": [
+      148
+    ]
+  },
+  {
+    "id": "neo3-1",
+    "name": "Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/neo3/1.png",
+    "series": "Neo",
+    "marketValue": 98.99,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "neo4-1",
+    "name": "Dark Ampharos",
+    "imageUrl": "https://images.pokemontcg.io/neo4/1.png",
+    "series": "Neo",
+    "marketValue": 166.99,
+    "facts": [
+      181
+    ]
+  },
+  {
+    "id": "sm2-2",
+    "name": "Weepinbell",
+    "imageUrl": "https://images.pokemontcg.io/sm2/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.1,
+    "facts": [
+      70
+    ]
+  },
+  {
+    "id": "gym2-3",
+    "name": "Brock's Ninetales",
+    "imageUrl": "https://images.pokemontcg.io/gym2/3.png",
+    "series": "Gym",
+    "marketValue": 75.01,
+    "facts": [
+      38
+    ]
+  },
+  {
+    "id": "gym2-1",
+    "name": "Blaine's Arcanine",
+    "imageUrl": "https://images.pokemontcg.io/gym2/1.png",
+    "series": "Gym",
+    "marketValue": 215.39,
+    "facts": [
+      59
+    ]
+  },
+  {
+    "id": "sm115-2",
+    "name": "Metapod",
+    "imageUrl": "https://images.pokemontcg.io/sm115/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.05,
+    "facts": [
+      11
+    ]
+  },
+  {
+    "id": "base3-3",
+    "name": "Ditto",
+    "imageUrl": "https://images.pokemontcg.io/base3/3.png",
+    "series": "Base",
+    "marketValue": 63.73,
+    "facts": [
+      132
+    ]
+  },
+  {
+    "id": "det1-3",
+    "name": "Morelull",
+    "imageUrl": "https://images.pokemontcg.io/det1/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.18,
+    "facts": [
+      755
+    ]
+  },
+  {
+    "id": "xy4-2",
+    "name": "Venomoth",
+    "imageUrl": "https://images.pokemontcg.io/xy4/2.png",
+    "series": "XY",
+    "marketValue": 0.53,
+    "facts": [
+      49
+    ]
+  },
+  {
+    "id": "bw10-1",
+    "name": "Surskit",
+    "imageUrl": "https://images.pokemontcg.io/bw10/1.png",
+    "series": "Black & White",
+    "marketValue": 0.18,
+    "facts": [
+      283
+    ]
+  },
+  {
+    "id": "bw9-1",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/bw9/1.png",
+    "series": "Black & White",
+    "marketValue": 0.21,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "xy10-1",
+    "name": "Shuckle",
+    "imageUrl": "https://images.pokemontcg.io/xy10/1.png",
+    "series": "XY",
+    "marketValue": 0.17,
+    "facts": [
+      213
+    ]
+  },
+  {
+    "id": "bw4-2",
+    "name": "Seedot",
+    "imageUrl": "https://images.pokemontcg.io/bw4/2.png",
+    "series": "Black & White",
+    "marketValue": 0.23,
+    "facts": [
+      273
+    ]
+  },
+  {
+    "id": "pl3-4",
+    "name": "Electivire FB",
+    "imageUrl": "https://images.pokemontcg.io/pl3/4.png",
+    "series": "Platinum",
+    "marketValue": 3.9,
+    "facts": [
+      466
+    ]
+  },
+  {
+    "id": "col1-3",
+    "name": "Dialga",
+    "imageUrl": "https://images.pokemontcg.io/col1/3.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 11.85,
+    "facts": [
+      483
+    ]
+  },
+  {
+    "id": "bw7-1",
+    "name": "Oddish",
+    "imageUrl": "https://images.pokemontcg.io/bw7/1.png",
+    "series": "Black & White",
+    "marketValue": 0.24,
+    "facts": [
+      43
+    ]
+  },
+  {
+    "id": "dv1-6",
+    "name": "Bagon",
+    "imageUrl": "https://images.pokemontcg.io/dv1/6.png",
+    "series": "Black & White",
+    "marketValue": 0.87,
+    "facts": [
+      371
+    ]
+  },
+  {
+    "id": "sm9-5",
+    "name": "Beedrill",
+    "imageUrl": "https://images.pokemontcg.io/sm9/5.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.36,
+    "facts": [
+      15
+    ]
+  },
+  {
+    "id": "swsh4-2",
+    "name": "Kakuna",
+    "imageUrl": "https://images.pokemontcg.io/swsh4/2.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.03,
+    "facts": [
+      14
+    ]
+  },
+  {
+    "id": "det1-2",
+    "name": "Ludicolo",
+    "imageUrl": "https://images.pokemontcg.io/det1/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.63,
+    "facts": [
+      272
+    ]
+  },
+  {
+    "id": "bw5-3",
+    "name": "Venusaur",
+    "imageUrl": "https://images.pokemontcg.io/bw5/3.png",
+    "series": "Black & White",
+    "marketValue": 8.61,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "base1-2",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/base1/2.png",
+    "series": "Base",
+    "marketValue": 119.72,
+    "facts": [
+      9
+    ]
+  },
+  {
+    "id": "pl4-2",
+    "name": "Froslass",
+    "imageUrl": "https://images.pokemontcg.io/pl4/2.png",
+    "series": "Platinum",
+    "marketValue": 4.66,
+    "facts": [
+      478
+    ]
+  },
+  {
+    "id": "ex3-3",
+    "name": "Crawdaunt",
+    "imageUrl": "https://images.pokemontcg.io/ex3/3.png",
+    "series": "EX",
+    "marketValue": 3.25,
+    "facts": [
+      342
+    ]
+  },
+  {
+    "id": "pop1-1",
+    "name": "Blaziken",
+    "imageUrl": "https://images.pokemontcg.io/pop1/1.png",
+    "series": "POP",
+    "marketValue": 6.19,
+    "facts": [
+      257
+    ]
+  },
+  {
+    "id": "xy5-5",
+    "name": "Tangrowth",
+    "imageUrl": "https://images.pokemontcg.io/xy5/5.png",
+    "series": "XY",
+    "marketValue": 0.2,
+    "facts": [
+      465
+    ]
+  },
+  {
+    "id": "xy11-2",
+    "name": "Tangrowth",
+    "imageUrl": "https://images.pokemontcg.io/xy11/2.png",
+    "series": "XY",
+    "marketValue": 0.17,
+    "facts": [
+      465
+    ]
+  },
+  {
+    "id": "pop9-1",
+    "name": "Garchomp",
+    "imageUrl": "https://images.pokemontcg.io/pop9/1.png",
+    "series": "POP",
+    "marketValue": 8.05,
+    "facts": [
+      445
+    ]
+  },
+  {
+    "id": "dpp-DP01",
+    "name": "Turtwig",
+    "imageUrl": "https://images.pokemontcg.io/dpp/DP01.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 6.55,
+    "facts": [
+      387
+    ]
+  },
+  {
+    "id": "pl1-3",
+    "name": "Blaziken",
+    "imageUrl": "https://images.pokemontcg.io/pl1/3.png",
+    "series": "Platinum",
+    "marketValue": 8.53,
+    "facts": [
+      257
+    ]
+  },
+  {
+    "id": "pop9-2",
+    "name": "Manaphy",
+    "imageUrl": "https://images.pokemontcg.io/pop9/2.png",
+    "series": "POP",
+    "marketValue": 1.37,
+    "facts": [
+      490
+    ]
+  },
+  {
+    "id": "dp3-3",
+    "name": "Charizard",
+    "imageUrl": "https://images.pokemontcg.io/dp3/3.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 191.31,
+    "facts": [
+      6
+    ]
+  },
+  {
+    "id": "base1-1",
+    "name": "Alakazam",
+    "imageUrl": "https://images.pokemontcg.io/base1/1.png",
+    "series": "Base",
+    "marketValue": 44.05,
+    "facts": [
+      65
+    ]
+  },
+  {
+    "id": "pop3-3",
+    "name": "Jolteon",
+    "imageUrl": "https://images.pokemontcg.io/pop3/3.png",
+    "series": "POP",
+    "marketValue": 13.46,
+    "facts": [
+      135
+    ]
+  },
+  {
+    "id": "xy4-3",
+    "name": "Yanma",
+    "imageUrl": "https://images.pokemontcg.io/xy4/3.png",
+    "series": "XY",
+    "marketValue": 0.15,
+    "facts": [
+      193
+    ]
+  },
+  {
+    "id": "bw5-1",
+    "name": "Bulbasaur",
+    "imageUrl": "https://images.pokemontcg.io/bw5/1.png",
+    "series": "Black & White",
+    "marketValue": 2.5,
+    "facts": [
+      1
+    ]
+  },
+  {
+    "id": "pop3-1",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/pop3/1.png",
+    "series": "POP",
+    "marketValue": 64.99,
+    "facts": [
+      9
+    ]
+  },
+  {
+    "id": "ex12-5",
+    "name": "Gengar",
+    "imageUrl": "https://images.pokemontcg.io/ex12/5.png",
+    "series": "EX",
+    "marketValue": 26.43,
+    "facts": [
+      94
+    ]
+  },
+  {
+    "id": "dp3-5",
+    "name": "Flygon",
+    "imageUrl": "https://images.pokemontcg.io/dp3/5.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 13.69,
+    "facts": [
+      330
+    ]
+  },
+  {
+    "id": "xy1-2",
+    "name": "M Venusaur-EX",
+    "imageUrl": "https://images.pokemontcg.io/xy1/2.png",
+    "series": "XY",
+    "marketValue": 7.23,
+    "facts": [
+      3
+    ]
+  },
+  {
+    "id": "xy2-4",
+    "name": "Pineco",
+    "imageUrl": "https://images.pokemontcg.io/xy2/4.png",
+    "series": "XY",
+    "marketValue": 0.18,
+    "facts": [
+      204
+    ]
+  },
+  {
+    "id": "bw5-2",
+    "name": "Ivysaur",
+    "imageUrl": "https://images.pokemontcg.io/bw5/2.png",
+    "series": "Black & White",
+    "marketValue": 10.68,
+    "facts": [
+      2
+    ]
+  },
+  {
+    "id": "basep-2",
+    "name": "Electabuzz",
+    "imageUrl": "https://images.pokemontcg.io/basep/2.png",
+    "series": "Base",
+    "marketValue": 2.93,
+    "facts": [
+      125
+    ]
+  },
+  {
+    "id": "hgss2-1",
+    "name": "Jirachi",
+    "imageUrl": "https://images.pokemontcg.io/hgss2/1.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 7.97,
+    "facts": [
+      385
+    ]
+  },
+  {
+    "id": "sm9-4",
+    "name": "Kakuna",
+    "imageUrl": "https://images.pokemontcg.io/sm9/4.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.19,
+    "facts": [
+      14
+    ]
+  },
+  {
+    "id": "base6-1",
+    "name": "Alakazam",
+    "imageUrl": "https://images.pokemontcg.io/base6/1.png",
+    "series": "Other",
+    "marketValue": 37.44,
+    "facts": [
+      65
+    ]
+  },
+  {
+    "id": "base5-2",
+    "name": "Dark Arbok",
+    "imageUrl": "https://images.pokemontcg.io/base5/2.png",
+    "series": "Base",
+    "marketValue": 30.28,
+    "facts": [
+      24
+    ]
+  },
+  {
+    "id": "base3-4",
+    "name": "Dragonite",
+    "imageUrl": "https://images.pokemontcg.io/base3/4.png",
+    "series": "Base",
+    "marketValue": 252.83,
+    "facts": [
+      149
+    ]
+  },
+  {
+    "id": "dp4-4",
+    "name": "Darkrai",
+    "imageUrl": "https://images.pokemontcg.io/dp4/4.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 9.83,
+    "facts": [
+      491
+    ]
+  },
+  {
+    "id": "xy11-4",
+    "name": "Skiploom",
+    "imageUrl": "https://images.pokemontcg.io/xy11/4.png",
+    "series": "XY",
+    "marketValue": 0.09,
+    "facts": [
+      188
+    ]
+  },
+  {
+    "id": "ex12-4",
+    "name": "Delcatty",
+    "imageUrl": "https://images.pokemontcg.io/ex12/4.png",
+    "series": "EX",
+    "marketValue": 5.97,
+    "facts": [
+      301
+    ]
+  },
+  {
+    "id": "bw8-2",
+    "name": "Grotle",
+    "imageUrl": "https://images.pokemontcg.io/bw8/2.png",
+    "series": "Black & White",
+    "marketValue": 0.34,
+    "facts": [
+      388
+    ]
+  },
+  {
+    "id": "neo4-2",
+    "name": "Dark Crobat",
+    "imageUrl": "https://images.pokemontcg.io/neo4/2.png",
+    "series": "Neo",
+    "marketValue": 83.5,
+    "facts": [
+      169
+    ]
+  },
+  {
+    "id": "pop6-5",
+    "name": "Rampardos",
+    "imageUrl": "https://images.pokemontcg.io/pop6/5.png",
+    "series": "POP",
+    "marketValue": 1.35,
+    "facts": [
+      409
+    ]
+  },
+  {
+    "id": "xy1-3",
+    "name": "Weedle",
+    "imageUrl": "https://images.pokemontcg.io/xy1/3.png",
+    "series": "XY",
+    "marketValue": 0.2,
+    "facts": [
+      13
+    ]
+  },
+  {
+    "id": "dp1-2",
+    "name": "Dusknoir",
+    "imageUrl": "https://images.pokemontcg.io/dp1/2.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 8.94,
+    "facts": [
+      477
+    ]
+  },
+  {
+    "id": "sm75-1",
+    "name": "Charmander",
+    "imageUrl": "https://images.pokemontcg.io/sm75/1.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.88,
+    "facts": [
+      4
+    ]
+  },
+  {
+    "id": "dpp-DP04",
+    "name": "Pachirisu",
+    "imageUrl": "https://images.pokemontcg.io/dpp/DP04.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 2.69,
+    "facts": [
+      417
+    ]
+  },
+  {
+    "id": "ru1-4",
+    "name": "Heatran",
+    "imageUrl": "https://images.pokemontcg.io/ru1/4.png",
+    "series": "Other",
+    "marketValue": 34.74,
+    "facts": [
+      485
+    ]
+  },
+  {
+    "id": "swsh1-3",
+    "name": "Roselia",
+    "imageUrl": "https://images.pokemontcg.io/swsh1/3.png",
+    "series": "Sword & Shield",
+    "marketValue": 0.05,
+    "facts": [
+      315
+    ]
+  },
+  {
+    "id": "ex3-5",
+    "name": "Golem",
+    "imageUrl": "https://images.pokemontcg.io/ex3/5.png",
+    "series": "EX",
+    "marketValue": 12.8,
+    "facts": [
+      76
+    ]
+  },
+  {
+    "id": "ex11-5",
+    "name": "Flareon δ",
+    "imageUrl": "https://images.pokemontcg.io/ex11/5.png",
+    "series": "EX",
+    "marketValue": 55.66,
+    "facts": [
+      136
+    ]
+  },
+  {
+    "id": "ex14-3",
+    "name": "Camerupt",
+    "imageUrl": "https://images.pokemontcg.io/ex14/3.png",
+    "series": "EX",
+    "marketValue": 3.34,
+    "facts": [
+      323
+    ]
+  },
+  {
+    "id": "hgss1-5",
+    "name": "Hitmontop",
+    "imageUrl": "https://images.pokemontcg.io/hgss1/5.png",
+    "series": "HeartGold & SoulSilver",
+    "marketValue": 5.26,
+    "facts": [
+      237
+    ]
+  },
+  {
+    "id": "mcd19-5",
+    "name": "Lapras",
+    "imageUrl": "https://images.pokemontcg.io/mcd19/5.png",
+    "series": "Other",
+    "marketValue": 12.53,
+    "facts": [
+      131
+    ]
+  },
+  {
+    "id": "pl1-6",
+    "name": "Dialga",
+    "imageUrl": "https://images.pokemontcg.io/pl1/6.png",
+    "series": "Platinum",
+    "marketValue": 4.11,
+    "facts": [
+      483
+    ]
+  },
+  {
+    "id": "sm3-3",
+    "name": "Butterfree",
+    "imageUrl": "https://images.pokemontcg.io/sm3/3.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.26,
+    "facts": [
+      12
+    ]
+  },
+  {
+    "id": "sm8-2",
+    "name": "Tangrowth",
+    "imageUrl": "https://images.pokemontcg.io/sm8/2.png",
+    "series": "Sun & Moon",
+    "marketValue": 0.24,
+    "facts": [
+      465
+    ]
+  },
+  {
+    "id": "bw6-2",
+    "name": "Skiploom",
+    "imageUrl": "https://images.pokemontcg.io/bw6/2.png",
+    "series": "Black & White",
+    "marketValue": 0.2,
+    "facts": [
+      188
+    ]
+  },
+  {
+    "id": "xy2-6",
+    "name": "Nuzleaf",
+    "imageUrl": "https://images.pokemontcg.io/xy2/6.png",
+    "series": "XY",
+    "marketValue": 0.25,
+    "facts": [
+      274
+    ]
+  },
+  {
+    "id": "dpp-DP03",
+    "name": "Piplup",
+    "imageUrl": "https://images.pokemontcg.io/dpp/DP03.png",
+    "series": "Diamond & Pearl",
+    "marketValue": 7.59,
+    "facts": [
+      393
+    ]
+  },
+  {
+    "id": "ex8-4",
+    "name": "Camerupt",
+    "imageUrl": "https://images.pokemontcg.io/ex8/4.png",
+    "series": "EX",
+    "marketValue": 4.65,
+    "facts": [
+      323
+    ]
+  },
+  {
+    "id": "neo4-3",
+    "name": "Dark Donphan",
+    "imageUrl": "https://images.pokemontcg.io/neo4/3.png",
+    "series": "Neo",
+    "marketValue": 123,
+    "facts": [
+      232
+    ]
+  },
+  {
+    "id": "pop9-3",
+    "name": "Raichu",
+    "imageUrl": "https://images.pokemontcg.io/pop9/3.png",
+    "series": "POP",
+    "marketValue": 5.8,
+    "facts": [
+      26
+    ]
+  },
+  {
+    "id": "ex14-2",
+    "name": "Blastoise",
+    "imageUrl": "https://images.pokemontcg.io/ex14/2.png",
+    "series": "EX",
+    "marketValue": 51.58,
+    "facts": [
+      9
+    ]
+  }
+]
