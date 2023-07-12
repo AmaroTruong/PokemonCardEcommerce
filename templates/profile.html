@@ -1,0 +1,47 @@
+{% extends "headerAndFooter.html" %}
+{% block title %}
+{{ super() }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+{% endblock %}
+{% block content %}
+<div class="zoomed-image"></div>
+<div class="container">
+  <div class="card">
+    <div class="card-image-container">
+      <div class="zoomed-overlay"></div>
+      <img class="card-image" src="{{ card['imageUrl'] }}" alt="{{ card['name'] }}">
+    </div>
+    <div class="card-details-container">
+      <div class="card-details">
+        <h1 class="card-title">{{ card['name'] }}</h1>
+        <div class="card-info">
+          <p><strong>Series:</strong> {{ card['series'] }}</p>
+          <p><strong>Pokedex Number:</strong> {{ card['facts'][0] }}</p>
+        </div>
+        <p class="card-price">${{ card['marketValue'] }}</p>
+        <div class="quantity">
+          <label for="quantity">Quantity:</label>
+          <select id="quantity" name="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% block script %}
+{{ super() }}
+<script src="/static/cardZooming.js"></script>
+{% endblock %}
