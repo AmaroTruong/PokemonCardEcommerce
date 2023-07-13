@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Cresselia | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/dp4/2.png" alt="Cresselia">
+        <h2>Cresselia</h2>
+        <p><strong>From:</strong> Diamond & Pearl Series</p>
+        <p><strong>Market Value:</strong> $7.36</p>
+        <p>National Pokedex Number: 488</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

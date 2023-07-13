@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Celebi & Venusaur-GX | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/sm9/1.png" alt="Celebi & Venusaur-GX">
+        <h2>Celebi & Venusaur-GX</h2>
+        <p><strong>From:</strong> Sun & Moon Series</p>
+        <p><strong>Market Value:</strong> $10.75</p>
+        <p>National Pokedex Number: 3,251</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

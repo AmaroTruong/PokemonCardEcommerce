@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Darkrai | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/dp4/4.png" alt="Darkrai">
+        <h2>Darkrai</h2>
+        <p><strong>From:</strong> Diamond & Pearl Series</p>
+        <p><strong>Market Value:</strong> $9.83</p>
+        <p>National Pokedex Number: 491</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

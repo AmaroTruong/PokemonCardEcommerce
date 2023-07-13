@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Brock's Ninetales | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/gym2/3.png" alt="Brock's Ninetales">
+        <h2>Brock's Ninetales</h2>
+        <p><strong>From:</strong> Gym Series</p>
+        <p><strong>Market Value:</strong> $75.01</p>
+        <p>National Pokedex Number: 38</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

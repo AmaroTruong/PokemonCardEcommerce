@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Celebi V | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/swsh1/1.png" alt="Celebi V">
+        <h2>Celebi V</h2>
+        <p><strong>From:</strong> Sword & Shield Series</p>
+        <p><strong>Market Value:</strong> $0.96</p>
+        <p>National Pokedex Number: 251</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

@@ -1,0 +1,24 @@
+
+      {% extends "headerAndFooter.html" %}
+      {% block title %}
+      <title>Team Aqua's Cacturne | Pokemon Cards</title>
+      {% endblock %}  
+      {% block header %}
+      {{ super() }}
+      <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+      {% endblock %}
+        {% block content %}
+        <img class="card-image" src="https://images.pokemontcg.io/ex4/1.png" alt="Team Aqua's Cacturne">
+        <h2>Team Aqua's Cacturne</h2>
+        <p><strong>From:</strong> EX Series</p>
+        <p><strong>Market Value:</strong> $16.79</p>
+        <p>National Pokedex Number: 332</p>
+        {% endblock %}
+        {% block footer %}
+        {{ super() }}
+        {% endblock %}
+        {% block script %}
+        {{ super() }}
+        <script src="/static/cardZooming.js"></script>
+        {% endblock %}
+    

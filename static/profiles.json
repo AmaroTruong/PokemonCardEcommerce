@@ -64,7 +64,7 @@
     "name": "Venusaur",
     "imageUrl": "https://images.pokemontcg.io/ru1/1.png",
     "series": "Other",
-    "marketValue": 60,
+    "marketValue": 60.00,
     "facts": [
       3
     ]
@@ -185,7 +185,7 @@
     "name": "Bellsprout",
     "imageUrl": "https://images.pokemontcg.io/sm2/1.png",
     "series": "Sun & Moon",
-    "marketValue": 0.1,
+    "marketValue": 0.10,
     "facts": [
       69
     ]
@@ -245,7 +245,7 @@
     "name": "Alolan Sandshrew",
     "imageUrl": "https://images.pokemontcg.io/mcd19/4.png",
     "series": "Other",
-    "marketValue": 9.4,
+    "marketValue": 9.40,
     "facts": [
       27
     ]
@@ -695,7 +695,7 @@
     "name": "Lileep",
     "imageUrl": "https://images.pokemontcg.io/bw10/3.png",
     "series": "Black & White",
-    "marketValue": 0.5,
+    "marketValue": 0.50,
     "facts": [
       345
     ]
@@ -975,7 +975,7 @@
     "name": "Erika's Venusaur",
     "imageUrl": "https://images.pokemontcg.io/gym2/4.png",
     "series": "Gym",
-    "marketValue": 165,
+    "marketValue": 165.00,
     "facts": [
       3
     ]
@@ -1075,7 +1075,7 @@
     "name": "Metapod",
     "imageUrl": "https://images.pokemontcg.io/sm1/2.png",
     "series": "Sun & Moon",
-    "marketValue": 0.1,
+    "marketValue": 0.10,
     "facts": [
       11
     ]
@@ -1106,7 +1106,7 @@
     "name": "Armaldo δ",
     "imageUrl": "https://images.pokemontcg.io/ex13/1.png",
     "series": "EX",
-    "marketValue": 10.6,
+    "marketValue": 10.60,
     "facts": [
       348
     ]
@@ -1176,7 +1176,7 @@
     "name": "Charmeleon",
     "imageUrl": "https://images.pokemontcg.io/sm75/2.png",
     "series": "Sun & Moon",
-    "marketValue": 0.8,
+    "marketValue": 0.80,
     "facts": [
       5
     ]
@@ -1436,7 +1436,7 @@
     "name": "Crobat δ",
     "imageUrl": "https://images.pokemontcg.io/ex11/2.png",
     "series": "EX",
-    "marketValue": 9.3,
+    "marketValue": 9.30,
     "facts": [
       169
     ]
@@ -1466,7 +1466,7 @@
     "name": "Dark Crobat",
     "imageUrl": "https://images.pokemontcg.io/ex7/3.png",
     "series": "EX",
-    "marketValue": 17.2,
+    "marketValue": 17.20,
     "facts": [
       169
     ]
@@ -1576,7 +1576,7 @@
     "name": "Tangrowth",
     "imageUrl": "https://images.pokemontcg.io/bw11/2.png",
     "series": "Black & White",
-    "marketValue": 0.4,
+    "marketValue": 0.40,
     "facts": [
       465
     ]
@@ -1826,7 +1826,7 @@
     "name": "Electivire FB",
     "imageUrl": "https://images.pokemontcg.io/pl3/4.png",
     "series": "Platinum",
-    "marketValue": 3.9,
+    "marketValue": 3.90,
     "facts": [
       466
     ]
@@ -2046,7 +2046,7 @@
     "name": "Bulbasaur",
     "imageUrl": "https://images.pokemontcg.io/bw5/1.png",
     "series": "Black & White",
-    "marketValue": 2.5,
+    "marketValue": 2.50,
     "facts": [
       1
     ]
@@ -2216,7 +2216,7 @@
     "name": "Dark Crobat",
     "imageUrl": "https://images.pokemontcg.io/neo4/2.png",
     "series": "Neo",
-    "marketValue": 83.5,
+    "marketValue": 83.50,
     "facts": [
       169
     ]
@@ -2236,7 +2236,7 @@
     "name": "Weedle",
     "imageUrl": "https://images.pokemontcg.io/xy1/3.png",
     "series": "XY",
-    "marketValue": 0.2,
+    "marketValue": 0.20,
     "facts": [
       13
     ]
@@ -2376,7 +2376,7 @@
     "name": "Skiploom",
     "imageUrl": "https://images.pokemontcg.io/bw6/2.png",
     "series": "Black & White",
-    "marketValue": 0.2,
+    "marketValue": 0.20,
     "facts": [
       188
     ]
@@ -2416,7 +2416,7 @@
     "name": "Dark Donphan",
     "imageUrl": "https://images.pokemontcg.io/neo4/3.png",
     "series": "Neo",
-    "marketValue": 123,
+    "marketValue": 123.00,
     "facts": [
       232
     ]
@@ -2426,7 +2426,7 @@
     "name": "Raichu",
     "imageUrl": "https://images.pokemontcg.io/pop9/3.png",
     "series": "POP",
-    "marketValue": 5.8,
+    "marketValue": 5.80,
     "facts": [
       26
     ]
