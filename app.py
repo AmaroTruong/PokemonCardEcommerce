@@ -1,8 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 import json
 import os
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
@@ -11,6 +24,31 @@ def index():
         cards_data = json.load(file)
 
     return render_template('catalogue.html', cards=cards_data)
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    email = request.form['email']
+    password = request.form['psw']
+
+    userValidation = User.query.filter_by(email=email, password=password).first()
+
+    if userValidation:
+        return 'Authentication successful!'
+    else:
+        return 'Invalid email or password.'
+    
+@app.route('/create_account', methods=['POST'])
+def create_account():
+    email = request.form['email']
+    username = request.form['username']
+    password = request.form['psw']
+
+    new_user = User(email=email, username=username, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+
+    return 'Account created successfully!'
 
 @app.route('/series/<series_name>')
 def series_catalogue(series_name):

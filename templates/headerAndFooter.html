@@ -96,16 +96,28 @@
       <div class="login">
         <button class="login-btn">Login</button>
         <div class="login-popup">
-          <form class="form-container">
+          <form class="form-container" action="{{ url_for('login') }}" method="post">
             <h1>Login</h1>
             <p>Enter your email and password:</p>
             <input type="text" placeholder="Email" name="email" required>
             <input type="password" placeholder="Password" name="psw" required>
             <button type="submit" class="btn">Login</button>
-            <p>New Customer? <a>Create your Account</a></p>
+            <p>New Customer? <a href="#" id="create-account-link">Create your Account</a></p>
             <p>Lost password? <a>Recover password</a></p>
           </form>
         </div>
+      </div>
+
+      <div class="create-account-popup">
+        <form class="form-container" action="{{ url_for('create_account') }}" method="post">
+          <h1>Create Account</h1>
+          <p>Enter your email, username, and password:</p>
+          <input type="text" placeholder="Email" name="email" required>
+          <input type="text" placeholder="Username" name="username" required>
+          <input type="password" placeholder="Password" name="psw" required>
+          <button type="submit" class="btn">Create Account</button>
+          <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </form>
       </div>
     </div>
   </header>
