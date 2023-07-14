@@ -86,7 +86,7 @@
       <div class="logo">
         <img src="/static/transparent.png" alt="Logo" style="height: 150px;">
       </div>
-      <form class="search-form">
+      <form class="search-form" id="searchForm">
         <input type="text" id="searchInput" placeholder="Search" autocomplete="off">
         <button class="search-btn" type="submit"><img src="/static/search-icon-png-21.png" alt="Search" style="height: 15px;"></button>
         <div id="searchSuggestions" class="search-suggestions"></div>
@@ -146,6 +146,13 @@
   <script src="/static/dropdown-menu.js"></script>
   <script src="/static/login-popup.js"></script>
   <script src="/static/searchingAutofill.js"></script>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevents the form from submitting normally
+      var pokemonName = document.getElementById('searchInput').value;  // Retrieves the user's search input
+      location.href = "{{ url_for('searched_catalogue', pokemon_name='') }}" + encodeURIComponent(pokemonName);  // Redirects the user to the appropriate URL
+    });
+    </script>
   {% endblock %}
 </body>
 </html>
