@@ -1,10 +1,10 @@
 {% extends "headerAndFooter.html" %}
 {% block title %}
-{{ super() }}
+  {{ super() }}
 {% endblock %}
 {% block header %}
-{{ super() }}
-<link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
 {% endblock %}
 {% block content %}
 <div class="zoomed-image"></div>
@@ -39,9 +39,28 @@
 </div>
 {% endblock %}
 {% block footer %}
-{{ super() }}
+  {{ super() }}
 {% endblock %}
 {% block script %}
-{{ super() }}
-<script src="/static/cardZooming.js"></script>
+  {{ super() }}
+  <script src="/static/cardZooming.js"></script>
+  <script>
+    // Function to update the cart count
+    function updateCartCount(count) {
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    // Event listener for the "Add to Cart" button
+    document.addEventListener('DOMContentLoaded', function() {
+      var addToCartButton = document.querySelector('.add-to-cart');
+      var cartCount = 0; // Initial cart count
+
+      addToCartButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        var selectedQuantity = document.getElementById('quantity').value;
+        cartCount += parseInt(selectedQuantity); // Increment the cart count by the selected quantity
+        updateCartCount(cartCount); // Update the cart count in the HTML
+      });
+    });
+  </script>
 {% endblock %}
