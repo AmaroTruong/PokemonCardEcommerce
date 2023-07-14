@@ -94,40 +94,32 @@
       <div class="cart">
         <button class="cart-btn">Cart <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;"></button>
       </div>
-      <div class="login">
-        <button class="login-btn">Login</button>
-        <div class="login-popup">
-          <form class="form-container" action="{{ url_for('login') }}" method="post">
-            <h1>Login</h1>
-            <p>Enter your credentials:</p>
-            <input type="text" placeholder="Email" name="email" required>
-            <input type="password" placeholder="Password" name="psw" required>
-            <button type="submit" class="btn">Login</button>
-            <p>New Customer? <a href="#" id="create-account-link">Create your Account</a></p>
-            <p>Lost password? <a>Recover password</a></p>
-          </form>
-        </div>
-        <div class="create-account-popup" style="display: none;">
-          <form class="form-container" action="{{ url_for('create_account') }}" method="post">
-            <h1>Create Account</h1>
-            <p>Input an email, password, and username to get started!</p>
-            <input type="text" placeholder="Email" name="email" required>
-            <input type="text" placeholder="Username" name="username" required>
-            <input type="password" placeholder="Password" name="psw" required>
-            <button type="submit" class="btn">Create Account</button>
-            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
-          </form>
-        </div>
-      </div>
+      <div class="dropdownSettings">
+        <button class="dropdown-settings">Settings</button>
+        <div class="popSettings">
+          <ul>
+            <li>
+              <a href="" class="buttontext">
+                <span>Favorites</span>
+              </a>
+            </li>
+            <li>
+                <a href="" class="buttontext">
+                  <span>Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="" class="buttontext">
+                  <span>Manage Returns</span>
+                </a>
+              </li>
+              </ul>
+              </div>
+              </div>
   </header>
 
   {% block content %}
   {% endblock %}
-  {% if error_message %}
-  <script>
-    alert("{{ error_message }}");
-  </script>
-{% endif %}
 
   {% block footer %}
   <div class="footer-basic">
@@ -143,6 +135,7 @@
 </div>
   {% endblock %}
   {% block script %}
+  <script src="/static/settingsDropdown.js"></script>
   <script src="/static/dropdown-menu.js"></script>
   <script src="/static/login-popup.js"></script>
   <script src="/static/searchingAutofill.js"></script>

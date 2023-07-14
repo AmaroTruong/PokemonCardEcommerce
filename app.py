@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, flash, jsonify, Response, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
@@ -26,17 +26,22 @@ def index():
     return render_template('catalogue.html', cards=cards_data)
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/catalogue', methods=['POST'])
 def login():
     email = request.form['email']
     password = request.form['psw']
 
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
     userValidation = User.query.filter_by(email=email, password=password).first()
 
     if userValidation:
-        return 'Authentication successful!'
+        return render_template('catalogueLogged.html', cards=cards_data)
     else:
-        return 'Invalid email or password.'
+        error_message = "Password or email is incorrect. Please try again."
+        return render_template('catalogue.html', cards=cards_data, error_message=error_message)
     
 @app.route('/create_account', methods=['POST'])
 def create_account():
@@ -48,7 +53,7 @@ def create_account():
     db.session.add(new_user)
     db.session.commit()
 
-    return 'Account created successfully!'
+    return Response(status=200)
 
 @app.route('/series/<series_name>')
 def series_catalogue(series_name):
