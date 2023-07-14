@@ -81,6 +81,15 @@ def profiles(card_id):
 
     return render_template('profile.html', card=card_profile)
 
+@app.route('/all_cards')
+def all_cards():
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
+    return render_template('all_cards.html', cards=cards_data)
+
+
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
