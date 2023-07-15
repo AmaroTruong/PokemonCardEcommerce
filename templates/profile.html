@@ -1,9 +1,8 @@
 {% extends "headerAndFooter.html" %}
 {% block title %}
-  {{ super() }}
+<title>{{ card['name'] }}</title>
 {% endblock %}
 {% block header %}
-  {{ super() }}
   <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
 {% endblock %}
 {% block content %}
@@ -12,7 +11,7 @@
   <div class="card">
     <div class="card-image-container">
       <div class="zoomed-overlay"></div>
-      <img class="card-image" src="{{ card['imageUrl'] }}" alt="{{ card['name'] }}">
+      <img class="card-image" src="{{ card['imageUrl'] }}">
     </div>
     <div class="card-details-container">
       <div class="card-details">
@@ -45,21 +44,20 @@
   {{ super() }}
   <script src="/static/cardZooming.js"></script>
   <script>
-    // Function to update the cart count
+
     function updateCartCount(count) {
       document.getElementById('cart-count').textContent = count;
     }
 
-    // Event listener for the "Add to Cart" button
     document.addEventListener('DOMContentLoaded', function() {
       var addToCartButton = document.querySelector('.add-to-cart');
-      var cartCount = 0; // Initial cart count
+      var cartCount = 0; 
 
       addToCartButton.addEventListener('click', function(event) {
         event.preventDefault();
         var selectedQuantity = document.getElementById('quantity').value;
-        cartCount += parseInt(selectedQuantity); // Increment the cart count by the selected quantity
-        updateCartCount(cartCount); // Update the cart count in the HTML
+        cartCount += parseInt(selectedQuantity);
+        updateCartCount(cartCount);
       });
     });
   </script>

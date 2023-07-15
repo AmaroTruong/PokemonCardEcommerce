@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, jsonify, Response, redirect, url_for
+from flask import Flask, render_template, request, session, flash, jsonify, Response, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
@@ -10,8 +10,8 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    username = db.Column(db.String(100), unique=True, nullable=False)
+    email = db.Column(db.String(100), unique=False, nullable=False)
+    username = db.Column(db.String(100), unique=False, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
 with app.app_context():
@@ -38,13 +38,21 @@ def login():
     userValidation = User.query.filter_by(email=email, password=password).first()
 
     if userValidation:
-        return render_template('catalogueLogged.html', cards=cards_data)
+        user = User.query.filter_by(email=email).first()
+        session['username'] = user.username
+        sucessful_message = "Welcome!"
+        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message)
     else:
         error_message = "Password or email is incorrect. Please try again."
         return render_template('catalogue.html', cards=cards_data, error_message=error_message)
     
 @app.route('/create_account', methods=['POST'])
 def create_account():
+
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
     email = request.form['email']
     username = request.form['username']
     password = request.form['psw']
@@ -53,7 +61,8 @@ def create_account():
     db.session.add(new_user)
     db.session.commit()
 
-    return Response(status=200)
+    message = "Your account was created successfully!"
+    return render_template('catalogue.html', message=message, cards=cards_data)
 
 @app.route('/series/<series_name>')
 def series_catalogue(series_name):
