@@ -1,4 +1,8 @@
-{% extends "headerAndFooter.html" %}
+{% if logged_in %}
+    {% extends "headerAndFooterLogged.html" %}
+{% else %}
+    {% extends "headerAndFooter.html" %}
+{% endif %}
 {% block title %}
 <title>All Cards</title>
 {% endblock %}

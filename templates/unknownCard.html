@@ -1,4 +1,7 @@
-{% extends "headerAndFooter.html" %}
+{% if logged_in %}
+    {% extends "headerAndFooterLogged.html" %}
+{% else %}
+    {% extends "headerAndFooter.html" %}
 {% block title %}
 <title>Not Found</title>
 {% endblock %}
