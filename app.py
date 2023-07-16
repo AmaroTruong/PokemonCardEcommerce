@@ -41,6 +41,15 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.route('/submit-username', methods=['POST'])
+def reset_password():
+    username_email = request.form.get('username-email')
+    user = User.query.filter((User.username == username_email) | (User.email == username_email)).first()
+    if user:
+        return jsonify({'success': True})
+    else:
+        return jsonify({'success': False, 'message': 'Failed to reset password. Please try again.'})
+        
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
@@ -58,6 +67,11 @@ def settings():
         db.session.commit()
 
     return render_template('settingsUser.html', user=user)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 @app.route('/settings/delivery', methods=['POST'])
 def save_settings():

@@ -113,7 +113,7 @@
             <input type="password" placeholder="Password" name="psw" required>
             <button type="submit" class="btn">Login</button>
             <p>New Customer? <a href="#" id="create-account-link">Create your Account</a></p>
-            <p>Lost password? <a>Recover password</a></p>
+            <p>Lost password? <a id="recoverPassword">Recover password</a></p>
           </form>
         </div>
         <div class="create-account-popup" style="display: none;">
@@ -127,9 +127,31 @@
             <p>Already have an account? <a href="#" id="login-link">Login</a></p>
           </form>
         </div>
+        <div id="reset-popup" style="display: none;">
+          <h3>Reset Password</h3>
+          <form id="reset-form" action="/reset-password" method="POST">
+            <label for="username-email">Username or Email:</label>
+            <input type="text" id="username-email" name="username-email" placeholder="Enter Username or Email">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        
+        <div id="password-reset-popup" style="display: none;">
+          <h3>Set New Password</h3>
+          <form id="reset-form" action="/submit-username" method="POST">
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" placeholder="Enter New Password">
+            <button type="submit">Reset Password</button>
+          </form>
+        </div>
+
       </div>
   </header>
-
+<script>
+  function submitUsernameEmail() {
+    document.getElementById("reset-form").submit();
+}
+</script>
   {% block content %}
   {% endblock %}
   {% if error_message %}

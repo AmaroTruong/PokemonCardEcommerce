@@ -82,6 +82,90 @@ body {
     background-color: #ffffff;
     border: 1px solid #dddddd;
   }
+
+#reset-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 1px solid #f8f1f1;
+  padding: 16px;
+  z-index: 1;
+  font-family: barlow;
+}
+
+#reset-popup h3 {
+  margin-top: 0;
+}
+
+#reset-popup label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#reset-popup input[type="text"],
+#reset-popup input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #f8f1f1;
+}
+
+#reset-popup button[type="button"] {
+  background-color: #9cd2ec;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#reset-popup button[type="button"]:hover {
+  background-color: #00a7fa;
+}
+
+#password-reset-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 1px solid #f8f1f1;
+  padding: 16px;
+  z-index: 1;
+  font-family: barlow;
+}
+
+#password-reset-popup h3 {
+  margin-top: 0;
+}
+
+#password-reset-popup label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#password-reset-popup input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #f8f1f1;
+}
+
+#password-reset-popup button[type="button"] {
+  background-color: #9cd2ec;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#password-reset-popup button[type="button"]:hover {
+  background-color: #00a7fa;
+}
+
   
   .dropdownSettings.active .popSettings {
     display: block;

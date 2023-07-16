@@ -19,11 +19,23 @@ document.addEventListener("DOMContentLoaded", function () {
       createAccountPopup.style.display = "none";
     }
   });
+
+
+  document.getElementById("recoverPassword").addEventListener("click", openResetPopup);
+
+  function openResetPopup() {
+    document.querySelector(".login-popup").style.display = "none";
+    document.querySelector(".create-account-popup").style.display = "none";
+  
+    document.querySelector("#reset-popup").style.display = "block";
+  }
   
   createAccountLink.addEventListener("click", function() {
     loginPopup.style.display = "none";
     createAccountPopup.style.display = "block";
   });
+
+  document.getElementById("login-link").addEventListener("click", openLoginPopup);
 
   createAccountPopup.querySelector("button[type='submit']").addEventListener("click", function() {
     createAccountPopup.style.display = "none";
@@ -41,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  function openLoginPopup() {
+    document.querySelector(".create-account-popup").style.display = "none";
+  
+    document.querySelector(".login-popup").style.display = "block";
+  }
   
   function showAlert(message) {
     alert(message);
