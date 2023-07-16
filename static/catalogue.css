@@ -17,9 +17,61 @@ body {
     border: none;
   }
 
+  .delivery-options-container {
+    display: flex;
+    flex-direction: column !important;
+  }
+  
+  .delivery-options-container label,
+  .delivery-options-container input {
+    margin-bottom: 10px;
+  }
+  
+  .changes-buttons-container {
+    margin-top: 10px;
+  }
+
+  .settings-container form div {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-container label {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.settings-container input[type="text"],
+.settings-container input[type="tel"] {
+    width: 200px;
+}
+
+.delivery-options-container div {
+  margin-bottom: 10px;
+}
+
+.payment-options div {
+  margin-bottom: 10px;
+}
+
   .dropdownSettings {
     position: relative;
     display: inline-block;
+  }
+
+  .payment-options {
+    text-align: left;
+  }
+
+  .payment-options .save-button {
+    text-align: left;
+}
+
+  .payment-options label {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
   }
   
   .dropdownSettings .popSettings {
@@ -54,6 +106,20 @@ body {
   .dropdownSettings .popSettings li button:hover {
     background-color: #f1f1f1;
   }
+
+  .delivery-options-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-options-container label,
+.delivery-options-container input {
+    margin-bottom: 10px;
+}
+
+.changes-buttons-container {
+    margin-top: 10px;
+}
   
   .dropdownSettings .dropdown-settings {
     background-color: transparent;
@@ -86,6 +152,15 @@ body {
   #searchSuggestions > div:hover {
     background-color: #f2f2f2;
   }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-option {
+    margin-bottom: 10px;
+}
   
   .pokemon-card {
     display: flex;
@@ -101,6 +176,16 @@ body {
     color: #333;
     transition: transform 0.2s, box-shadow 0.2s;
   }
+
+  .delivery-options-container {
+    text-align: left;
+}
+
+.delivery-options-container label {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+}
   
   .pokemon-card:hover {
     transform: translateY(-5px);
@@ -307,6 +392,45 @@ body {
   .create-account-popup p {
     margin-bottom: 10px;
   }
+
+  .settings-container {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    height: 1000px;
+    width: 50%;
+    margin: 0 auto; 
+}
+
+.settings-container form div {
+    margin-bottom: 20px; 
+}
+
+.settings-container label {
+    display: inline-block;
+    width: 120px;
+}
+
+.settings-container input[type="password"] {
+    width: 200px;
+}
+
+.settings-container button {
+    margin-left: 10px;
+}
+
+.settings-container div:last-child {
+    text-align: right;
+}
+
+  .settings-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
   
   .create-account-popup input[type="text"],
   .create-account-popup input[type="password"] {
@@ -908,5 +1032,7 @@ body {
   }
 
   .footer {
+    background-color: #f7f7f7;
+    flex-shrink: 0;
     font-family: barlow;
   }

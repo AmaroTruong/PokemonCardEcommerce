@@ -19,6 +19,17 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=False, nullable=False)
     username = db.Column(db.String(100), unique=False, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    delivery_details = db.relationship('DeliveryDetails', backref='user', uselist=False)
+
+class DeliveryDetails(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    address1 = db.Column(db.String(100), nullable=False)
+    address2 = db.Column(db.String(100), nullable=False)
+    country = db.Column(db.String(100), nullable=False)
+    city = db.Column(db.String(100), nullable=False)
+    zip_code = db.Column(db.String(20), nullable=False)
+    phone_number = db.Column(db.String(20), nullable=False)
 
 with app.app_context():
     db.create_all()
@@ -29,6 +40,52 @@ def login_required(f):
         logged_in = session.get('logged_in', False)
         return f(*args, **kwargs)
     return decorated_function
+
+@app.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+
+    if request.method == 'POST':
+        new_username = request.form.get('username')
+        new_email = request.form.get('email')
+        new_password = request.form.get('password')
+
+        user.username = new_username
+        user.email = new_email
+        user.password = new_password
+        db.session.commit()
+
+    return render_template('settingsUser.html', user=user)
+
+@app.route('/settings/delivery', methods=['POST'])
+def save_settings():
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+
+    if request.method == 'POST':
+        address1 = request.form['address1']
+        address2 = request.form['address2']
+        country = request.form['country']
+        city = request.form['city']
+        zip_code = request.form['zip-code']
+        phone_number = request.form['phone-number']
+
+    delivery_details = DeliveryDetails(
+        address1=address1,
+        address2=address2,
+        country=country,
+        city=city,
+        zip_code=zip_code,
+        phone_number=phone_number
+    )
+
+    user.delivery_details = delivery_details
+
+    db.session.commit()
+
+    return render_template('settingsUser.html', user=user)
 
 @app.route('/')
 def index():
