@@ -32,14 +32,20 @@
 </div>
   <div class="grid-container">
     {% for card in cards %}
-      <a class="pokemon-card" href="{{ url_for('profiles', card_id=card['id']) }}">
-        <h3>{{ card['name'] }}</h3>
-        <img src="{{ card['imageUrl'] }}" style="height: 280px;">
-        <h3>Series: {{ card['series'] }}</h3>
-        <h6>Pokedex Number: {{ card['facts'][0] }}</h6>
-        <h6>${{ card['marketValue'] }}</h6>
-      </a>
-    {% endfor %}
+  <div class="pokemon-card">
+    <a class="pokemon-link" href="{{ url_for('profiles', card_id=card['id']) }}">
+      <h3>{{ card['name'] }}</h3>
+      <img src="{{ card['imageUrl'] }}" style="height: 280px;">
+      <h3>Series: {{ card['series'] }}</h3>
+      <h6>Pokedex Number: {{ card['facts'][0] }}</h6>
+      <h6>${{ card['marketValue'] }}</h6>
+    </a>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="card_id" value="{{ card['id'] }}">
+      <button class="add-to-cart-button">Add to Cart</button>
+    </form>
+  </div>
+{% endfor %}
   </div>
 </div>
 </div>

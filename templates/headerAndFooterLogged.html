@@ -94,7 +94,8 @@
         <div id="searchSuggestions" class="search-suggestions"></div>
       </form>
       <div class="cart">
-        <button class="cart-btn">Cart <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;"></button>
+        <button class="cart-btn" onclick="openCartPopup()">Cart <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;"></button>
+        <span id="cart-count">{{ cart_length }}</span>
       </div>
       <div class="dropdownSettings">
         <button class="dropdown-settings">Settings</button>

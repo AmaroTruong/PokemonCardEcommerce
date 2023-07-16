@@ -16,9 +16,15 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    cards = db.relationship('Card', backref='user', lazy=True)
     email = db.Column(db.String(100), unique=False, nullable=False)
     username = db.Column(db.String(100), unique=False, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+
+class Card(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    card_name = db.Column(db.String(100), nullable=False)
 
 with app.app_context():
     db.create_all()
@@ -27,6 +33,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         logged_in = session.get('logged_in', False)
+        cart = session.get('cart', [])
         return f(*args, **kwargs)
     return decorated_function
 
@@ -37,8 +44,10 @@ def index():
         cards_data = json.load(file)
 
     logged_in = session.get('logged_in', False)
+    cart = session.get('cart', [])
+    cart_length = len(cart)
 
-    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in)
+    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart=cart, cart_length=cart_length)
 
 
 @app.route('/catalogue', methods=['POST'])
@@ -89,10 +98,12 @@ def series_catalogue(series_name):
         cards_data = json.load(file)
     
     logged_in = 'email' in session
+    cart = session.get('cart', [])
+    cart_length = len(cart)
 
     filtered_cards = [card for card in cards_data if card['series'] == series_name]
 
-    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in)
+    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart=cart, cart_length=cart_length)
 
 @app.route('/name/<pokemon_name>')
 @login_required
@@ -102,10 +113,12 @@ def searched_catalogue(pokemon_name):
         cards_data = json.load(file)
 
     logged_in = 'email' in session
+    cart = session.get('cart', [])
+    cart_length = len(cart)
 
     filtered_cards = [card for card in cards_data if card['name'] == pokemon_name]
 
-    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in)
+    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart=cart, cart_length=cart_length)
 
 @app.route('/profiles/<card_id>')
 @login_required
@@ -113,8 +126,10 @@ def profiles(card_id):
     card_profile = get_card_profile(card_id)
 
     logged_in = 'email' in session
+    cart = session.get('cart', [])
+    cart_length = len(cart)
 
-    return render_template('profile.html', card=card_profile, logged_in=logged_in)
+    return render_template('profile.html', card=card_profile, logged_in=logged_in, cart=cart, cart_length=cart_length)
 
 @app.route('/all_cards')
 @login_required
@@ -124,9 +139,22 @@ def all_cards():
         cards_data = json.load(file)
     
     logged_in = 'email' in session
+    cart = session.get('cart', [])
+    cart_length = len(cart)
 
-    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in)
+    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in, cart=cart, cart_length=cart_length)
 
+@app.route('/add_to_cart', methods=['POST'])
+@login_required
+def add_to_cart():
+    card_id = request.form['card_id']
+
+    cart = session.get('cart', [])
+    cart.append(card_id)
+
+    session['cart'] = cart
+
+    return redirect(url_for('index'))
 
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
