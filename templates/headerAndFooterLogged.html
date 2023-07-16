@@ -125,13 +125,16 @@
               </div>
   </header>
 
+  
   {% block content %}
   {% endblock %}
   {% if sucessful_message %}
   <script>
-    alert("{{ sucessful_message }}");
-  </script>
-{% endif %}
+      window.setTimeout(function() {
+        alert("{{ sucessful_message }}");
+      }, 100);
+    </script>
+  {% endif %}
 
   {% block footer %}
   <div class="footer-basic">

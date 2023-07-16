@@ -41,15 +41,24 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-@app.route('/submit-username', methods=['POST'])
+@app.route('/newPassword', methods=['POST'])
 def reset_password():
+
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
     username_email = request.form.get('username-email')
     user = User.query.filter((User.username == username_email) | (User.email == username_email)).first()
-    if user:
-        return jsonify({'success': True})
-    else:
-        return jsonify({'success': False, 'message': 'Failed to reset password. Please try again.'})
-        
+    if request.method == 'POST':
+        new_password = request.form.get('newpassword')
+        if new_password:
+            user.password = new_password
+            db.session.commit()
+    passwordChange = "Password was successfully changed!"
+    return render_template('catalogue.html', cards=cards_data, passwordChange=passwordChange)
+
+    
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():

@@ -129,19 +129,12 @@
         </div>
         <div id="reset-popup" style="display: none;">
           <h3>Reset Password</h3>
-          <form id="reset-form" action="/reset-password" method="POST">
+          <form id="newPassword" action="/newPassword" method="POST">
             <label for="username-email">Username or Email:</label>
             <input type="text" id="username-email" name="username-email" placeholder="Enter Username or Email">
+            <label for="username-email">Password:</label>
+            <input type="text" id="newpassword" name="newpassword" placeholder="Enter a new Password ">
             <button type="submit">Submit</button>
-          </form>
-        </div>
-        
-        <div id="password-reset-popup" style="display: none;">
-          <h3>Set New Password</h3>
-          <form id="reset-form" action="/submit-username" method="POST">
-            <label for="new-password">New Password:</label>
-            <input type="password" id="new-password" name="new-password" placeholder="Enter New Password">
-            <button type="submit">Reset Password</button>
           </form>
         </div>
 
@@ -149,22 +142,11 @@
   </header>
 <script>
   function submitUsernameEmail() {
-    document.getElementById("reset-form").submit();
+    document.getElementById("newPassword").submit();
 }
 </script>
   {% block content %}
   {% endblock %}
-  {% if error_message %}
-  <script>
-    alert("{{ error_message }}");
-  </script>
-{% endif %}
-{% if message %}
-  <script>
-    alert("{{ message }}");
-  </script>
-{% endif %}
-
   {% block footer %}
   <div class="footer-basic">
     <footer>
@@ -178,6 +160,27 @@
     </footer>
 </div>
   {% endblock %}
+  {% if passwordChange %}
+  <script>
+      window.setTimeout(function() {
+        alert("{{ passwordChange }}");
+      }, 100);
+    </script>
+    {% endif %}
+    {% if error_message %}
+    <script>
+      window.setTimeout(function() {
+        alert("{{ error_message }}");
+      }, 100);
+    </script>
+    {% endif %}
+    {% if message %}
+    <script>
+      window.setTimeout(function() {
+        alert("{{ message }}");
+      }, 100);
+    </script>
+    {% endif %}
   {% block script %}
   <script src="/static/dropdown-menu.js"></script>
   <script src="/static/login-popup.js"></script>
