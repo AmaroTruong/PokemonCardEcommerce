@@ -31,6 +31,13 @@ class DeliveryDetails(db.Model):
     zip_code = db.Column(db.String(20), nullable=False)
     phone_number = db.Column(db.String(20), nullable=False)
 
+class FavoriteCard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    card_id = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    image_url = db.Column(db.String(200), nullable=False)
+
 with app.app_context():
     db.create_all()
 
