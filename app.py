@@ -4,6 +4,7 @@ import json
 import os
 from functools import wraps
 import secrets
+from flask_mail import Mail, Message
 
 secretKey = secrets.token_urlsafe(16)
 
@@ -40,6 +41,37 @@ class FavoriteCard(db.Model):
 
 with app.app_context():
     db.create_all()
+
+app.config.update(dict(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_TLS=False,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME = 'companygojim@gmail.com',
+    MAIL_PASSWORD = 'znowewnnfmgdisvy',
+))
+
+mail = Mail(app)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        user_message = request.form.get('message')
+        
+        msg = Message("New message from your Flask app",
+                      sender=email,
+                      recipients=["ecommercepokemon@gmail.com"])
+        msg.body = f"""
+        From: {name} <{email}>
+        {user_message}
+        """
+        mail.send(msg)
+
+        return 'Form submitted.'
+        
+    return render_template('contact.html')
 
 def login_required(f):
     @wraps(f)
@@ -214,9 +246,6 @@ def all_cards():
 
     return render_template('all_cards.html', cards=cards_data, logged_in=logged_in)
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
 
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
