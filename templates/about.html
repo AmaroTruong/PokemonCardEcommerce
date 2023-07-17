@@ -1,0 +1,52 @@
+{% extends "headerAndFooter.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='about.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+  <h1 class="about-heading">About Us</h1>
+
+  <div class="about-description">
+    <p>Welcome to our Pokémon Card Catalogue! We are passionate about Pokémon and strive to provide a comprehensive collection of Pokémon cards for collectors and enthusiasts. Whether you're a seasoned collector or just starting your journey, our catalogue offers a wide range of cards to explore and enjoy.</p>
+
+    <p>At Pokefinder Online, we value our loyal customers and aim to create a personalized experience for each individual. By logging in to your account, you can access additional features, manage your collection, and stay up-to-date with the latest card releases.</p>
+  </div>
+
+  <div class="about-section">
+    <h2 class="section-title">Browse and Sort</h2>
+    <p>Our catalogue features a diverse selection of Pokémon cards, including cards from various series and generations. You can easily navigate through our collection and find your favorite cards using our sorting options. Simply select your preferred sorting criteria from the "Sort By" dropdown menu, and the cards will be arranged accordingly.</p>
+    <ul>
+      <li>Alphabetically: Arrange the cards in alphabetical order based on their names.</li>
+      <li>Price (Lowest to Highest): Sort the cards by price, starting from the lowest.</li>
+      <li>Pokedex #: Organize the cards based on their Pokedex numbers.</li>
+    </ul>
+  </div>
+
+  <div class="about-section">
+    <h2 class="section-title">Explore the Collection</h2>
+    <p>Once you've selected your sorting preference, dive into our collection and discover the captivating world of Pokémon cards. Each card holds its own unique charm and rarity. Click on any card to explore its details, including its name, image, series, Pokedex number, and market value.</p>
+  </div>
+
+  <div class="about-section">
+    <h2 class="section-title">Join Our Community</h2>
+    <p>At Pokefinder Online, we believe in fostering a vibrant community of Pokémon card enthusiasts. Share your knowledge, engage in discussions, and connect with other collectors through our interactive forums and social channels. Our platform is designed to encourage collaboration and help you connect with like-minded individuals who share your passion for Pokémon cards.</p>
+  </div>
+
+  <div class="about-section">
+    <h2 class="section-title">Contact Us</h2>
+    <p>If you have any questions, feedback, or concerns, please don't hesitate to reach out to our dedicated support team. We are here to assist you and provide the best possible experience.</p>
+  </div>
+
+  <p class="about-footer">Thank you for choosing Pokefinder Online. We hope you enjoy your Pokémon card journey with us!</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}
