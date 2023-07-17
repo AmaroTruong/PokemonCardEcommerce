@@ -207,6 +207,9 @@ def all_cards():
 
     return render_template('all_cards.html', cards=cards_data, logged_in=logged_in)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
