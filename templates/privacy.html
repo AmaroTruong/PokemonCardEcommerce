@@ -1,0 +1,64 @@
+{% extends "headerAndFooter.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='privacy.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="privacy-container">
+  <h1 class="privacy-heading">Privacy Policy</h1>
+
+  <p class="privacy-description">At Pokefinder Online, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our website.</p>
+
+  <h2 class="privacy-section-title">Information We Collect</h2>
+  <p class="privacy-section-description">We may collect the following types of personal information:</p>
+  <ul class="privacy-list">
+    <li>Your name and contact details when you create an account.</li>
+    <li>Information you provide when interacting with our services, such as card listings, messages, and feedback.</li>
+    <li>Usage information, including your IP address, browser type, and operating system.</li>
+    <li>Cookies and similar technologies to enhance your experience and track usage patterns.</li>
+  </ul>
+
+  <h2 class="privacy-section-title">How We Use Your Information</h2>
+  <p class="privacy-section-description">We may use your personal information for the following purposes:</p>
+  <ul class="privacy-list">
+    <li>To provide and improve our services, including processing transactions and managing your account.</li>
+    <li>To communicate with you, respond to your inquiries, and provide customer support.</li>
+    <li>To personalize your experience and offer tailored content and recommendations.</li>
+    <li>To analyze usage patterns, conduct research, and improve our website and services.</li>
+    <li>To comply with legal obligations and enforce our policies.</li>
+  </ul>
+
+  <h2 class="privacy-section-title">Information Sharing and Disclosure</h2>
+  <p class="privacy-section-description">We may share your personal information in the following circumstances:</p>
+  <ul class="privacy-list">
+    <li>With trusted third-party service providers who assist us in operating our website and providing services.</li>
+    <li>In response to a legal request or to protect our rights, property, or safety, or the rights, property, or safety of others.</li>
+    <li>In connection with a business transaction, such as a merger, acquisition, or sale of assets.</li>
+  </ul>
+
+  <h2 class="privacy-section-title">Security</h2>
+  <p class="privacy-section-description">We take reasonable measures to protect your personal information, but please be aware that no method of transmission over the internet or electronic storage is completely secure.</p>
+
+  <h2 class="privacy-section-title">Your Choices and Rights</h2>
+  <p class="privacy-section-description">You have the following choices and rights regarding your personal information:</p>
+  <ul class="privacy-list">
+    <li>You can update and manage your account information by logging into your account settings.</li>
+    <li>You can opt-out of receiving promotional emails by following the instructions provided in the email.</li>
+    <li>You may request access to, correction, or deletion of your personal information, subject to applicable laws.</li>
+  </ul>
+
+  <h2 class="privacy-section-title">Changes to this Privacy Policy</h2>
+  <p class="privacy-section-description">We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the revised date will be indicated at the top of the page.</p>
+
+  <p class="privacy-footer">If you have any questions or concerns about our Privacy Policy, please contact us.</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}

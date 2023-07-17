@@ -1,0 +1,39 @@
+.privacy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .privacy-heading {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .privacy-description {
+    margin-bottom: 30px;
+  }
+  
+  .privacy-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .privacy-section-description {
+    margin-bottom: 20px;
+  }
+  
+  .privacy-list {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .privacy-footer {
+    font-style: italic;
+    color: #777;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
