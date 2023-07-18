@@ -1120,3 +1120,21 @@ body {
     flex-shrink: 0;
     font-family: barlow;
   }
+
+  button.add-to-cart {
+    width: 150px; 
+    height: 30px;
+    background-color: #008080;
+    color: white; 
+    font-weight: bold; 
+    border: none; 
+  }
+  
+  #cart_count {
+    size: 5px;
+    position: relative;
+    top: -12px;
+    left: 1px;
+    color: white;
+  }
+  
