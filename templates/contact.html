@@ -14,7 +14,7 @@
   <div class="contact-container">
     <h2>Contact Us</h2>
     <p>Please fill out the form below to get in touch with us.</p>
-    <form method="POST" action="{{ url_for('contact') }}">
+    <form method="POST" action="/contact">
       <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -30,12 +30,17 @@
       <button type="submit" class="button-submit">Submit</button>
     </form>
   </div>
+  {% if formMessage %}
+  <script>
+    window.setTimeout(function() {
+      alert("{{ formMessage }}");
+    }, 100);
+  </script>
+  {% endif %}
 {% endblock %}
-
 {% block footer %}
   {{ super() }}
 {% endblock %}
-
 {% block script %}
   {{ super() }}
 {% endblock %}

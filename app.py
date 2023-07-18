@@ -69,8 +69,8 @@ def contact():
         """
         mail.send(msg)
 
-        return 'Form submitted.'
-        
+        formMessage = "Form submitted."
+        return render_template('contact.html', formMessage=formMessage)
     return render_template('contact.html')
 
 def login_required(f):
