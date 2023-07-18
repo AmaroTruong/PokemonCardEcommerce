@@ -191,8 +191,11 @@ def index():
         cards_data = json.load(file)
 
     logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_count = len(user.cart_cards) if user else 0
 
-    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in)
+    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count)
 
 
 @app.route('/catalogue', methods=['POST'])
@@ -211,8 +214,9 @@ def login():
         session['email'] = email
         session['username'] = user.username
         session['logged_in'] = True
+        cart_count = len(user.cart_cards) if user else 0
         sucessful_message = "Welcome!"
-        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message)
+        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message, cart_count=cart_count)
     else:
         error_message = "Password or email is incorrect. Please try again."
         return render_template('catalogue.html', cards=cards_data, error_message=error_message)
@@ -246,7 +250,11 @@ def series_catalogue(series_name):
 
     filtered_cards = [card for card in cards_data if card['series'] == series_name]
 
-    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in)
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_count = len(user.cart_cards) if user else 0
+
+    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_count=cart_count)
 
 @app.route('/name/<pokemon_name>')
 @login_required
@@ -259,7 +267,11 @@ def searched_catalogue(pokemon_name):
 
     filtered_cards = [card for card in cards_data if card['name'] == pokemon_name]
 
-    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in)
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_count = len(user.cart_cards) if user else 0
+
+    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count)
 
 @app.route('/profiles/<card_id>')
 @login_required
@@ -267,8 +279,11 @@ def profiles(card_id):
     card_profile = get_card_profile(card_id)
 
     logged_in = 'email' in session
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_count = len(user.cart_cards) if user else 0
 
-    return render_template('profile.html', card=card_profile, logged_in=logged_in)
+    return render_template('profile.html', card=card_profile, logged_in=logged_in, cart_count=cart_count)
 
 @app.route('/all_cards')
 @login_required
@@ -278,8 +293,12 @@ def all_cards():
         cards_data = json.load(file)
     
     logged_in = 'email' in session
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_count = len(user.cart_cards) if user else 0
 
-    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in)
+    print(cart_count)
+    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count)
 
 
 def get_card_profile(card_id):
