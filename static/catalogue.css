@@ -21,7 +21,38 @@ body {
     display: flex;
     flex-direction: column !important;
   }
-  
+
+.cart-popup {
+  position: absolute;
+  top: 70% !important;
+  left: 950px;
+  border-color: #333;
+  background-color: #fff;
+  width: 250px;
+  max-width: 90%;
+}
+
+.cart-popup-content ul {
+  list-style-type: none;
+}
+
+button.add-to-cart {
+  width: 150px; 
+  height: 30px;
+  background-color: #008080;
+  color: white; 
+  font-weight: bold; 
+  border: none; 
+}
+
+#cart_count {
+  size: 5px;
+  position: relative;
+  top: -12px;
+  left: 1px;
+  color: white;
+}
+
   .delivery-options-container label,
   .delivery-options-container input {
     margin-bottom: 10px;

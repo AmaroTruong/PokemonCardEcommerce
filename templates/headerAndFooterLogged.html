@@ -96,8 +96,25 @@
       <div class="cart">
         <button class="cart-btn">Cart 
           <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;">
-          <p>{{ cart_count }}</p>
+          <p id="cart_count">{{ cart_count }}</p>
         </button>
+        <div class="cart-popup">
+          <form class="form-container">
+           <ul>
+            {% set cart_items_dict = {} %}
+
+            {% for cart_item in cart_items %}
+              {% set card_name = cart_item.name %}
+              {% set quantity = cart_items_dict[card_name] + 1 if card_name in cart_items_dict else 1 %}
+              {% set _ = cart_items_dict.update({card_name: quantity}) %}
+            {% endfor %}
+
+            {% for card_name, quantity in cart_items_dict.items() %}
+              <li>{{ card_name }} - Quantity: {{ quantity }}</li>
+            {% endfor %}
+           </ul>
+          </form>
+        </div>
       </div>
       <div class="dropdownSettings">
         <button class="dropdown-settings">Settings</button>
@@ -163,6 +180,15 @@
       var pokemonName = document.getElementById('searchInput').value;
       location.href = "{{ url_for('searched_catalogue', pokemon_name='') }}" + encodeURIComponent(pokemonName); 
     });
+
+  document.addEventListener("DOMContentLoaded", function() {
+  var cartBtn = document.querySelector(".cart-btn");
+  var loginPopup = document.querySelector(".login-popup");
+
+  cartBtn.addEventListener("click", function() {
+    loginPopup.style.display = loginPopup.style.display === "none" ? "block" : "none";
+  });
+});
     </script>
   {% endblock %}
 </body>
