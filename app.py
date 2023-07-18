@@ -15,12 +15,22 @@ app.secret_key = secretKey
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
+class CartCard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    card_id = db.Column(db.String(100), nullable=False)
+    series = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=False, nullable=False)
     username = db.Column(db.String(100), unique=False, nullable=False)
     password = db.Column(db.String(100), nullable=False)
     delivery_details = db.relationship('DeliveryDetails', backref='user', uselist=False)
+    cart_cards = db.relationship('CartCard', backref='user', lazy=True)
 
 class DeliveryDetails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -148,6 +158,31 @@ def save_settings():
     db.session.commit()
 
     return render_template('settingsUser.html', user=user)
+
+@app.route('/add_to_cart/<card_id>', methods=['POST'])
+@login_required
+def add_to_cart(card_id):
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+
+    card_profile = get_card_profile(card_id)
+    cart_card = CartCard(
+        user_id=user.id,
+        card_id=card_id,
+        series=card_profile['series'],
+        name=card_profile['name'],
+        price=card_profile['marketValue'],
+        quantity=1
+    )
+
+    db.session.add(cart_card)
+    db.session.commit()
+
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
+    return render_template('catalogueLogged.html', cards=cards_data)
 
 @app.route('/')
 def index():
