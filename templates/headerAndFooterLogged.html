@@ -99,9 +99,8 @@
           <p id="cart_count">{{ cart_count }}</p>
         </button>
         <div class="cart-popup">
-          <form class="form-container">
+          <ul>
             {% set cart_items_dict = {} %}
-            
             {% for cart_item in cart_items %}
               {% set card_id = cart_item.card_id %}
               {% if card_id in cart_items_dict %}
@@ -110,33 +109,35 @@
                 {% set _ = cart_items_dict.update({card_id: [cart_item]}) %}
               {% endif %}
             {% endfor %}
-            
             {% for card_id, items in cart_items_dict.items() %}
-              {% set quantity = items|length %}
+              {% set quantity = items[0].quantity %}
               {% set first_item = items[0] %}
               <li>
-                <br></br>
-                <br></br>
-                {{ first_item.name }} Quantity {{ quantity }}
-                <form class="quantity-form" id="decrease-form" action="/decrease_quantity" method="POST">
+                {{ first_item.name }} Quantity <span id="quantity-{{ card_id }}">{{ quantity }}</span>
+                <form class="quantity-form" id="decrease-form-{{ card_id }}" action="/decrease_quantity" method="POST">
                   <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
                   <input type="hidden" name="token" value="{{ session.token }}">
-                  <button class="minus-button" type="button" onclick="submitForm('decrease-form')">-</button>
-              </form>
-              <form class="quantity-form" id="increase-form" action="/increase_quantity" method="POST">
+                  <button class="minus-button" type="button" onclick="submitForm('decrease-form-{{ card_id }}')">-</button>
+                </form>
+                <form class="quantity-form" id="increase-form-{{ card_id }}" action="/increase_quantity" method="POST">
                   <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
-                  <button class="plus-button" type="button" onclick="submitForm('increase-form')">+</button>
-              </form>
+                  <input type="hidden" name="token" value="{{ session.token }}">
+                  <button class="plus-button" type="button" onclick="submitForm('increase-form-{{ card_id }}')">+</button>
+                </form>
                 <ul>
                   <li>Series: {{ first_item.series }}</li>
                   <li>Price: {{ first_item.price }}</li>
                 </ul>
               </li>
             {% endfor %}
-          </form>
+          </ul>
         </div>
-        
-        
+        <script>
+          function submitForm(formId) {
+    document.getElementById(formId).submit();
+          }
+         </script>
+
       </div>
       <div class="dropdownSettings">
         <button class="dropdown-settings">Settings</button>
@@ -166,12 +167,6 @@
               </div>
               </div>
   </header>
-
-  <script>
-   function submitForm(formId) {
-    document.getElementById(formId).submit();
-}
-  </script>
   {% block content %}
   {% endblock %}
   {% if sucessful_message %}

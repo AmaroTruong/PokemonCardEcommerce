@@ -99,32 +99,47 @@ def login_required(f):
 def decrease_quantity():
     if request.method == 'POST':
         card_id = request.form.get('card_id')
+        print("Card ID:", card_id)
+        email = session.get('email')
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
 
-        cart_card = CartCard.query.filter_by(card_id=card_id).first()
+        cart_card = CartCard.query.filter_by(card_id=card_id, user_id=user.id).first()
 
         if cart_card.quantity > 1:
             cart_card.quantity -= 1
             db.session.commit()
 
-        return jsonify({'new_quantity': cart_card.quantity})
-    else:
-        return "Method Not Allowed", 405
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
+    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count)
+
 
 @app.route('/increase_quantity', methods=['GET', 'POST'])
 @login_required
 def increase_quantity():
     if request.method == 'POST':
+        email = session.get('email')
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
         card_id = request.form.get('card_id')
 
-        cart_card = CartCard.query.filter_by(card_id=card_id).first()
+        cart_card = CartCard.query.filter_by(card_id=card_id, user_id=user.id).first()
 
         cart_card.quantity += 1
         db.session.commit()
 
-        return jsonify({'new_quantity': cart_card.quantity})
-    else:
-        return "Method Not Allowed", 405
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
 
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
+    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count)
 
 @app.route('/newPassword', methods=['POST'])
 def reset_password():
@@ -223,25 +238,33 @@ def save_settings():
 def add_to_cart(card_id):
     email = session.get('email')
     user = User.query.filter_by(email=email).first()
+    cart_card = CartCard.query.filter_by(card_id=card_id).first()
+    cart_items = user.cart_cards
 
-    card_profile = get_card_profile(card_id)
-    cart_card = CartCard(
-        user_id=user.id,
-        card_id=card_id,
-        series=card_profile['series'],
-        name=card_profile['name'],
-        price=card_profile['marketValue'],
-        quantity=1
-    )
+    if cart_card:
+        cart_card.quantity += 1
+    else:
+        card_profile = get_card_profile(card_id)
+        cart_card = CartCard(
+            user_id=user.id,
+            card_id=card_id,
+            series=card_profile['series'],
+            name=card_profile['name'],
+            price=card_profile['marketValue'],
+            quantity=1
+        )
+        db.session.add(cart_card)
 
-    db.session.add(cart_card)
     db.session.commit()
+
+    cart_count = sum(cart_item.quantity for cart_item in cart_items)
 
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return render_template('catalogueLogged.html', cards=cards_data)
+    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count)
+
 
 @app.route('/')
 def index():
@@ -250,8 +273,15 @@ def index():
         cards_data = json.load(file)
 
     logged_in = session.get('logged_in', False)
-    cart_items = User.query.filter_by(email=session.get('email')).first().cart_cards if logged_in else []
-    cart_count = len(cart_items)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = len(cart_items)
+    else:
+        cart_items = []
+        cart_count = 0
 
     return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items)
 
@@ -275,9 +305,9 @@ def login():
         session['logged_in'] = True
         session['token'] = secrets.token_urlsafe(16)
         cart_items = user.cart_cards if 'email' in session else []
-        cart_count = len(cart_items)
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
         sucessful_message = "Welcome!"
-        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message, cart_count=cart_count, cart_items=cart_items)
+        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message, user=user, cart_count=cart_count, cart_items=cart_items)
     else:
         error_message = "Password or email is incorrect. Please try again."
         return render_template('catalogue.html', cards=cards_data, error_message=error_message)
@@ -307,14 +337,15 @@ def series_catalogue(series_name):
     with open(file_path) as file:
         cards_data = json.load(file)
     
-    logged_in = 'email' in session
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_items = user.cart_cards
+    cart_count = sum(cart_item.quantity for cart_item in cart_items)
 
     filtered_cards = [card for card in cards_data if card['series'] == series_name]
 
-    cart_items = User.query.filter_by(email=session.get('email')).first().cart_cards if logged_in else []
-    cart_count = len(cart_items)
-
-    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items)
+    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_items=cart_items, user=user, cart_count=cart_count)
 
 @app.route('/name/<pokemon_name>')
 @login_required
@@ -323,25 +354,38 @@ def searched_catalogue(pokemon_name):
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    logged_in = 'email' in session
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+    else:
+        cart_items = []
+        cart_count = 0
 
     filtered_cards = [card for card in cards_data if card['name'] == pokemon_name]
 
-    cart_items = User.query.filter_by(email=session.get('email')).first().cart_cards if logged_in else []
-    cart_count = len(cart_items)
-
-    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items)
+    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user)
 
 @app.route('/profiles/<card_id>')
 @login_required
 def profiles(card_id):
     card_profile = get_card_profile(card_id)
 
-    logged_in = 'email' in session
-    cart_items = User.query.filter_by(email=session.get('email')).first().cart_cards if logged_in else []
-    cart_count = len(cart_items)
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+    else:
+        cart_items = []
+        cart_count = 0
 
-    return render_template('profile.html', card=card_profile, logged_in=logged_in, cart_count=cart_count)
+    return render_template('profile.html', card=card_profile, logged_in=logged_in, cart_count=cart_count, user=user)
 
 @app.route('/all_cards')
 @login_required
@@ -350,12 +394,19 @@ def all_cards():
     with open(file_path) as file:
         cards_data = json.load(file)
     
-    logged_in = 'email' in session
-    cart_items = User.query.filter_by(email=session.get('email')).first().cart_cards if logged_in else []
-    cart_count = len(cart_items)
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+    else:
+        cart_items = []
+        cart_count = 0
 
     print(cart_count)
-    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items)
+    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user)
 
 
 def get_card_profile(card_id):
