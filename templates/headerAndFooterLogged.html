@@ -100,19 +100,31 @@
         </button>
         <div class="cart-popup">
           <form class="form-container">
-           <ul>
-            {% set cart_items_dict = {} %}
-
-            {% for cart_item in cart_items %}
-              {% set card_name = cart_item.name %}
-              {% set quantity = cart_items_dict[card_name] + 1 if card_name in cart_items_dict else 1 %}
-              {% set _ = cart_items_dict.update({card_name: quantity}) %}
-            {% endfor %}
-
-            {% for card_name, quantity in cart_items_dict.items() %}
-              <li>{{ card_name }} - Quantity: {{ quantity }}</li>
-            {% endfor %}
-           </ul>
+            <ul>
+              {% set cart_items_dict = {} %}
+        
+              {% for cart_item in cart_items %}
+                {% set card_id = cart_item.card_id %}
+                {% set quantity = cart_items_dict[card_id] + 1 if card_id in cart_items_dict else 1 %}
+                {% set _ = cart_items_dict.update({card_id: quantity}) %}
+              {% endfor %}
+        
+              {% for cart_item in cart_items %}
+                {% set card_id = cart_item.card_id %}
+                {% if card_id in cart_items_dict %}
+                  <div class="cart-item">
+                    <li>
+                      {{ cart_item.name }} Quantity: 
+                      <button class="quantity-btn">-</button>
+                      <span id="{{ card_id }}-quantity">{{ cart_items_dict[card_id] }}</span>
+                      <button class="quantity-btn">+</button>
+                      Series: {{ cart_item.series }} Price: {{ cart_item.price }}
+                    </li>
+                  </div>
+                  {% set _ = cart_items_dict.pop(card_id) %}
+                {% endif %}
+              {% endfor %}
+            </ul>
           </form>
         </div>
       </div>
