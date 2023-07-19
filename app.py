@@ -5,10 +5,17 @@ import os
 from functools import wraps
 import secrets
 from flask_mail import Mail, Message
+from flask_caching import Cache
 
 secretKey = secrets.token_urlsafe(16)
 
+cache = Cache()
+
 app = Flask(__name__)
+
+app.config['CACHE_TYPE'] = 'simple'
+app.config['CACHE_DEFAULT_TIMEOUT'] = 300
+cache.init_app(app)
 
 app.secret_key = secretKey
 
@@ -96,6 +103,7 @@ def login_required(f):
 
 @app.route('/decrease_quantity', methods=['POST', 'GET'])
 @login_required
+@cache.cached(timeout=300, key_prefix='cart_items')
 def decrease_quantity():
     if request.method == 'POST':
         card_id = request.form.get('card_id')
@@ -109,6 +117,14 @@ def decrease_quantity():
         if cart_card.quantity > 1:
             cart_card.quantity -= 1
             db.session.commit()
+        else:
+            db.session.delete(cart_card)
+            db.session.commit()
+    
+        cart_items = cache.get('cart_items')
+        if cart_items is None:
+            cart_items = user.cart_cards
+            cache.set('cart_items', cart_items)
 
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
 
