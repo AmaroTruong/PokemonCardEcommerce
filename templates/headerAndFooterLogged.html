@@ -100,33 +100,32 @@
         </button>
         <div class="cart-popup">
           <form class="form-container">
-            <ul>
-              {% set cart_items_dict = {} %}
-        
-              {% for cart_item in cart_items %}
-                {% set card_id = cart_item.card_id %}
-                {% set quantity = cart_items_dict[card_id] + 1 if card_id in cart_items_dict else 1 %}
-                {% set _ = cart_items_dict.update({card_id: quantity}) %}
-              {% endfor %}
-        
-              {% for cart_item in cart_items %}
-                {% set card_id = cart_item.card_id %}
-                {% if card_id in cart_items_dict %}
-                  <div class="cart-item">
-                    <li>
-                      {{ cart_item.name }} Quantity: 
-                      <button class="quantity-btn">-</button>
-                      <span id="{{ card_id }}-quantity">{{ cart_items_dict[card_id] }}</span>
-                      <button class="quantity-btn">+</button>
-                      Series: {{ cart_item.series }} Price: {{ cart_item.price }}
-                    </li>
-                  </div>
-                  {% set _ = cart_items_dict.pop(card_id) %}
-                {% endif %}
-              {% endfor %}
-            </ul>
+            {% set cart_items_dict = {} %}
+            
+            {% for cart_item in cart_items %}
+              {% set card_id = cart_item.card_id %}
+              {% if card_id in cart_items_dict %}
+                {% set _ = cart_items_dict[card_id].append(cart_item) %}
+              {% else %}
+                {% set _ = cart_items_dict.update({card_id: [cart_item]}) %}
+              {% endif %}
+            {% endfor %}
+            
+            {% for card_id, items in cart_items_dict.items() %}
+              {% set quantity = items|length %}
+              {% set first_item = items[0] %}
+              <li>
+                {{ first_item.name }} <button class="minus-button">-</button> Quantity: {{ quantity }} <button class="plus-button">+</button>
+                <ul>
+                  <li>Series: {{ first_item.series }}</li>
+                  <li>Price: {{ first_item.price }}</li>
+                </ul>
+              </li>
+            {% endfor %}
           </form>
         </div>
+        
+        
       </div>
       <div class="dropdownSettings">
         <button class="dropdown-settings">Settings</button>
@@ -201,6 +200,57 @@
     loginPopup.style.display = loginPopup.style.display === "none" ? "block" : "none";
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var decreaseBtns = document.getElementsByClassName('decrease-btn');
+    Array.from(decreaseBtns).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cardId = this.getAttribute('data-card-id');
+        var quantitySpan = document.getElementById(cardId + '-quantity');
+        
+        fetch('/decrease_quantity', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ card_id: cardId })
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          quantitySpan.textContent = data.new_quantity;
+          
+          if (data.new_quantity === 0) {
+            var cartItem = btn.closest('.cart-item');
+            cartItem.parentNode.removeChild(cartItem);
+          }
+        });
+      });
+    });
+    
+    var increaseBtns = document.getElementsByClassName('increase-btn');
+    Array.from(increaseBtns).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cardId = this.getAttribute('data-card-id');
+        var quantitySpan = document.getElementById(cardId + '-quantity');
+        
+        fetch('/increase_quantity', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ card_id: cardId })
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          quantitySpan.textContent = data.new_quantity;
+        });
+      });
+    });
+  });
     </script>
   {% endblock %}
 </body>

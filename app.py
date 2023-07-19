@@ -90,6 +90,31 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.route('/decrease_quantity', methods=['POST'])
+@login_required
+def decrease_quantity():
+    card_id = request.json['card_id']
+
+    cart_card = CartCard.query.filter_by(card_id=card_id).first()
+
+    if cart_card.quantity > 1:
+        cart_card.quantity -= 1
+        db.session.commit()
+
+    return jsonify({'new_quantity': cart_card.quantity})
+
+@app.route('/increase_quantity', methods=['POST'])
+@login_required
+def increase_quantity():
+    card_id = request.json['card_id']
+
+    cart_card = CartCard.query.filter_by(card_id=card_id).first()
+
+    cart_card.quantity += 1
+    db.session.commit()
+
+    return jsonify({'new_quantity': cart_card.quantity})
+
 @app.route('/newPassword', methods=['POST'])
 def reset_password():
 
