@@ -66,8 +66,20 @@
     <div class="section-divider">
         <hr class="divider-line">
         <h2 class="divider-text">Favorite Cards</h2>
+        <div class="favorite-cards-container">
+            {% if favorite_cards %}
+                {% for card in favorite_cards %}
+                    <div class="favorite-card">
+                        <img src="{{ card.imageUrl }}" alt="Card image">
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You have no favorite cards yet.</p>
+            {% endif %}
+        </div>
         <hr class="divider-line">
     </div>
+    
 
     <div class="section-divider">
         <hr class="divider-line">

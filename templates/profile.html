@@ -22,7 +22,6 @@
         <h1 class="card-title">{{ card['name'] }}</h1>
         <div class="card-info">
           <p><strong>Series:</strong> {{ card['series'] }}</p>
-          <p><strong>Pokedex Number:</strong> {{ card['facts'][0] }}</p>
         </div>
         <p class="card-price">${{ card['marketValue'] }}</p>
         <div class="quantity">
@@ -37,6 +36,9 @@
         </div>
         <a href="#" class="add-to-cart">Add to Cart</a>
       </div>
+      <form method="POST" action="{{ request.path }}">
+        <button type="submit" class="add-to-favorite">&#9734;</button>
+      </form>
     </div>
   </div>
 </div>

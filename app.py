@@ -31,6 +31,7 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
     delivery_details = db.relationship('DeliveryDetails', backref='user', uselist=False)
     cart_cards = db.relationship('CartCard', backref='user', lazy=True)
+    favorite_cards = db.relationship('FavoriteCard', backref='user', lazy=True)
 
 class DeliveryDetails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -46,8 +47,11 @@ class FavoriteCard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     card_id = db.Column(db.String(100), nullable=False)
+    series = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100), nullable=False)
-    image_url = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    facts = db.Column(db.String(255), nullable=True)
+    imageUrl = db.Column(db.String(255), nullable=True)
 
 with app.app_context():
     db.create_all()
@@ -90,30 +94,37 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-@app.route('/decrease_quantity', methods=['POST'])
+@app.route('/decrease_quantity', methods=['POST', 'GET'])
 @login_required
 def decrease_quantity():
-    card_id = request.json['card_id']
+    if request.method == 'POST':
+        card_id = request.form.get('card_id')
 
-    cart_card = CartCard.query.filter_by(card_id=card_id).first()
+        cart_card = CartCard.query.filter_by(card_id=card_id).first()
 
-    if cart_card.quantity > 1:
-        cart_card.quantity -= 1
-        db.session.commit()
+        if cart_card.quantity > 1:
+            cart_card.quantity -= 1
+            db.session.commit()
 
-    return jsonify({'new_quantity': cart_card.quantity})
+        return jsonify({'new_quantity': cart_card.quantity})
+    else:
+        return "Method Not Allowed", 405
 
-@app.route('/increase_quantity', methods=['POST'])
+@app.route('/increase_quantity', methods=['GET', 'POST'])
 @login_required
 def increase_quantity():
-    card_id = request.json['card_id']
+    if request.method == 'POST':
+        card_id = request.form.get('card_id')
 
-    cart_card = CartCard.query.filter_by(card_id=card_id).first()
+        cart_card = CartCard.query.filter_by(card_id=card_id).first()
 
-    cart_card.quantity += 1
-    db.session.commit()
+        cart_card.quantity += 1
+        db.session.commit()
 
-    return jsonify({'new_quantity': cart_card.quantity})
+        return jsonify({'new_quantity': cart_card.quantity})
+    else:
+        return "Method Not Allowed", 405
+
 
 @app.route('/newPassword', methods=['POST'])
 def reset_password():
@@ -149,7 +160,30 @@ def settings():
         user.password = new_password
         db.session.commit()
 
-    return render_template('settingsUser.html', user=user)
+    return render_template('settingsUser.html', user=user, favorite_cards=user.favorite_cards)
+
+@app.route('/profiles/<card_id>', methods=['POST'])
+@login_required
+def add_to_favorites(card_id):
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    card_profile = get_card_profile(card_id)
+    favorite_card = FavoriteCard(
+        user_id=user.id,
+        card_id=card_id,
+        series=card_profile['series'],
+        name=card_profile['name'],
+        price=card_profile['marketValue'],
+        facts=int(card_profile['facts'][0]),
+        imageUrl=card_profile['imageUrl']
+    )
+    db.session.add(favorite_card)
+    db.session.commit()
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+    return redirect(url_for('profiles', card_id=card_id))
+
 
 @app.route('/logout')
 def logout():
@@ -223,6 +257,7 @@ def index():
 
 
 @app.route('/catalogue', methods=['POST'])
+@login_required
 def login():
     email = request.form['email']
     password = request.form['psw']
@@ -238,6 +273,7 @@ def login():
         session['email'] = email
         session['username'] = user.username
         session['logged_in'] = True
+        session['token'] = secrets.token_urlsafe(16)
         cart_items = user.cart_cards if 'email' in session else []
         cart_count = len(cart_items)
         sucessful_message = "Welcome!"

@@ -115,7 +115,18 @@
               {% set quantity = items|length %}
               {% set first_item = items[0] %}
               <li>
-                {{ first_item.name }} <button class="minus-button">-</button> Quantity: {{ quantity }} <button class="plus-button">+</button>
+                <br></br>
+                <br></br>
+                {{ first_item.name }} Quantity {{ quantity }}
+                <form class="quantity-form" id="decrease-form" action="/decrease_quantity" method="POST">
+                  <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
+                  <input type="hidden" name="token" value="{{ session.token }}">
+                  <button class="minus-button" type="button" onclick="submitForm('decrease-form')">-</button>
+              </form>
+              <form class="quantity-form" id="increase-form" action="/increase_quantity" method="POST">
+                  <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
+                  <button class="plus-button" type="button" onclick="submitForm('increase-form')">+</button>
+              </form>
                 <ul>
                   <li>Series: {{ first_item.series }}</li>
                   <li>Price: {{ first_item.price }}</li>
@@ -156,7 +167,11 @@
               </div>
   </header>
 
-  
+  <script>
+   function submitForm(formId) {
+    document.getElementById(formId).submit();
+}
+  </script>
   {% block content %}
   {% endblock %}
   {% if sucessful_message %}
