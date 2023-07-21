@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, flash, jsonify, Resp
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
-from os import environ
+from dotenv import load_dotenv
 from functools import wraps
 import secrets
 from flask_mail import Mail, Message
@@ -15,12 +15,10 @@ secretKey = secrets.token_urlsafe(16)
 
 cache = Cache()
 
-stripe_keys = {
-  'secret_key': os.environ['STRIPE_API_KEY'],
-  'publishable_key': os.environ['PUBLISHABLE_KEY']
-}
+load_dotenv()
 
-stripe.api_key = stripe_keys['secret_key']
+stripe.api_key = os.environ.get('STRIPE_API_KEY')
+publishable_key = os.environ.get('PUBLISHABLE_KEY')
 
 def generate_test_card_token(cardnumber, expmonth, expyear, cvv):
     test_token = stripe.Token.create(
