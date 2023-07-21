@@ -159,7 +159,8 @@
         <div id="payment-popup" class="payment-popup" style="display: none;">
           <div class="payment-options">
             <h2 class="deliveryOp">Delivery Options</h2>
-            <form id="form-delivery" method="POST" action="/settings/delivery" class="delivery-form">
+            <form id="form-delivery" method="POST" action="/payment" class="delivery-form">
+              <input type="hidden" id="total-amount" name="total-amount">
                 <div class="form-group">
                     <label for="delivery-option">Select Delivery Option:</label>
                     <select id="delivery-option" name="delivery-option" class="delivery-option-select">
@@ -200,11 +201,9 @@
                     <label for="phone-number">Phone Number:</label>
                     <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" class="readonly-input">
                 </div>
-            </form>
         </div>
         <div class="payment-options">
             <h2 class="divider-text">Payment Options</h2>
-            <form id="form-payment" method="POST" action="/settings/payment" class="payment-form">
                 <div class="form-group">
                     <label for="payment-option">Select Payment Option:</label>
                     <select id="payment" name="payment-option" class="payment-option-select">
@@ -221,7 +220,6 @@
                         {% endfor %}
                     </select>
                 </div>
-            <form id="form-payment" method="POST" action="/settings/payment" class="payment-form">
                 <div class="form-group">
                     <label for="card-number">Card Number:</label>
                     <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number" class="readonly-input">
@@ -238,10 +236,20 @@
                     <label for="cvv">CVV Number:</label>
                     <input type="text" id="cvv" name="cvv" placeholder="Enter CVV Number"y class="readonly-input">
                 </div>
+                <div id="make-changes">
+                  <button type="submit" class="change-button">Submit Order</button>
+                </div>
                 </div>
             </form>
             </div>
         <script>
+
+function setTotalAmount() {
+    const totalValueElement = document.querySelector('.total-value .totalText');
+    const totalAmountText = totalValueElement.textContent;
+    const totalAmount = parseFloat(totalAmountText.replace('Total: $', ''));
+    document.getElementById('total-amount').value = totalAmount;
+  }
 document.getElementById("delivery-option").addEventListener("change", function() {
     const isCreateNewDeliveryOption = this.value !== "0";
     toggleReadOnlyStateDelivery(isCreateNewDeliveryOption);
@@ -305,9 +313,9 @@ function updatePaymentDetails() {
     document.getElementById("payment").addEventListener("change", updatePaymentDetails);
     document.getElementById("delivery-option").addEventListener("change", updateDeliveryDetails);
 
-          function submitForm(formId) {
-          document.getElementById(formId).submit();
-          }
+        function submitForm() {
+          document.getElementById("form-payment").submit();
+        }
          </script>
 
       </div>
