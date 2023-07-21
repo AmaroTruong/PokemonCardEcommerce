@@ -145,14 +145,14 @@
               </li>
             {% endfor %}
           </ul>
-          <div class="payment-summary">
-            <div>
-              <button class="pay-now-button">Pay Now</button>
-            </div>
-            <div class="total-value">
-              <span class="totalText">Total: ${{ '%.2f' % total_value }}</span>
-            </div>
-          </div>
+              <div class="payment-summary">
+                <div>
+                  <button class="pay-now-button">Pay Now</button>
+                </div>
+                <div class="total-value">
+                  <span class="totalText">Total: ${{ '%.2f' % total_value }}</span>
+                </div>
+              </div>
         </div>        
         <script>
           function submitForm(formId) {
@@ -278,6 +278,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const popupWrapper = document.querySelector(".popup-wrapper");
+        const paymentSummary = popupWrapper.querySelector(".payment-summary");
+    
+        function updatePaymentSummaryPosition() {
+          const popupHeight = popupWrapper.offsetHeight;
+          const paymentSummaryHeight = paymentSummary.offsetHeight;
+    
+          if (paymentSummaryHeight <= popupHeight) {
+            paymentSummary.style.position = "sticky";
+          } else {
+            paymentSummary.style.position = "static";
+          }
+        }
+        updatePaymentSummaryPosition();
+        window.addEventListener("resize", updatePaymentSummaryPosition);
+      });
     </script>
   {% endblock %}
 </body>

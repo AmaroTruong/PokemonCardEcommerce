@@ -7,6 +7,7 @@ import secrets
 from flask_mail import Mail, Message
 from flask_caching import Cache
 from sqlalchemy.orm import Session
+from flask_migrate import Migrate
 
 secretKey = secrets.token_urlsafe(16)
 
@@ -23,6 +24,8 @@ app.secret_key = secretKey
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
+migrate = Migrate(app, db)
+
 class CartCard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -33,6 +36,14 @@ class CartCard(db.Model):
     imageUrl = db.Column(db.String(255), nullable=True)
     quantity = db.Column(db.Integer, nullable=False)
 
+class PaymentOption(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    card_number = db.Column(db.String(16), nullable=False)
+    cardholder_name = db.Column(db.String(100), nullable=False)
+    expiration_date = db.Column(db.String(5), nullable=False)
+    cvv_number = db.Column(db.String(4), nullable=False)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=False, nullable=False)
@@ -41,6 +52,7 @@ class User(db.Model):
     delivery_details = db.relationship('DeliveryDetails', backref='user', uselist=False)
     cart_cards = db.relationship('CartCard', backref='user', lazy=True)
     favorite_cards = db.relationship('FavoriteCard', backref='user', lazy=True)
+    payments = db.relationship('PaymentOption', backref='user', lazy=True)
 
 class DeliveryDetails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -216,6 +228,7 @@ def settings():
     delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     cart_items = user.cart_cards
     cart_count = sum(cart_item.quantity for cart_item in cart_items)
+    payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
     total_value = sum(item.price * item.quantity for item in cart_items)
 
     if request.method == 'POST':
@@ -228,7 +241,7 @@ def settings():
         user.password = new_password
         db.session.commit()
 
-    return render_template('settingsUser.html', user=user, favorite_cards=user.favorite_cards, cart_count=cart_count, delivery_details=delivery_details, total_value=total_value, cart_items=cart_items)
+    return render_template('settingsUser.html', user=user, favorite_cards=user.favorite_cards, payment_options=payment_options, cart_count=cart_count, delivery_details=delivery_details, total_value=total_value, cart_items=cart_items)
 
 @app.route('/profiles/<card_id>', methods=['POST'])
 @login_required
@@ -272,25 +285,12 @@ def save_settings():
 
     if request.method == 'POST':
         selected_option_value = request.form.get('selected-option-value')
-        print("delivery_option:", selected_option_value)
-
         address1 = request.form.get('address1')
-        print("address1:", address1)
-
         address2 = request.form.get('address2')
-        print("address2:", address2)
-
         country = request.form.get('country')
-        print("country:", country)
-
         city = request.form.get('city')
-        print("city:", city)
-
         zip_code = request.form.get('zip-code')
-        print("zip_code:", zip_code)
-
         phone_number = request.form.get('phone-number')
-        print("phone_number:", phone_number)
 
         if selected_option_value == "0":
             delivery_detail = DeliveryDetails(
@@ -316,9 +316,51 @@ def save_settings():
 
         db.session.commit()
 
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+    return render_template('settingsUser.html', payment_options=payment_options, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+
+@app.route('/settings/payment', methods=['POST'])
+@login_required
+def save_payment_option():
+    email = session.get('email')
+    user = User.query.filter_by(email=email).first()
+    cart_items = user.cart_cards
+    cart_count = sum(cart_item.quantity for cart_item in cart_items)
+    total_value = sum(item.price * item.quantity for item in cart_items)
+
+    if request.method == 'POST':
+        selected_option_value = request.form.get('payment')
+        card_number = request.form.get('card-number')
+        cardholder_name = request.form.get('card-name')
+        expiration_date = request.form.get('expiration-date')
+        cvv_number = request.form.get('cvv')
+
+        if selected_option_value == "0":
+            payment_option = PaymentOption(
+                user_id=user.id,
+                card_number=card_number,
+                cardholder_name=cardholder_name,
+                expiration_date=expiration_date,
+                cvv_number=cvv_number
+            )
+            db.session.add(payment_option)
+        else:
+            payment_option = PaymentOption.query.filter_by(id=selected_option_value, user_id=user.id).first()
+
+            if payment_option:
+                payment_option.card_number = card_number
+                payment_option.cardholder_name = cardholder_name
+                payment_option.expiration_date = expiration_date
+                payment_option.cvv_number = cvv_number
+
+        db.session.commit()
+
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
+
+    return render_template('settingsUser.html', user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
 
 @app.route('/add_to_cart/<card_id>', methods=['POST'])
 @login_required

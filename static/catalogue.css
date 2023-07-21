@@ -103,6 +103,11 @@ a.card-name:hover {
   color: #007bff;
 }
 
+.popup-container {
+  max-height: 200px !important; 
+  overflow-y: auto !important;
+}
+
 ul {
   list-style: none !important;
   padding: 0;
@@ -124,7 +129,8 @@ ul {
 
 .cart-popup {
   width: 300px;
-  border: 1px solid #ccc;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .cart-popup li {
@@ -252,14 +258,13 @@ ul {
 }
 
 .cart-popup {
-  width: 300px;
+  width: 400px;
   border: 1px solid #ccc;
 }
 
 .cart-popup li {
   position: relative;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
 }
 
 .cart-popup li .item-details li:last-child {
@@ -324,6 +329,10 @@ ul {
   cursor: pointer;
 }
 
+#payment {
+  width: 250px;
+}
+
 .cart-popup li .minus-button {
   margin-right: 10px;
 }
@@ -383,6 +392,12 @@ ul {
   font-size: 12px;
 }
 
+#make-changes,
+  #save-changes {
+    display: flex;
+    justify-content: left;
+  }
+
 .buttonQuantity button {
   width: 20px;
   height: 20px;
@@ -405,25 +420,20 @@ ul {
     flex-direction: column !important;
   }
 
-  .favorite-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-.favorite-card {
-    flex: 0 0 auto;
-    margin: 5px;
-}
-
 .cart-popup {
   position: absolute;
   top: 70% !important;
-  left: 950px;
+  left: 900px;
   border-color: #333;
   background-color: #fff;
 }
 
 .cart-popup-content ul {
   list-style-type: none;
+}
+
+.payment-summary {
+  margin-top: auto;
 }
 
 button.add-to-cart {
@@ -441,6 +451,12 @@ button.add-to-cart {
   top: -12px;
   left: 1px;
   color: white;
+}
+
+.payment-summary {
+  position: sticky;
+  bottom: -10px;
+  background-color: #ffffff;
 }
 
   .delivery-options-container label,
@@ -917,12 +933,15 @@ select[disabled] {
 }
 
 .favorite-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 10px;
 }
 
 .favorite-card {
+  flex: 0 0 auto;
+  margin: 5px;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 4px;
