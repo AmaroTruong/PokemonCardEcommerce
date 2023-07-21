@@ -1103,14 +1103,18 @@ margin-bottom: 5rem;
   font-size: 24px;
 }
 
-.quantity {
-  margin-bottom: 20px;
+#quantity2 {
+  width: 50px;
 }
 
-.add-to-cart {
-  background-color: #4CAF50;
+.add-to-cart2 {
+  background-color: #008080;
+  position: absolute;
+  top: 50%;
   color: #fff;
-  padding: 15px 30px;
+  width: 150px;
+  margin: 10px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -1118,10 +1122,6 @@ margin-bottom: 5rem;
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s ease;
-}
-
-.add-to-cart:hover {
-  background-color: #45a049;
 }
 
 .card-image-container:hover .zoomed-image {

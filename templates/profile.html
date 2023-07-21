@@ -7,6 +7,7 @@
 <title>{{ card['name'] }}</title>
 {% endblock %}
 {% block header %}
+<link rel="stylesheet" type="text/css" href="/static/catalogue.css">
   <link rel="stylesheet" type="text/css" href="/static/cardStyling.css">
 {% endblock %}
 {% block content %}
@@ -24,24 +25,39 @@
           <p><strong>Series:</strong> {{ card['series'] }}</p>
         </div>
         <p class="card-price">${{ card['marketValue'] }}</p>
-        <div class="quantity">
-          <label for="quantity">Quantity:</label>
-          <select id="quantity" name="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-        <a href="#" class="add-to-cart">Add to Cart</a>
-      </div>
+        <form id="cart-form" action="/update_quantity/{{ card['id'] }}" method="POST">
+            <div class="quantity-container">
+              <label for="quantity">Quantity:</label>
+              <select id="quantity" name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            <input type="hidden" name="card_id" value="{{ card['id'] }}">
+            <input type="hidden" name="token" value="{{ session.token }}">
+           <button class="add-to-cart2" type="button" onclick="submitForm('cart-form')">Add to Cart</button>
+          </form>
       <form method="POST" action="{{ request.path }}">
-        <button type="submit" class="add-to-favorite">&#9734;</button>
+        <button type="submit" class="add-to-favorite">
+          {% if is_favorite %}
+            &#11088;
+          {% else %}
+            &#9734;
+          {% endif %}</button>
+        </form>  
       </form>
     </div>
   </div>
 </div>
+</div>
+</div>
+<script>
+  function submitForm(formId) {
+          document.getElementById(formId).submit();
+          }
+</script>
 {% endblock %}
 {% block footer %}
   {{ super() }}
@@ -57,6 +73,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       var addToCartButton = document.querySelector('.add-to-cart');
+      var favoriteButton = document.querySelector('.add-to-favorite');
       var cartCount = 0; 
 
       addToCartButton.addEventListener('click', function(event) {

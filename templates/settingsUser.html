@@ -8,59 +8,55 @@
 {% endblock %}
 {% block content %}
 <div class="settings-container">
-    <h2>User Information</h2>
-    <form id="form" method="POST" action="/settings">
-        <div>
+    <h2 class="user-info-heading">User Information</h2>
+    <form id="form" method="POST" action="/settings" class="user-info-form">
+        <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="{{ user.username }}" readonly>
+            <input type="text" id="username" name="username" value="{{ user.username }}" readonly class="readonly-input">
         </div>
-        <div>
+        <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="{{ user.email }}" readonly>
+            <input type="email" id="email" name="email" value="{{ user.email }}" readonly class="readonly-input">
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" value="{{ user.password }}" readonly>
-            <button type="button" onclick="revealPassword()">Reveal</button>
+            <input type="password" id="password" name="password" value="{{ user.password }}" readonly class="readonly-input">
+            <button type="button" onclick="revealPassword()" class="reveal-button">Reveal</button>
         </div>
         <div id="make-changes-container">
-            <button type="button" onclick="enableTextboxes()">Make Changes</button>
+            <button type="button" onclick="enableTextboxes()" class="change-button">Make Changes</button>
         </div>
         <div id="save-changes-container" style="display: none;">
-            <button type="submit" id="save-changes-btn">Save Changes</button>
+            <button type="submit" id="save-changes-btn" class="save-button">Save Changes</button>
         </div>
         <p></p>
     </form>
-    
     <div class="section-divider">
         <hr class="divider-line">
         <div class="payment-options">
             <h2 class="divider-text">Payment Options</h2>
-                <h3>Add New Payment Option</h3>
-                <div>
-                    <label for="card-number">Card Number:</label>
-                    <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number">
-                </div>
-                <div>
-                    <label for="card-name">Cardholder Name:</label>
-                    <input type="text" id="card-name" name="card-name" placeholder="Enter Cardholder Name">
-                </div>
-                <div>
-                    <label for="expiration-date">Expiration Date:</label>
-                    <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY">
-                </div>
-                <div>
-                    <label for="cvv">CVV Number:</label>
-                    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV Number">
-                </div>
-                <div>
-                    <button type="button">Save Card</button>
+            <h3 class="paymentOp">Add New Payment Option</h3>
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number" class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="card-name">Cardholder Name:</label>
+                <input type="text" id="card-name" name="card-name" placeholder="Enter Cardholder Name" class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="expiration-date">Expiration Date:</label>
+                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV Number:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter CVV Number" class="input-field">
+            </div>
+            <div class="form-group">
+                <button type="button" class="save-button">Save Card</button>
             </div>
             <p></p>
         </div>
-        <hr class="divider-line">
-    </div>
-    <div>
     </div>
     
     <div class="section-divider">
@@ -70,110 +66,140 @@
             {% if favorite_cards %}
                 {% for card in favorite_cards %}
                     <div class="favorite-card">
+                        <a href="http://127.0.0.1:5000/profiles/{{ card.card_id }}"></a>
                         <img src="{{ card.imageUrl }}" alt="Card image">
                     </div>
                 {% endfor %}
             {% else %}
-                <p>You have no favorite cards yet.</p>
+                <p class="noFav">You have no favorite cards yet.</p>
             {% endif %}
         </div>
-        <hr class="divider-line">
     </div>
-    
-
     <div class="section-divider">
         <hr class="divider-line">
         <div class="payment-options">
-            <h2>Delivery Options</h2>
-            <form id="form-delivery" method="POST" action="/settings/delivery">
-    <div>
-        <label for="address1">Address 1:</label>
-        <input type="text" id="address1" name="address1" placeholder="Enter Address 1" readonly>
+            <h2 class="deliveryOp">Delivery Options</h2>
+            <form id="form-delivery" method="POST" action="/settings/delivery" class="delivery-form">
+                <div class="form-group">
+                    <label for="delivery-option">Select Delivery Option:</label>
+                    <select id="delivery-option" name="delivery-option" class="delivery-option-select">
+                        <option value="0" {% if not delivery_option %}selected{% endif %}>Create New Delivery Option</option>
+                        {% for delivery_detail in delivery_details %}
+                            <option value="{{ delivery_detail.id }}" data-address1="{{ delivery_detail.address1 }}" data-address2="{{ delivery_detail.address2 }}" data-country="{{ delivery_detail.country }}" data-city="{{ delivery_detail.city }}" data-zip-code="{{ delivery_detail.zip_code }}" data-phone-number="{{ delivery_detail.phone_number }}"
+                            {% if delivery_option %}
+                                {% if delivery_option in delivery_detail.id %}
+                                    selected
+                                {% endif %}
+                            {% endif %}>
+                                Delivery Address {{ loop.index }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address1">Address 1:</label>
+                    <input type="text" id="address1" name="address1" placeholder="Enter Address 1" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="address2">Address 2:</label>
+                    <input type="text" id="address2" name="address2" placeholder="Enter Address 2" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" placeholder="Enter Country" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" placeholder="Enter City" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="zip-code">Zip Code:</label>
+                    <input type="text" id="zip-code" name="zip-code" placeholder="Enter Zip Code" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number:</label>
+                    <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" readonly class="readonly-input">
+                </div>
+                <div id="make-changes">
+                    <button type="button" onclick="enableDeliveryTextboxes()" class="change-button">Make Changes</button>
+                </div>
+                <div id="save-changes" style="display: none;">
+                    <button type="submit" id="save-changes" class="save-button">Save Changes</button>
+                </div>
+                <p></p>
+            </form>
     </div>
-    <div>
-        <label for="address2">Address 2:</label>
-        <input type="text" id="address2" name="address2" placeholder="Enter Address 2" readonly>
-    </div>
-    <div>
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" placeholder="Enter Country" readonly>
-    </div>
-    <div>
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="Enter City" readonly>
-    </div>
-    <div>
-        <label for="zip-code">Zip Code:</label>
-        <input type="text" id="zip-code" name="zip-code" placeholder="Enter Zip Code" readonly>
-    </div>
-    <div>
-        <label for="phone-number">Phone Number:</label>
-        <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" readonly>
-    </div>
-    <div id="make-changes">
-        <button type="button" onclick="enableDeliveryTextboxes()">Make Changes</button>
-    </div>
-    <div id="save-changes" style="display: none;">
-        <button type="submit" id="save-changes">Save Changes</button>
-    </div>
-    <p></p>
-</form>
-        <hr class="divider-line">
-    </div>
-        <hr class="divider-line">
-    </div>
-    </div>
-
+</div>
+</div>
+</div>
 <script>
-    function enableTextboxes() {
-    document.getElementById("username").readOnly = false;
-    document.getElementById("email").readOnly = false;
-    document.getElementById("password").readOnly = false;
-    document.getElementById("make-changes-container").style.display = "none";
-    document.getElementById("save-changes-container").style.display = "block";
+  function enableTextboxes() {
+  document.getElementById("username").readOnly = false;
+  document.getElementById("email").readOnly = false;
+  document.getElementById("password").readOnly = false;
+  document.getElementById("make-changes-container").style.display = "none";
+  document.getElementById("save-changes-container").style.display = "block";
 }
 
 function enableDeliveryTextboxes() {
+    var deliveryOption = document.getElementById("delivery-option");
+    var selectedOption = deliveryOption.options[deliveryOption.selectedIndex];
+    var selectedValue = selectedOption.value;
+    console.log(selectedValue)
+    deliveryOption.disabled = true;
     document.getElementById("address1").readOnly = false;
     document.getElementById("address2").readOnly = false;
     document.getElementById("country").readOnly = false;
     document.getElementById("city").readOnly = false;
     document.getElementById("zip-code").readOnly = false;
     document.getElementById("phone-number").readOnly = false;
-    document.getElementById("make-changes").style.display = "none";
+
+    var hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.name = "selected-option-value";
+    hiddenInput.value = selectedValue;
+    document.getElementById("form-delivery").appendChild(hiddenInput);
+
     document.getElementById("save-changes").style.display = "block";
+    document.getElementById("make-changes").style.display = "none";
 }
 
-    function revealPassword() {
-        var passwordInput = document.getElementById('password');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-        } else {
-            passwordInput.type = 'password';
-        }
-    }
+function revealPassword() {
+  var passwordInput = document.getElementById('password');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+  } else {
+    passwordInput.type = 'password';
+  }
+}
 
-    function saveChanges() {
-    document.getElementById("form").submit();
+function saveChanges() {
+  document.getElementById("form").submit();
 }
 
 function saveDelivChanges() {
-    document.getElementById("form-delivery").submit();
+  document.getElementById("form-delivery").submit();
 }
 
-function enableDeliveryOptions() {
-    var deliveryOptionsForm = document.getElementById("delivery-options-form");
-    var changesButtonsContainer = document.getElementById("changes-buttons-container");
-    var saveChangesContainer = document.getElementById("save-changes-container");
+function updateDeliveryDetails() {
+  var selectOption = document.getElementById("delivery-option");
+  var selectedOptionIndex = selectOption.selectedIndex;
+  var selectedOption = selectOption.options[selectedOptionIndex];
 
-    var textboxes = deliveryOptionsForm.getElementsByTagName("input");
-    for (var i = 0; i < textboxes.length; i++) {
-        textboxes[i].readOnly = false;
-    }
-
-    changesButtonsContainer.style.display = "none";
-    saveChangesContainer.style.display = "block";
+  document.getElementById("address1").placeholder = selectedOption.getAttribute("data-address1") || "";
+  document.getElementById("address2").placeholder = selectedOption.getAttribute("data-address2") || "";
+  document.getElementById("country").placeholder = selectedOption.getAttribute("data-country") || "";
+  document.getElementById("city").placeholder = selectedOption.getAttribute("data-city") || "";
+  document.getElementById("zip-code").placeholder = selectedOption.getAttribute("data-zip-code") || "";
+  document.getElementById("phone-number").placeholder = selectedOption.getAttribute("data-phone-number") || "";
 }
+
+document.getElementById("delivery-option").addEventListener("change", updateDeliveryDetails);
+document.getElementById("save-changes").addEventListener("click", saveDelivChanges);
+var changesButtonsContainer = document.getElementById("make-changes");
+var saveChangesContainer = document.getElementById("save-changes");
+
+saveChangesContainer.style.display = "none";
 </script>
 {% endblock %}
 {% block footer %}

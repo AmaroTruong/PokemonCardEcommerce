@@ -113,28 +113,50 @@
               {% set quantity = items[0].quantity %}
               {% set first_item = items[0] %}
               <li>
-                {{ first_item.name }} Quantity <span id="quantity-{{ card_id }}">{{ quantity }}</span>
-                <form class="quantity-form" id="decrease-form-{{ card_id }}" action="/decrease_quantity" method="POST">
-                  <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
-                  <input type="hidden" name="token" value="{{ session.token }}">
-                  <button class="minus-button" type="button" onclick="submitForm('decrease-form-{{ card_id }}')">-</button>
-                </form>
-                <form class="quantity-form" id="increase-form-{{ card_id }}" action="/increase_quantity" method="POST">
-                  <input type="hidden" name="card_id" value="{{ first_item.card_id }}">
-                  <input type="hidden" name="token" value="{{ session.token }}">
-                  <button class="plus-button" type="button" onclick="submitForm('increase-form-{{ card_id }}')">+</button>
-                </form>
-                <ul>
-                  <li>Series: {{ first_item.series }}</li>
-                  <li>Price: {{ first_item.price }}</li>
-                </ul>
+                <div class="popup-container">
+                  <div class="image-container">
+                    <img src="{{ items[0].imageUrl }}" alt="Card Image" class="card-image">
+                  </div>
+                  <div class="content-container">
+                    {% for item in items %}
+                      <div class="combinedCartItem">
+                        <a class="card-name" href="{{ url_for('profiles', card_id=item.card_id) }}">{{ item.name }}</a>
+                        <div class="buttonQuantity">
+                          <form class="quantity-form" id="decrease-form-{{ item.card_id }}" action="/decrease_quantity" method="POST">
+                            <input type="hidden" name="card_id" value="{{ item.card_id }}">
+                            <input type="hidden" name="token" value="{{ session.token }}">
+                            <button class="minus-button" type="button" onclick="submitForm('decrease-form-{{ item.card_id }}')">-</button>
+                          </form>
+                          <span id="quantity-{{ item.card_id }}">{{ item.quantity }}</span>
+                          <form class="quantity-form" id="increase-form-{{ item.card_id }}" action="/increase_quantity" method="POST">
+                            <input type="hidden" name="card_id" value="{{ item.card_id }}">
+                            <input type="hidden" name="token" value="{{ session.token }}">
+                            <button class="plus-button" type="button" onclick="submitForm('increase-form-{{ item.card_id }}')">+</button>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="item-details">
+                        <a class="series" href="{{ url_for('series_catalogue', series_name=item.series) }}">{{ item.series }}</a>
+                        <span class="price">${{ '%.2f' % (item.price * item.quantity) }}</span>
+                        {% endfor %}
+                      </div>
+                  </div>
+                </div>
               </li>
             {% endfor %}
           </ul>
-        </div>
+          <div class="payment-summary">
+            <div>
+              <button class="pay-now-button">Pay Now</button>
+            </div>
+            <div class="total-value">
+              <span class="totalText">Total: ${{ '%.2f' % total_value }}</span>
+            </div>
+          </div>
+        </div>        
         <script>
           function submitForm(formId) {
-    document.getElementById(formId).submit();
+          document.getElementById(formId).submit();
           }
          </script>
 
@@ -143,11 +165,6 @@
         <button class="dropdown-settings">Settings</button>
         <div class="popSettings">
           <ul>
-            <li>
-              <a href="" class="buttontext">
-                <span>Favorites</span>
-              </a>
-            </li>
             <li>
               <a href="{{ url_for('settings') }}" class="buttontext">
                 <span>Account</span>
