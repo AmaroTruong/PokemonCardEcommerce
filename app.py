@@ -238,6 +238,7 @@ def reset_password():
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
+    currentRoute = 'settings'
     email = session.get('email')
     user = User.query.filter_by(email=email).first()
     delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
@@ -256,7 +257,7 @@ def settings():
         user.password = new_password
         db.session.commit()
 
-    return render_template('settingsUser.html', user=user, favorite_cards=user.favorite_cards, payment_options=payment_options, cart_count=cart_count, delivery_details=delivery_details, total_value=total_value, cart_items=cart_items)
+    return render_template('settingsUser.html', currentRoute=currentRoute, user=user, favorite_cards=user.favorite_cards, payment_options=payment_options, cart_count=cart_count, delivery_details=delivery_details, total_value=total_value, cart_items=cart_items)
 
 @app.route('/profiles/<card_id>', methods=['POST'])
 @login_required
@@ -294,6 +295,7 @@ def logout():
 def save_settings():
     email = session.get('email')
     user = User.query.filter_by(email=email).first()
+    currentRoute = "settingsD"
     cart_items = user.cart_cards
     cart_count = sum(cart_item.quantity for cart_item in cart_items)
     total_value = sum(item.price * item.quantity for item in cart_items)
@@ -334,13 +336,14 @@ def save_settings():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', payment_options=payment_options, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+    return render_template('settingsUser.html', payment_options=payment_options, currentRoute=currentRoute, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
 
 @app.route('/settings/payment', methods=['POST'])
 @login_required
 def save_payment_option():
     email = session.get('email')
     user = User.query.filter_by(email=email).first()
+    currentRoute = "settingsP"
     cart_items = user.cart_cards
     cart_count = sum(cart_item.quantity for cart_item in cart_items)
     total_value = sum(item.price * item.quantity for item in cart_items)
@@ -375,7 +378,7 @@ def save_payment_option():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('settingsUser.html', currentRoute=currentRoute, user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
 
 @app.route('/add_to_cart/<card_id>', methods=['POST'])
 @login_required
@@ -428,14 +431,18 @@ def index():
         user = User.query.filter_by(email=email).first()
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     else:
         cart_items = []
         cart_count = 0
+        payment_options = None
+        delivery_details = None
     
     total_value = sum(item.price * item.quantity for item in cart_items)
     notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
+    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, payment_options=payment_options, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
 
 
 @app.route('/catalogue', methods=['POST'])
@@ -455,11 +462,13 @@ def login():
         session['username'] = user.username
         session['logged_in'] = True
         session['token'] = secrets.token_urlsafe(16)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
         cart_items = user.cart_cards if 'email' in session else []
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
         sucessful_message = "Welcome!"
-        return render_template('catalogueLogged.html', cards=cards_data, sucessful_message=sucessful_message, user=user, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+        return render_template('catalogueLogged.html', cards=cards_data, payment_options=payment_options, delivery_details=delivery_details, sucessful_message=sucessful_message, user=user, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
     else:
         error_message = "Password or email is incorrect. Please try again."
         return render_template('catalogue.html', cards=cards_data, error_message=error_message)
@@ -491,6 +500,8 @@ def series_catalogue(series_name):
     cart_items = None
     cart_count = None
     total_value = None
+    payment_options = None
+    delivery_details = None
     
     logged_in = session.get('logged_in', False)
     email = session.get('email')
@@ -499,11 +510,13 @@ def series_catalogue(series_name):
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
     filtered_cards = [card for card in cards_data if card['series'] == series_name]
     notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('series_catalogue.html', notLoggedInMessage=notLoggedInMessage, cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_items=cart_items, user=user, cart_count=cart_count, total_value=total_value)
+    return render_template('series_catalogue.html', payment_options=payment_options, delivery_details=delivery_details, notLoggedInMessage=notLoggedInMessage, cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_items=cart_items, user=user, cart_count=cart_count, total_value=total_value)
 
 @app.route('/name/<pokemon_name>')
 def searched_catalogue(pokemon_name):
@@ -515,12 +528,16 @@ def searched_catalogue(pokemon_name):
     email = session.get('email')
     user = None
     total_value = 0
+    payment_options = None
+    delivery_details = None
     
     if logged_in and email:
         user = User.query.filter_by(email=email).first()
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     else:
         cart_items = []
         cart_count = 0
@@ -528,7 +545,7 @@ def searched_catalogue(pokemon_name):
     filtered_cards = [card for card in cards_data if card['name'] == pokemon_name]
     notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('searched_catalogue.html', notLoggedInMessage=notLoggedInMessage, cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
+    return render_template('searched_catalogue.html', notLoggedInMessage=notLoggedInMessage, payment_options=payment_options, delivery_details=delivery_details, cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
 
 @app.route('/profiles/<card_id>')
 def profiles(card_id):
@@ -539,6 +556,8 @@ def profiles(card_id):
     notLoggedInMessage = session.pop('_flashes', None)
     is_favorite = False
     user = None
+    delivery_details = None
+    payment_options = None
     
     if logged_in and email:
         user = User.query.filter_by(email=email).first()
@@ -546,6 +565,8 @@ def profiles(card_id):
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
         if favorite_card:
             is_favorite = True
         else:
@@ -555,7 +576,7 @@ def profiles(card_id):
         cart_count = 0
         total_value = 0
 
-    return render_template('profile.html', notLoggedInMessage=notLoggedInMessage, card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value)
+    return render_template('profile.html', notLoggedInMessage=notLoggedInMessage, payment_options=payment_options, delivery_details=delivery_details, card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value)
 
 @app.route('/all_cards')
 def all_cards():
@@ -569,19 +590,23 @@ def all_cards():
     cart_count = 0
     total_value = 0
     user = None
+    payment_options = None
+    delivery_details = None
     
     if logged_in and email:
         user = User.query.filter_by(email=email).first()
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     else:
         cart_items = []
         cart_count = 0
     notLoggedInMessage = session.pop('_flashes', None)
 
     print(cart_count)
-    return render_template('all_cards.html', notLoggedInMessage,notLoggedInMessage, cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
+    return render_template('all_cards.html', payment_options=payment_options, delivery_details=delivery_details, notLoggedInMessage=notLoggedInMessage, cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
  
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
@@ -604,11 +629,15 @@ def about():
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     else:
         cart_items = []
         cart_count = 0
         total_value = 0
-    return render_template('about.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
+        payment_options = None
+        delivery_details = None
+    return render_template('about.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in, payment_options=payment_options, delivery_details=delivery_details)
 
 @app.route('/privacy')
 def privacy():
@@ -620,11 +649,15 @@ def privacy():
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
     else:
         cart_items = []
         cart_count = 0
         total_value = 0
-    return render_template('privacy.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
+        payment_options = None
+        delivery_details = None
+    return render_template('privacy.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in, payment_options=payment_options, delivery_details=delivery_details)
 
 if __name__ == "__main__":
     app.run(debug=True)
