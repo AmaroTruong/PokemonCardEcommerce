@@ -536,6 +536,7 @@ def about():
     else:
         cart_items = []
         cart_count = 0
+        total_value = sum(item.price * item.quantity for item in cart_items)
     return render_template('about.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items)
 
 @app.route('/privacy')

@@ -59,21 +59,23 @@
         </div>
     </div>
     
-    <div class="section-divider">
+   <div class="section-divider">
         <hr class="divider-line">
         <h2 class="divider-text">Favorite Cards</h2>
         <div class="favorite-cards-container">
             {% if favorite_cards %}
                 {% for card in favorite_cards %}
                     <div class="favorite-card">
-                        <a href="http://127.0.0.1:5000/profiles/{{ card.card_id }}"></a>
-                        <img src="{{ card.imageUrl }}" alt="Card image">
+                        <a href="http://127.0.0.1:5000/profiles/{{ card.card_id }}">
+                            <img src="{{ card.imageUrl }}" alt="Card image">
+                        </a>
                     </div>
                 {% endfor %}
             {% else %}
-                <p class="noFav">You have no favorite cards yet.</p>
+                <p>You have no favorite cards yet.</p>
             {% endif %}
         </div>
+        <hr class="divider-line">
     </div>
     <div class="section-divider">
         <hr class="divider-line">
