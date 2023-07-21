@@ -48,7 +48,13 @@
     </div>
   </div>
 </div>
-
+{% if notLoggedInMessage %}
+    <script>
+        window.setTimeout(function() {
+            alert("{{ notLoggedInMessage[0][1] }}");
+        }, 100);
+    </script>
+{% endif %}
 <script>
   document.getElementById('sort-by').addEventListener('change', function() {
     var sortBy = this.value;

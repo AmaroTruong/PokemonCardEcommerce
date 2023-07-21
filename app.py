@@ -90,6 +90,18 @@ mail = Mail(app)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        total_value = sum(item.price * item.quantity for item in cart_items)
+    else:
+        cart_items = []
+        cart_count = 0
+        total_value = 0
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
@@ -105,13 +117,16 @@ def contact():
         mail.send(msg)
 
         formMessage = "Form submitted."
-        return render_template('contact.html', formMessage=formMessage)
-    return render_template('contact.html')
+        return render_template('contact.html', formMessage=formMessage, cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
+    return render_template('contact.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         logged_in = session.get('logged_in', False)
+        if not logged_in:
+            flash("You must be logged in to access this feature.")
+            return redirect(url_for('index'))
         return f(*args, **kwargs)
     return decorated_function
 
@@ -265,8 +280,8 @@ def add_to_favorites(card_id):
         )
         db.session.add(favorite_card) 
     db.session.commit()
-    
-    return redirect(url_for('profiles', card_id=card_id))
+    notLoggedInMessage = session.pop('_flashes', None)
+    return redirect(url_for('profiles', card_id=card_id, notLoggedInMessage=notLoggedInMessage))
 
 
 @app.route('/logout')
@@ -392,12 +407,12 @@ def add_to_cart(card_id):
 
     cart_count = sum(cart_item.quantity for cart_item in cart_items)
     total_value = sum(item.price * item.quantity for item in cart_items)
-
+    notLoggedInMessage = session.pop('_flashes', None)
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
 
 
 @app.route('/')
@@ -418,12 +433,12 @@ def index():
         cart_count = 0
     
     total_value = sum(item.price * item.quantity for item in cart_items)
+    notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+    return render_template('catalogue.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
 
 
 @app.route('/catalogue', methods=['POST'])
-@login_required
 def login():
     email = request.form['email']
     password = request.form['psw']
@@ -468,25 +483,29 @@ def create_account():
     return render_template('catalogue.html', message=message, cards=cards_data)
 
 @app.route('/series/<series_name>')
-@login_required
 def series_catalogue(series_name):
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
         cards_data = json.load(file)
+    user = None
+    cart_items = None
+    cart_count = None
+    total_value = None
     
     logged_in = session.get('logged_in', False)
     email = session.get('email')
-    user = User.query.filter_by(email=email).first()
-    cart_items = user.cart_cards
-    cart_count = sum(cart_item.quantity for cart_item in cart_items)
-    total_value = sum(item.price * item.quantity for item in cart_items)
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        total_value = sum(item.price * item.quantity for item in cart_items)
 
     filtered_cards = [card for card in cards_data if card['series'] == series_name]
+    notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('series_catalogue.html', cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_items=cart_items, user=user, cart_count=cart_count, total_value=total_value)
+    return render_template('series_catalogue.html', notLoggedInMessage=notLoggedInMessage, cards=filtered_cards, series_name=series_name, logged_in=logged_in, cart_items=cart_items, user=user, cart_count=cart_count, total_value=total_value)
 
 @app.route('/name/<pokemon_name>')
-@login_required
 def searched_catalogue(pokemon_name):
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
@@ -494,6 +513,8 @@ def searched_catalogue(pokemon_name):
 
     logged_in = session.get('logged_in', False)
     email = session.get('email')
+    user = None
+    total_value = 0
     
     if logged_in and email:
         user = User.query.filter_by(email=email).first()
@@ -505,35 +526,38 @@ def searched_catalogue(pokemon_name):
         cart_count = 0
 
     filtered_cards = [card for card in cards_data if card['name'] == pokemon_name]
+    notLoggedInMessage = session.pop('_flashes', None)
 
-    return render_template('searched_catalogue.html', cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
+    return render_template('searched_catalogue.html', notLoggedInMessage=notLoggedInMessage, cards=filtered_cards, pokemon_name=pokemon_name, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
 
 @app.route('/profiles/<card_id>')
-@login_required
 def profiles(card_id):
 
     logged_in = session.get('logged_in', False)
     email = session.get('email')
-    user = User.query.filter_by(email=email).first()
-    favorite_card = FavoriteCard.query.filter_by(card_id=card_id, user_id=user.id).first()
     card_profile = get_card_profile(card_id)
+    notLoggedInMessage = session.pop('_flashes', None)
+    is_favorite = False
+    user = None
     
     if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        favorite_card = FavoriteCard.query.filter_by(card_id=card_id, user_id=user.id).first()
         cart_items = user.cart_cards
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = sum(item.price * item.quantity for item in cart_items)
+        if favorite_card:
+            is_favorite = True
+        else:
+            is_favorite = False
     else:
         cart_items = []
         cart_count = 0
-    if favorite_card:
-        is_favorite = True
-    else:
-        is_favorite = False
+        total_value = 0
 
-    return render_template('profile.html', card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value)
+    return render_template('profile.html', notLoggedInMessage=notLoggedInMessage, card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value)
 
 @app.route('/all_cards')
-@login_required
 def all_cards():
     file_path = os.path.join(app.static_folder, 'profiles.json')
     with open(file_path) as file:
@@ -541,6 +565,10 @@ def all_cards():
     
     logged_in = session.get('logged_in', False)
     email = session.get('email')
+    cart_items = []
+    cart_count = 0
+    total_value = 0
+    user = None
     
     if logged_in and email:
         user = User.query.filter_by(email=email).first()
@@ -550,9 +578,10 @@ def all_cards():
     else:
         cart_items = []
         cart_count = 0
+    notLoggedInMessage = session.pop('_flashes', None)
 
     print(cart_count)
-    return render_template('all_cards.html', cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
+    return render_template('all_cards.html', notLoggedInMessage,notLoggedInMessage, cards=cards_data, logged_in=logged_in, cart_count=cart_count, cart_items=cart_items, user=user, total_value=total_value)
  
 def get_card_profile(card_id):
     file_path = os.path.join(app.static_folder, 'profiles.json')
@@ -578,8 +607,8 @@ def about():
     else:
         cart_items = []
         cart_count = 0
-        total_value = sum(item.price * item.quantity for item in cart_items)
-    return render_template('about.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items)
+        total_value = 0
+    return render_template('about.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
 
 @app.route('/privacy')
 def privacy():
@@ -594,7 +623,8 @@ def privacy():
     else:
         cart_items = []
         cart_count = 0
-    return render_template('privacy.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items)
+        total_value = 0
+    return render_template('privacy.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in)
 
 if __name__ == "__main__":
     app.run(debug=True)
