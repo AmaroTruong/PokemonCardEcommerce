@@ -2,36 +2,16 @@ from flask import Flask, render_template, request, session, flash, jsonify, Resp
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
-from dotenv import load_dotenv
 from functools import wraps
 import secrets
 from flask_mail import Mail, Message
 from flask_caching import Cache
 from sqlalchemy.orm import Session
 from flask_migrate import Migrate
-import stripe
 
 secretKey = secrets.token_urlsafe(16)
 
 cache = Cache()
-
-load_dotenv()
-
-stripe.api_key = os.environ.get('STRIPE_API_KEY')
-publishable_key = os.environ.get('PUBLISHABLE_KEY')
-
-def generate_test_card_token(cardnumber, expmonth, expyear, cvv):
-    test_token = stripe.Token.create(
-        card={
-            "number": str(cardnumber),
-            "exp_month": int(expmonth),
-            "exp_year": int(expyear),
-            "cvc": str(cvv),
-        },
-        api_key=stripe.api_key
-    )
-    card_token = test_token['id']
-    return card_token
 
 app = Flask(__name__)
 
@@ -150,33 +130,6 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-
-@app.route('/payment', methods=['POST'])
-@login_required
-def process_payment():
-    card_number = request.form.get('card-number')
-    expiration_date = request.form.get('expiration-date')
-    cvv_number = request.form.get('cvv')
-    card_token = generate_test_card_token(card_number, expiration_date[:2], expiration_date[3:], cvv_number)
-    total_amount = float(request.form.get('total-amount'))
-    try:
-        customer = stripe.Customer.create(
-            email=request.form['email'],
-            source=card_token 
-        )
-        charge = stripe.Charge.create(
-            customer=customer.id,
-            amount=int(total_amount * 100),
-            currency='usd',
-            description='Payment for your order'
-        )
-        return jsonify({'success': True, 'message': 'Payment successful'})
-    except stripe.error.CardError as e:
-        return jsonify({'success': False, 'error': e.user_message}), 400
-    except stripe.error.StripeError as e:
-        return jsonify({'success': False, 'error': 'An error occurred while processing the payment. Please try again later.'}), 500
-    except Exception as e:
-        return jsonify({'success': False, 'error': 'An unexpected error occurred. Please try again later.'}), 500
 @app.route('/decrease_quantity', methods=['POST', 'GET'])
 @login_required
 def decrease_quantity():

@@ -1,86 +1,26 @@
 body {
-    background-color: #f7f7f7;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 5px !important;
-  }
-
-  .card-image-container {
-    display: flex;
-    align-items: flex-start;
+  background-color: #f7f7f7;
 }
 
-.paymentOp {
-  text-align: left;
-  margin: 0;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 5px !important;
 }
 
-.deliveryOp {
-  text-align: left;
-  margin: 0;
-}
-
-.combinedCartItem,
-.item-details {
-    flex: 1;
-}
-
-.card-image-container img {
-    margin-right: 10px;
-}
-
-.noFav {
-  text-align: center;
-  margin: 0;
-}
-
-
-  a.series,
-a.card-name {
-  text-decoration: none; 
-  color: inherit; 
-}
-
-a.series:hover,
-a.card-name:hover {
-  color: #007bff;
-}
-  
-ul {
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
-}
-
-.short-select {
-  width: 250px;
-}
-
-.short-select option {
-  width: 100%;
-}
-
-form#cart-form .quantity-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 50px !important;
-}
-
-.cart-popup li .item-details {
-  display: flex;
-  flex-direction: column;
-}
 .card-image-container {
   display: flex;
   align-items: flex-start;
 }
 
-.settings-container .no-favorite-cards-text {
-  margin-top: 20px;
+.paymentOp {
+text-align: left;
+margin: 0;
+}
+
+.deliveryOp {
+text-align: left;
+margin: 0;
 }
 
 .combinedCartItem,
@@ -92,348 +32,1675 @@ form#cart-form .quantity-container {
   margin-right: 10px;
 }
 
+.noFav {
+text-align: center;
+margin: 0;
+}
+
+
 a.series,
 a.card-name {
-  text-decoration: none;
-  color: inherit;
+text-decoration: none; 
+color: inherit; 
 }
 
 a.series:hover,
 a.card-name:hover {
-  color: #007bff;
-}
-
-.popup-container {
-  max-height: 200px !important; 
-  overflow-y: auto !important;
+color: #007bff;
 }
 
 ul {
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
+list-style: none !important;
+padding: 0;
+margin: 0;
 }
 
-.popup-container {
-  display: flex;
-  align-items: flex-start;
+.short-select {
+width: 250px;
 }
 
-.image-container {
-  margin-right: 10px;
+.short-select option {
+width: 100%;
 }
 
-.content-container {
-  flex: 1;
-}
-
-.cart-popup {
-  width: 300px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.cart-popup li {
-  position: relative;
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+form#cart-form .quantity-container {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 50px !important;
 }
 
 .cart-popup li .item-details {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
+}
+.card-image-container {
+display: flex;
+align-items: flex-start;
 }
 
-.cart-popup li .item-details li:last-child {
-  margin-bottom: 0;
+.settings-container .no-favorite-cards-text {
+margin-top: 20px;
 }
 
-.cart-popup li .item-details .series {
-  font-size: 12px;
-  margin-bottom: 20px !important;
+.combinedCartItem,
+.item-details {
+flex: 1;
 }
 
-.cart-popup li:last-child {
-  border-bottom: none;
+.card-image-container img {
+margin-right: 10px;
 }
 
-.cart-popup li span#quantity- {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-weight: bold;
+a.series,
+a.card-name {
+text-decoration: none;
+color: inherit;
 }
 
-.cart-popup li img {
-  display: block;
-  width: 80px;
-  height: 120px;
-  margin-right: 10px;
-  float: left;
+a.series:hover,
+a.card-name:hover {
+color: #007bff;
 }
 
-.cart-popup li .quantity-form {
-  display: inline-block;
+.popup-container {
+max-height: 200px !important; 
+overflow-y: auto !important;
 }
 
-.cart-popup li button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #f2f2f2;
-  cursor: pointer;
+ul {
+list-style: none !important;
+padding: 0;
+margin: 0;
 }
 
-.cart-popup li .minus-button {
-  margin-right: 10px;
+.popup-container {
+display: flex;
+align-items: flex-start;
 }
 
-.cart-popup li ul {
-  padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
+.image-container {
+margin-right: 10px;
 }
 
-.payment-summary {
-  display: flex;
-  align-items: center;
-}
-
-.cart-popup li ul li {
-  margin-bottom: 5px;
-}
-
-.cart-popup li ul li:nth-child(1) {
-  font-weight: bold;
-}
-
-.cart-popup li ul li:nth-child(2) {
-  font-style: italic;
-}
-
-.cart-popup li ul li:nth-child(3) {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.combinedCartItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.card-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.series {
-  font-size: 10px;
-}
-
-.buttonQuantity {
-  display: flex;
-  align-items: center;
-}
-
-.buttonQuantity form {
-  margin-left: 10px;
-}
-
-.cart-popup li .item-details .price {
-  font-style: italic;
-  border: none;
-  font-size: 12px;
-}
-
-.buttonQuantity button {
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
-  border: none;
-  background-color: #f2f2f2;
-  cursor: pointer;
+.content-container {
+flex: 1;
 }
 
 .cart-popup {
-  width: 400px;
-  border: 1px solid #ccc;
+width: 300px;
+max-height: 300px;
+overflow-y: auto;
 }
 
 .cart-popup li {
-  position: relative;
-  border-bottom: 1px solid #ccc;
+position: relative;
+border-bottom: 1px solid #ccc;
+padding: 10px 0;
+}
+
+.cart-popup li .item-details {
+display: flex;
+flex-direction: column;
 }
 
 .cart-popup li .item-details li:last-child {
-  margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .cart-popup li .item-details .series {
-  font-size: 14px !important;
-  font-style: italic;
-  margin-bottom: 20px !important;
+font-size: 12px;
+margin-bottom: 20px !important;
 }
-
-.pay-now-button {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-}
-
-.total-value {
-  padding: 10px;
-  margin-top: auto;
-  text-align: right;
-  font-weight: bold;
-  margin-left: auto;
-  }
 
 .cart-popup li:last-child {
-  border-bottom: none;
+border-bottom: none;
 }
 
 .cart-popup li span#quantity- {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-weight: bold;
+position: absolute;
+top: 5px;
+right: 5px;
+font-weight: bold;
 }
 
 .cart-popup li img {
-  display: block;
-  width: 80px;
-  height: 120px;
-  margin-right: 10px;
-  float: left;
+display: block;
+width: 80px;
+height: 120px;
+margin-right: 10px;
+float: left;
 }
 
 .cart-popup li .quantity-form {
-  display: inline-block;
+display: inline-block;
 }
 
 .cart-popup li button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-
-#payment {
-  width: 250px;
+width: 30px;
+height: 30px;
+border: none;
+background-color: #f2f2f2;
+cursor: pointer;
 }
 
 .cart-popup li .minus-button {
-  margin-right: 10px;
+margin-right: 10px;
 }
 
 .cart-popup li ul {
-  padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
-}
-
-.cart-popup li ul li {
-  margin-bottom: 5px;
-}
-
-.cart-popup li ul li:nth-child(1) {
-  font-weight: bold;
-}
-
-.cart-popup li ul li:nth-child(2) {
-  font-style: italic;
-}
-
-.cart-popup li ul li:nth-child(3) {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.combinedCartItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.card-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.series {
-  font-size: 10px;
-}
-
-.buttonQuantity {
-  display: flex;
-  align-items: center;
-}
-
-.buttonQuantity form {
-  margin-left: 10px;
-}
-
-.cart-popup li .item-details .price {
-  font-style: italic;
-  border: none;
-  font-size: 12px;
-}
-
-#make-changes,
-  #save-changes {
-    display: flex;
-    justify-content: left;
-  }
-
-.buttonQuantity button {
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
-  border: none;
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-  .search-form {
-    position: relative;
-  }
-
-  .settings {
-    background: none;
-    border: none;
-  }
-
-  .delivery-options-container {
-    display: flex;
-    flex-direction: column !important;
-  }
-
-.cart-popup {
-  position: absolute;
-  top: 70% !important;
-  left: 900px;
-  border-color: #333;
-  background-color: #fff;
-}
-
-.cart-popup-content ul {
-  list-style-type: none;
+padding-left: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start; 
 }
 
 .payment-summary {
-  margin-top: auto;
+display: flex;
+align-items: center;
+}
+
+.cart-popup li ul li {
+margin-bottom: 5px;
+}
+
+.cart-popup li ul li:nth-child(1) {
+font-weight: bold;
+}
+
+.cart-popup li ul li:nth-child(2) {
+font-style: italic;
+}
+
+.cart-popup li ul li:nth-child(3) {
+font-weight: bold;
+color: #007bff;
+}
+
+.combinedCartItem {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+
+.card-name {
+font-size: 18px;
+font-weight: bold;
+}
+
+.series {
+font-size: 10px;
+}
+
+.buttonQuantity {
+display: flex;
+align-items: center;
+}
+
+.buttonQuantity form {
+margin-left: 10px;
+}
+
+.cart-popup li .item-details .price {
+font-style: italic;
+border: none;
+font-size: 12px;
+}
+
+.buttonQuantity button {
+width: 20px;
+height: 20px;
+font-size: 14px;
+border: none;
+background-color: #f2f2f2;
+cursor: pointer;
+}
+
+.cart-popup {
+width: 400px;
+border: 1px solid #ccc;
+}
+
+.cart-popup li {
+position: relative;
+border-bottom: 1px solid #ccc;
+}
+
+.cart-popup li .item-details li:last-child {
+margin-bottom: 0;
+}
+
+.cart-popup li .item-details .series {
+font-size: 14px !important;
+font-style: italic;
+margin-bottom: 20px !important;
+}
+
+.pay-now-button {
+background-color: #007bff;
+color: #ffffff;
+border: none;
+padding: 10px;
+font-size: 14px;
+cursor: pointer;
+margin-top: auto;
+display: flex;
+justify-content: flex-end;
+align-self: flex-end;
+}
+
+.total-value {
+padding: 10px;
+margin-top: auto;
+text-align: right;
+font-weight: bold;
+margin-left: auto;
+}
+
+.cart-popup li:last-child {
+border-bottom: none;
+}
+
+.cart-popup li span#quantity- {
+position: absolute;
+top: 5px;
+right: 5px;
+font-weight: bold;
+}
+
+.cart-popup li img {
+display: block;
+width: 80px;
+height: 120px;
+margin-right: 10px;
+float: left;
+}
+
+.cart-popup li .quantity-form {
+display: inline-block;
+}
+
+.cart-popup li button {
+width: 30px;
+height: 30px;
+border: none;
+background-color: #f2f2f2;
+cursor: pointer;
+}
+
+#payment {
+width: 250px;
+}
+
+.cart-popup li .minus-button {
+margin-right: 10px;
+}
+
+.cart-popup li ul {
+padding-left: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start; 
+}
+
+.cart-popup li ul li {
+margin-bottom: 5px;
+}
+
+.cart-popup li ul li:nth-child(1) {
+font-weight: bold;
+}
+
+.cart-popup li ul li:nth-child(2) {
+font-style: italic;
+}
+
+.cart-popup li ul li:nth-child(3) {
+font-weight: bold;
+color: #007bff;
+}
+
+.combinedCartItem {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+
+.card-name {
+font-size: 18px;
+font-weight: bold;
+}
+
+.series {
+font-size: 10px;
+}
+
+.buttonQuantity {
+display: flex;
+align-items: center;
+}
+
+.buttonQuantity form {
+margin-left: 10px;
+}
+
+.cart-popup li .item-details .price {
+font-style: italic;
+border: none;
+font-size: 12px;
+}
+
+#make-changes,
+#save-changes {
+  display: flex;
+  justify-content: left;
+}
+
+.buttonQuantity button {
+width: 20px;
+height: 20px;
+font-size: 14px;
+border: none;
+background-color: #f2f2f2;
+cursor: pointer;
+}
+.search-form {
+  position: relative;
+}
+
+.settings {
+  background: none;
+  border: none;
+}
+
+.delivery-options-container {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.cart-popup {
+position: absolute;
+top: 70% !important;
+left: 900px;
+border-color: #333;
+background-color: #fff;
+}
+
+.cart-popup-content ul {
+list-style-type: none;
+}
+
+.payment-summary {
+margin-top: auto;
+}
+
+button.add-to-cart {
+width: 150px; 
+height: 30px;
+background-color: #008080;
+color: white; 
+font-weight: bold; 
+border: none; 
+}
+
+#cart_count {
+size: 5px;
+position: relative;
+top: -12px;
+left: 1px;
+color: white;
+}
+
+.payment-summary {
+position: sticky;
+bottom: -10px;
+background-color: #ffffff;
+}
+
+.delivery-options-container label,
+.delivery-options-container input {
+  margin-bottom: 10px;
+}
+
+.changes-buttons-container {
+  margin-top: 10px;
+}
+
+.settings-container form div {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.settings-container label {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.settings-container input[type="text"],
+.settings-container input[type="tel"] {
+  width: 200px;
+}
+
+.delivery-options-container div {
+margin-bottom: 10px;
+}
+
+.payment-options div {
+margin-bottom: 10px;
+}
+
+.dropdownSettings {
+  position: relative;
+  display: inline-block;
+}
+
+.payment-options {
+  text-align: left;
+}
+
+.payment-options .save-button {
+  text-align: left;
+}
+
+.payment-options label {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.dropdownSettings .popSettings {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+#reset-popup {
+display: none;
+position: absolute;
+top: calc(100% + 5px);
+left: 0;
+width: 250px;
+background-color: #f9f9f9;
+border: 1px solid #f8f1f1;
+padding: 16px;
+z-index: 1;
+font-family: barlow;
+}
+
+#reset-popup h3 {
+margin-top: 0;
+}
+
+#reset-popup label {
+display: block;
+margin-bottom: 10px;
+}
+
+#reset-popup input[type="text"],
+#reset-popup input[type="password"] {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border: 1px solid #f8f1f1;
+}
+
+#reset-popup button[type="button"] {
+background-color: #9cd2ec;
+color: white;
+padding: 8px 16px;
+border: none;
+cursor: pointer;
+}
+
+.payment-popup {
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255);
+z-index: 9999;
+}
+
+.payment-popup-content {
+background-color: #fff;
+max-width: 90%;
+max-height: 90%;
+overflow-y: auto;
+padding: 20px; 
+}
+
+#reset-popup button[type="button"]:hover {
+background-color: #00a7fa;
+}
+
+#password-reset-popup {
+display: none;
+position: absolute;
+top: calc(100% + 5px);
+left: 0;
+width: 250px;
+background-color: #f9f9f9;
+border: 1px solid #f8f1f1;
+padding: 16px;
+z-index: 1;
+font-family: barlow;
+}
+
+#password-reset-popup h3 {
+margin-top: 0;
+}
+
+#password-reset-popup label {
+display: block;
+margin-bottom: 10px;
+}
+
+#password-reset-popup input[type="password"] {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border: 1px solid #f8f1f1;
+}
+
+#password-reset-popup button[type="button"] {
+background-color: #9cd2ec;
+color: white;
+padding: 8px 16px;
+border: none;
+cursor: pointer;
+}
+
+#password-reset-popup button[type="button"]:hover {
+background-color: #00a7fa;
+}
+
+
+.dropdownSettings.active .popSettings {
+  display: block;
+}
+
+.dropdownSettings .popSettings ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdownSettings .popSettings li a,
+.dropdownSettings .popSettings li button {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdownSettings .popSettings li a:hover,
+.dropdownSettings .popSettings li button:hover {
+  background-color: #f1f1f1;
+}
+
+.delivery-options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery-options-container label,
+.delivery-options-container input {
+  margin-bottom: 10px;
+}
+
+.changes-buttons-container {
+  margin-top: 10px;
+}
+
+.dropdownSettings .dropdown-settings {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdownSettings .dropdown-settings span {
+  font-size: 20px;
+}
+
+#searchSuggestions {
+  position: absolute;
+  top: 100%;
+  left: 11px;
+  width: 78.5%;
+  max-height: 11em;
+  overflow-y: hidden;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-top: none;
+  z-index: 1;
+}
+
+#searchSuggestions > div {
+  padding: 0.5em;
+}
+
+#searchSuggestions > div:hover {
+  background-color: #f2f2f2;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-option {
+  margin-bottom: 10px;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.delivery-options-container {
+  text-align: left;
+}
+
+.delivery-options-container label {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.pokemon-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.pokemon-card h6 {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.pokemon-card h3, .pokemon-card h6 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pokemon-card h6 span {
+  color: red;
+}
+
+.pokemon-card h6.market-value {
+  color: green;
+}
+
+.pokemon-card h6.fact {
+  color: #666;
+}
+
+.pokemon-card:focus {
+  outline: none;
+}
+
+.card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+      background-color: #9cd2ec;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+    }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.buttontext {
+  font-family: barlow;
+}
+
+.login {
+  position: relative;
+  display: inline-block;
+}
+
+.login-popup {
+  font-family: barlow;
+  width: 190px;
+  transition: opacity 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.login-popup input[type="text"],
+.login-popup input[type="password"] {
+  width: 90% !important;
+  font-family: barlow;
+}
+
+.login-popup.show {
+  display: block;
+  opacity: 1;
+}
+.container.my-5 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+body {
+font-family: Arial, sans-serif;
+}
+
+.settings-container {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+background-color: #f5f5f5;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+input[type="text"][readonly],
+input[type="email"][readonly],
+input[type="tel"][readonly],
+input[type="password"][readonly],
+select[disabled] {
+background-color: #f9f9f9;
+cursor: not-allowed;
+}
+
+.section-divider {
+text-align: center;
+margin: 20px 0;
+position: relative;
+}
+
+.divider-line {
+width: 100%;
+border: 1px solid #ddd;
+}
+
+#email {
+width: 200px;
+}
+.user-info-form .form-group {
+margin-bottom: 15px;
+}
+
+.user-info-form .email-label-container {
+width: 100px;
+display: inline-block;
+}
+
+.divider-text {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0 10px;
+font-size: 18px;
+color: #008080;
+}
+
+.favorite-cards-container {
+display: flex;
+flex-wrap: nowrap;
+overflow-x: auto;
+gap: 10px;
+}
+
+.favorite-card {
+flex: 0 0 auto;
+margin: 5px;
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 4px;
+background-color: #fff;
+}
+
+.favorite-card img {
+max-width: 100%;
+}
+
+.payment-options div:not(:last-child) {
+margin-bottom: 10px;
+}
+
+
+.login-btn {
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.login-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 1px solid #f8f1f1;
+  padding: 16px;
+  z-index: 1;
+}
+
+.login-popup h1 {
+  margin-top: 0;
+}
+
+.login-popup p {
+  margin-bottom: 10px;
+}
+.create-account-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 1px solid #f8f1f1;
+  padding: 16px;
+  z-index: 1;
+}
+
+.create-account-popup h1 {
+  margin-top: 0;
+}
+
+.create-account-popup p {
+  margin-bottom: 10px;
+}
+
+.settings-container {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 100vh;
+  width: 50%;
+  margin: 0 auto; 
+}
+
+.settings-container form div {
+  margin-bottom: 20px; 
+}
+
+.settings-container label {
+  display: inline-block;
+  width: 120px;
+}
+
+.settings-container input[type="password"] {
+  width: 200px;
+}
+
+.settings-container button {
+  margin-left: 10px;
+}
+
+.settings-container div:last-child {
+  text-align: right;
+}
+
+.settings-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.create-account-popup input[type="text"],
+.create-account-popup input[type="password"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #f8f1f1;
+}
+
+.create-account-popup button[type="submit"] {
+  background-color: #9cd2ec;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account-popup button[type="submit"]:hover {
+  background-color: #00a7fa;
+}
+
+.create-account-popup p a {
+  color: blue;
+  text-decoration: none;
+}
+
+.create-account-popup p a:hover {
+  text-decoration: underline;
+}
+
+
+.login-popup input[type="text"],
+.login-popup input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #f8f1f1;
+}
+
+.login-popup button[type="submit"] {
+  background-color: #9cd2ec;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-popup button[type="submit"]:hover {
+  background-color: #00a7fa;
+}
+
+.login-popup p a {
+  color: blue;
+  text-decoration: none;
+}
+
+.login-popup p a:hover {
+  text-decoration: underline;
+}
+
+.dropdown .popovermenu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown .popovermenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown .popovermenu li a,
+.dropdown .popovermenu li button {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown .popovermenu li a:hover,
+.dropdown .popovermenu li button:hover {
+  background-color: #f8f1f1;
+}
+
+.dropdown.show .popovermenu {
+  display: block;
+}
+
+
+.section-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+
+.pokemon-card-section {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: none;
+}
+
+
+.section-header {
+  margin-bottom: 0;
+}
+
+.section-title {
+  margin-top: 0;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-top: -80px;
+  margin-bottom: 10px;
+  font-family: barlow;
+}
+
+.dropdown-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.section-banner {
+  width: 105%;
+  height: 120px;
+  margin-top: -20px;
+  margin-left: -18px;
+  padding: 0;
+  position: relative;
+}
+
+.pokemon-card {
+  font-family: barlow, sans-serif;
+}
+
+.dropdowns-container {
+  font-family: barlow, sans-serif;
+}
+
+.dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .dropdown-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      display: none;
+    }
+
+    .dropdown.show .dropdown-overlay {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-settings {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-settings .popSetting {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .dropdown-settings .popSetting.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .dropdown-settings .popSetting a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-settings .popSetting a:hover {
+      background-color: #f1f1f1;
+    }
+    
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 150px;
+      padding: 10px;
+      justify-content: center;
+      align-content: center;
+      margin: 90px auto 0;
+      max-width: 1200px;
+      margin-top: 10px;
+    }
+
+    #searchSuggestions {
+      position: absolute;
+      top: 100%;
+      left: 11px;
+      width: 78.5%;
+      max-height: 11em;
+      overflow-y: hidden;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-top: none;
+      z-index: 1;
+    }
+    
+    #searchSuggestions > div {
+      padding: 0.5em;
+    }
+    
+    #searchSuggestions > div:hover {
+      background-color: #f2f2f2;
+    }
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 600px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.dropdown-btn,
+.logo,
+.search-form,
+.cart,
+.login-btn {
+  margin-right: 10px;
+}
+
+.dropdown-btn {
+  padding-right: 10px;
+}
+
+.search-form {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.cart {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.login-btn {
+  padding-left: 10px;
+}
+
+    .pokemon-card {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .pokemon-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pokemon-card h3 {
+      font-size: 16px;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .pokemon-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .search-form input[type="text"] {
+      height: 23px;
+      width: 400px;
+      font-family: barlow;
+      padding: 5px;
+    }
+
+.header-container > * {
+  padding-right: 60px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.search-form {
+  margin-right: 20px;
+}
+
+.cart-btn,
+.login-btn {
+  margin-left: 20px;
+}
+
+    .dropdown-btn::after {
+      content: '\2630';
+      font-size: 14px;
+    }
+
+    .search-form select {
+      height: 36px;
+    }
+
+.copyright {
+  font-family: barlow;
+  color: #9cd2ec !important;
+}
+
+.list-inline-item {
+  font-size: 30px;
+  font-family: barlow;
+  color: #00aaff;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart-btn,
+.login-btn {
+  font-family: barlow, sans-serif;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-settings {
+  position: relative;
+}
+
+.popSetting {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+.dropdown-settings:hover .popSetting {
+  display: block;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.search-form {
+  margin-left: 10px;
+}
+
+.settings {
+  font-size: 20px;
+}
+
+.cart-btn {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.login-btn {
+  font-size: 20px;
+}
+
+.cart-btn img {
+  margin-left: 5px;
+}
+
+.dropdown-btn {
+  font-size: 20px;
+}
+
+.cart-btn,
+.login-btn {
+  background-color: transparent; 
+  border: none;
+  padding: 0; 
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-settings {
+  position: relative;
+  display: inline-block;
+}
+
+.popSetting {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.popSetting.active {
+  display: block;
+}
+
+    .header-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      max-height: 75px;
+      flex-grow: 1;
+    }
+
+    .dropdown-btn,
+    .search-form,
+    .cart,
+    .login-btn {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+.dropdown-btn,
+.search-btn {
+  background-color: #fdf496;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@font-face{
+  font-family: barlow;
+  src: url('Barlow-Regular.ttf');
+}
+.search-btn {
+  width: 40px;
+  height: 36px; 
+}
+
+
+    .cart-btn,
+    .login-btn {
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .cart-popup {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      padding: 10px;
+      top: 100%;
+      right: 0;
+    }
+
+    .cart:hover .cart-popup {
+      display: block;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 70px;
+    }
+
+    .dropdownSettings {
+      position: relative;
+      display: inline-block;
+    }
+
+    .delivery-option-select {
+      width: 250px;
+    }
+    
+    .delivery-option-select option {
+      width: 100%;
+    }
+    
+    .popSettings {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+    }
+    
+    .popSettings.active {
+      display: block;
+    }
+
+    p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+.pokemon-card-container {
+  background-color: #f1f1f1;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.section-header {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.dropdownSettings .dropdown-settings {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdownSettings .dropdown-settings span {
+  font-size: 20px !important;
+}
+
+.upper-section {
+  margin-bottom: 300px;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  flex-shrink: 0;
+  font-family: barlow;
+}
+
+.settings-container .change-button,
+.settings-container .save-button,
+.settings-container .reveal-button {
+    color: white;
+    background-color: #008080;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.settings-container h2,
+.settings-container h3 {
+  color: #008080;
+}
+
+#quantity {
+width: 50px; 
 }
 
 button.add-to-cart {
@@ -452,1271 +1719,3 @@ button.add-to-cart {
   left: 1px;
   color: white;
 }
-
-.payment-summary {
-  position: sticky;
-  bottom: -10px;
-  background-color: #ffffff;
-}
-
-  .delivery-options-container label,
-  .delivery-options-container input {
-    margin-bottom: 10px;
-  }
-  
-  .changes-buttons-container {
-    margin-top: 10px;
-  }
-
-  .settings-container form div {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.settings-container label {
-    width: 120px;
-    margin-right: 10px;
-}
-
-.settings-container input[type="text"],
-.settings-container input[type="tel"] {
-    width: 200px;
-}
-
-.delivery-options-container div {
-  margin-bottom: 10px;
-}
-
-.payment-options div {
-  margin-bottom: 10px;
-}
-
-  .dropdownSettings {
-    position: relative;
-    display: inline-block;
-  }
-
-  .payment-options {
-    text-align: left;
-  }
-
-  .payment-options .save-button {
-    text-align: left;
-}
-
-  .payment-options label {
-    display: inline-block;
-    width: 120px;
-    margin-right: 10px;
-  }
-  
-  .dropdownSettings .popSettings {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-  }
-
-#reset-popup {
-  display: none;
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  width: 250px;
-  background-color: #f9f9f9;
-  border: 1px solid #f8f1f1;
-  padding: 16px;
-  z-index: 1;
-  font-family: barlow;
-}
-
-#reset-popup h3 {
-  margin-top: 0;
-}
-
-#reset-popup label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-#reset-popup input[type="text"],
-#reset-popup input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #f8f1f1;
-}
-
-#reset-popup button[type="button"] {
-  background-color: #9cd2ec;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.payment-popup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255);
-  z-index: 9999;
-}
-
-.payment-popup-content {
-  background-color: #fff;
-  max-width: 90%;
-  max-height: 90%;
-  overflow-y: auto;
-  padding: 20px; 
-}
-
-#reset-popup button[type="button"]:hover {
-  background-color: #00a7fa;
-}
-
-#password-reset-popup {
-  display: none;
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  width: 250px;
-  background-color: #f9f9f9;
-  border: 1px solid #f8f1f1;
-  padding: 16px;
-  z-index: 1;
-  font-family: barlow;
-}
-
-#password-reset-popup h3 {
-  margin-top: 0;
-}
-
-#password-reset-popup label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-#password-reset-popup input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #f8f1f1;
-}
-
-#password-reset-popup button[type="button"] {
-  background-color: #9cd2ec;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-}
-
-#password-reset-popup button[type="button"]:hover {
-  background-color: #00a7fa;
-}
-
-  
-  .dropdownSettings.active .popSettings {
-    display: block;
-  }
-  
-  .dropdownSettings .popSettings ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .dropdownSettings .popSettings li a,
-  .dropdownSettings .popSettings li button {
-    display: block;
-    padding: 12px 16px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-  }
-  
-  .dropdownSettings .popSettings li a:hover,
-  .dropdownSettings .popSettings li button:hover {
-    background-color: #f1f1f1;
-  }
-
-  .delivery-options-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.delivery-options-container label,
-.delivery-options-container input {
-    margin-bottom: 10px;
-}
-
-.changes-buttons-container {
-    margin-top: 10px;
-}
-  
-  .dropdownSettings .dropdown-settings {
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .dropdownSettings .dropdown-settings span {
-    font-size: 20px;
-  }
-  
-  #searchSuggestions {
-    position: absolute;
-    top: 100%;
-    left: 11px;
-    width: 78.5%;
-    max-height: 11em;
-    overflow-y: hidden;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-top: none;
-    z-index: 1;
-  }
-  
-  #searchSuggestions > div {
-    padding: 0.5em;
-  }
-  
-  #searchSuggestions > div:hover {
-    background-color: #f2f2f2;
-  }
-
-  .payment-options {
-    display: flex;
-    flex-direction: column;
-}
-
-.payment-option {
-    margin-bottom: 10px;
-}
-  
-  .pokemon-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .delivery-options-container {
-    text-align: left;
-}
-
-.delivery-options-container label {
-    display: inline-block;
-    width: 120px;
-    margin-right: 10px;
-}
-  
-  .pokemon-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .pokemon-card h3 {
-    margin-top: 10px;
-    font-size: 20px;
-  }
-  
-  .pokemon-card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  .pokemon-card h6 {
-    margin: 10px 0;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  .pokemon-card h3, .pokemon-card h6 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .pokemon-card h6 span {
-    color: red;
-  }
-  
-  .pokemon-card h6.market-value {
-    color: green;
-  }
-  
-  .pokemon-card h6.fact {
-    color: #666;
-  }
-  
-  .pokemon-card:focus {
-    outline: none;
-  }
-  
-  .card-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  header {
-        background-color: #9cd2ec;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    display: flex;
-      }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .buttontext {
-    font-family: barlow;
-  }
-  
-  .login {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .login-popup {
-    font-family: barlow;
-    width: 190px;
-    transition: opacity 0.3s ease-in-out;
-    padding: 20px;
-  }
-  
-  .login-popup input[type="text"],
-  .login-popup input[type="password"] {
-    width: 90% !important;
-    font-family: barlow;
-  }
-  
-  .login-popup.show {
-    display: block;
-    opacity: 1;
-  }
-  .container.my-5 {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-  }
-  
-  
-  .footer-basic {
-    padding:40px 0;
-    background-color:#ffffff;
-    color:#4b4c4d;
-  }
-  
-  .footer-basic ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
-  }
-  
-  .footer-basic li {
-    padding:0 10px;
-  }
-  
-  .footer-basic ul a {
-    color:inherit;
-    text-decoration:none;
-    opacity:0.8;
-  }
-  
-  .footer-basic ul a:hover {
-    opacity:1;
-  }
-  
-  .footer-basic .social {
-    text-align:center;
-    padding-bottom:25px;
-  }
-  
-  .footer-basic .social > a {
-    font-size:24px;
-    width:40px;
-    height:40px;
-    line-height:40px;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    border:1px solid #ccc;
-    margin:0 8px;
-    color:inherit;
-    opacity:0.75;
-  }
-  
-  .footer-basic .social > a:hover {
-    opacity:0.9;
-  }
-  
-  .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:#aaa;
-    margin-bottom:0;
-  }
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.settings-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-input[type="text"][readonly],
-input[type="email"][readonly],
-input[type="tel"][readonly],
-input[type="password"][readonly],
-select[disabled] {
-  background-color: #f9f9f9;
-  cursor: not-allowed;
-}
-
-.section-divider {
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-}
-
-.divider-line {
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-#email {
-  width: 200px;
-}
-.user-info-form .form-group {
-  margin-bottom: 15px;
-}
-
-.user-info-form .email-label-container {
-  width: 100px;
-  display: inline-block;
-}
-
-.divider-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  font-size: 18px;
-  color: #008080;
-}
-
-.favorite-cards-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 10px;
-}
-
-.favorite-card {
-  flex: 0 0 auto;
-  margin: 5px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #fff;
-}
-
-.favorite-card img {
-  max-width: 100%;
-}
-
-.payment-options div:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-  
-  .login-btn {
-    background-color: #f1f1f1;
-    border: none;
-    color: black;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .login-popup {
-    display: none;
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
-    width: 250px;
-    background-color: #f9f9f9;
-    border: 1px solid #f8f1f1;
-    padding: 16px;
-    z-index: 1;
-  }
-  
-  .login-popup h1 {
-    margin-top: 0;
-  }
-  
-  .login-popup p {
-    margin-bottom: 10px;
-  }
-  .create-account-popup {
-    display: none;
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
-    width: 250px;
-    background-color: #f9f9f9;
-    border: 1px solid #f8f1f1;
-    padding: 16px;
-    z-index: 1;
-  }
-  
-  .create-account-popup h1 {
-    margin-top: 0;
-  }
-  
-  .create-account-popup p {
-    margin-bottom: 10px;
-  }
-
-  .settings-container {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    min-height: 100vh;
-    width: 50%;
-    margin: 0 auto; 
-}
-
-.settings-container form div {
-    margin-bottom: 20px; 
-}
-
-.settings-container label {
-    display: inline-block;
-    width: 120px;
-}
-
-.settings-container input[type="password"] {
-    width: 200px;
-}
-
-.settings-container button {
-    margin-left: 10px;
-}
-
-.settings-container div:last-child {
-    text-align: right;
-}
-
-  .settings-container {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-  
-  .create-account-popup input[type="text"],
-  .create-account-popup input[type="password"] {
-    width: 80%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #f8f1f1;
-  }
-  
-  .create-account-popup button[type="submit"] {
-    background-color: #9cd2ec;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .create-account-popup button[type="submit"]:hover {
-    background-color: #00a7fa;
-  }
-  
-  .create-account-popup p a {
-    color: blue;
-    text-decoration: none;
-  }
-  
-  .create-account-popup p a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  .login-popup input[type="text"],
-  .login-popup input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #f8f1f1;
-  }
-  
-  .login-popup button[type="submit"] {
-    background-color: #9cd2ec;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .login-popup button[type="submit"]:hover {
-    background-color: #00a7fa;
-  }
-  
-  .login-popup p a {
-    color: blue;
-    text-decoration: none;
-  }
-  
-  .login-popup p a:hover {
-    text-decoration: underline;
-  }
-  
-  .dropdown .popovermenu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .dropdown .popovermenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .dropdown .popovermenu li a,
-  .dropdown .popovermenu li button {
-    display: block;
-    padding: 8px 16px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-  }
-  
-  .dropdown .popovermenu li a:hover,
-  .dropdown .popovermenu li button:hover {
-    background-color: #f8f1f1;
-  }
-  
-  .dropdown.show .popovermenu {
-    display: block;
-  }
-  
-  
-  .section-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  
-  .pokemon-card-section {
-    background-color: #f1f1f1;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    max-width: 800px;
-    margin: 0 auto;
-    border-top: none;
-  }
-  
-  
-  .section-header {
-    margin-bottom: 0;
-  }
-  
-  .section-title {
-    margin-top: 0;
-  }
-  
-  .section-title {
-    font-size: 24px;
-    margin-top: -80px;
-    margin-bottom: 10px;
-    font-family: barlow;
-  }
-  
-  .dropdown-btn {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .section-banner {
-    width: 105%;
-    height: 120px;
-    margin-top: -20px;
-    margin-left: -18px;
-    padding: 0;
-    position: relative;
-  }
-  
-  .pokemon-card {
-    font-family: barlow, sans-serif;
-  }
-  
-  .dropdowns-container {
-    font-family: barlow, sans-serif;
-  }
-  
-  .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-  
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 2;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      }
-  
-      .dropdown-content.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-  
-      .dropdown-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 1;
-        display: none;
-      }
-  
-      .dropdown.show .dropdown-overlay {
-        display: block;
-      }
-  
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-  
-      .dropdown-content a:hover {
-        background-color: #f1f1f1;
-      }
-
-      .dropdown-settings {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-settings .popSetting {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 2;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      }
-      
-      .dropdown-settings .popSetting.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      .dropdown-settings .popSetting a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-      
-      .dropdown-settings .popSetting a:hover {
-        background-color: #f1f1f1;
-      }
-      
-  
-  .section-title {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 150px;
-        padding: 10px;
-        justify-content: center;
-        align-content: center;
-        margin: 90px auto 0;
-        max-width: 1200px;
-        margin-top: 10px;
-      }
-  
-      #searchSuggestions {
-        position: absolute;
-        top: 100%;
-        left: 11px;
-        width: 78.5%;
-        max-height: 11em;
-        overflow-y: hidden;
-        background-color: #ffffff;
-        border: 1px solid #dddddd;
-        border-top: none;
-        z-index: 1;
-      }
-      
-      #searchSuggestions > div {
-        padding: 0.5em;
-      }
-      
-      #searchSuggestions > div:hover {
-        background-color: #f2f2f2;
-      }
-  
-  .header-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 600px;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-  
-  .dropdown-btn,
-  .logo,
-  .search-form,
-  .cart,
-  .login-btn {
-    margin-right: 10px;
-  }
-  
-  .dropdown-btn {
-    padding-right: 10px;
-  }
-  
-  .search-form {
-    flex: 1;
-    padding: 0 10px;
-  }
-  
-  .cart {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  .login-btn {
-    padding-left: 10px;
-  }
-  
-      .pokemon-card {
-        background-color: #fff;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        transition: transform 0.2s ease-in-out;
-      }
-  
-      .pokemon-card:hover {
-        transform: translateY(-4px);
-      }
-  
-      .pokemon-card h3 {
-        font-size: 16px;
-        margin-top: 10px;
-        color: #333;
-      }
-  
-      .pokemon-card img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-      }
-  
-      .search-form input[type="text"] {
-        height: 23px;
-        width: 400px;
-        font-family: barlow;
-        padding: 5px;
-      }
-  
-  .header-container > * {
-    padding-right: 60px;
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .logo {
-    margin-right: 20px;
-  }
-  
-  .search-form {
-    margin-right: 20px;
-  }
-  
-  .cart-btn,
-  .login-btn {
-    margin-left: 20px;
-  }
-  
-      .dropdown-btn::after {
-        content: '\2630';
-        font-size: 14px;
-      }
-  
-      .search-form select {
-        height: 36px;
-      }
-  
-  .copyright {
-    font-family: barlow;
-    color: #9cd2ec !important;
-  }
-  
-  .list-inline-item {
-    font-size: 30px;
-    font-family: barlow;
-    color: #00aaff;
-  }
-  
-  .cart {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cart-btn,
-  .login-btn {
-    font-family: barlow, sans-serif;
-  }
-  
-  .header-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .dropdown-settings {
-    position: relative;
-  }
-  
-  .popSetting {
-    display: none;
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
-    z-index: 1;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    padding: 10px;
-  }
-  
-  .dropdown-settings:hover .popSetting {
-    display: block;
-  }
-  
-  .logo {
-    margin-right: 10px;
-  }
-  
-  .search-form {
-    margin-left: 10px;
-  }
-
-  .settings {
-    font-size: 20px;
-  }
-  
-  .cart-btn {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-  }
-  .login-btn {
-    font-size: 20px;
-  }
-  
-  .cart-btn img {
-    margin-left: 5px;
-  }
-  
-  .dropdown-btn {
-    font-size: 20px;
-  }
-  
-  .cart-btn,
-  .login-btn {
-    background-color: transparent; 
-    border: none;
-    padding: 0; 
-    cursor: pointer;
-    outline: none;
-  }
-
-  .dropdown-settings {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .popSetting {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-  }
-  
-  .popSetting.active {
-    display: block;
-  }
-  
-      .header-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        max-height: 75px;
-        flex-grow: 1;
-      }
-  
-      .dropdown-btn,
-      .search-form,
-      .cart,
-      .login-btn {
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-      }
-  
-  .dropdown-btn,
-  .search-btn {
-    background-color: #fdf496;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  @font-face{
-    font-family: barlow;
-    src: url('Barlow-Regular.ttf');
-  }
-  .search-btn {
-    width: 40px;
-    height: 36px; 
-  }
-  
-  
-      .cart-btn,
-      .login-btn {
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-      }
-  
-      .cart-popup {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        padding: 10px;
-        top: 100%;
-        right: 0;
-      }
-  
-      .cart:hover .cart-popup {
-        display: block;
-      }
-  
-      body {
-        margin: 0;
-        padding-top: 70px;
-      }
-
-      .dropdownSettings {
-        position: relative;
-        display: inline-block;
-      }
-
-      .delivery-option-select {
-        width: 250px;
-      }
-      
-      .delivery-option-select option {
-        width: 100%;
-      }
-      
-      .popSettings {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        display: none;
-        background-color: #ffffff;
-        border: 1px solid #dddddd;
-      }
-      
-      .popSettings.active {
-        display: block;
-      }
-  
-      p {
-        color: #333;
-        font-size: 16px;
-        line-height: 1.5;
-      }
-  
-  .pokemon-card-container {
-    background-color: #f1f1f1;
-    max-width: 800px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    align-items: flex-start;
-    padding: 0;
-  }
-  
-  .section-header {
-    margin-bottom: 0;
-    padding: 0;
-  }
-  
-  .dropdownSettings .dropdown-settings {
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .dropdownSettings .dropdown-settings span {
-    font-size: 20px !important;
-  }
-  
-  .upper-section {
-    margin-bottom: 300px;
-  }
-
-  .footer {
-    background-color: #f7f7f7;
-    flex-shrink: 0;
-    font-family: barlow;
-  }
-
-  .settings-container .change-button,
-  .settings-container .save-button,
-  .settings-container .reveal-button {
-      color: white;
-      background-color: #008080;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-  }
-
-.settings-container h2,
-.settings-container h3 {
-    color: #008080;
-}
-
-#quantity {
-  width: 50px; 
-}
-
-  button.add-to-cart {
-    width: 150px; 
-    height: 30px;
-    background-color: #008080;
-    color: white; 
-    font-weight: bold; 
-    border: none; 
-  }
-  
-  #cart_count {
-    size: 5px;
-    position: relative;
-    top: -12px;
-    left: 1px;
-    color: white;
-  }
-  

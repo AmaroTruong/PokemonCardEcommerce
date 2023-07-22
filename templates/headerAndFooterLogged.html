@@ -94,12 +94,10 @@
         <div id="searchSuggestions" class="search-suggestions"></div>
       </form>
       <div class="cart">
-        {% if currentRoute not in ['settings', 'settingsP', 'settingsD'] %}
         <button class="cart-btn">Cart 
           <img src="/static/basket-cart-icon-27.png" alt="Cart Image" style="height: 20px;">
           <p id="cart_count">{{ cart_count }}</p>
         </button>
-        {% endif %}
         <div class="cart-popup">
           <ul>
             {% set cart_items_dict = {} %}
@@ -155,167 +153,11 @@
                   <span class="totalText">Total: ${{ '%.2f' % total_value }}</span>
                 </div>
               </div>
-        </div> 
-        <div id="payment-popup" class="payment-popup" style="display: none;">
-          <div class="payment-options">
-            <h2 class="deliveryOp">Delivery Options</h2>
-            <form id="form-delivery" method="POST" action="/payment" class="delivery-form">
-              <input type="hidden" id="total-amount" name="total-amount">
-                <div class="form-group">
-                    <label for="delivery-option">Select Delivery Option:</label>
-                    <select id="delivery-option" name="delivery-option" class="delivery-option-select">
-                        <option value="0" {% if not delivery_option %}selected{% endif %}>Create New Delivery Option</option>
-                        {% for delivery_detail in delivery_details %}
-                            <option value="{{ delivery_detail.id }}" data-address1="{{ delivery_detail.address1 }}" data-address2="{{ delivery_detail.address2 }}" data-country="{{ delivery_detail.country }}" data-city="{{ delivery_detail.city }}" data-zip-code="{{ delivery_detail.zip_code }}" data-phone-number="{{ delivery_detail.phone_number }}"
-                            {% if delivery_option %}
-                                {% if delivery_option in delivery_detail.id %}
-                                    selected
-                                {% endif %}
-                            {% endif %}>
-                                Delivery Address {{ loop.index }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="address1">Address 1:</label>
-                    <input type="text" id="address1" name="address1" placeholder="Enter Address 1" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="address2">Address 2:</label>
-                    <input type="text" id="address2" name="address2" placeholder="Enter Address 2" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="country">Country:</label>
-                    <input type="text" id="country" name="country" placeholder="Enter Country" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city" placeholder="Enter City" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="zip-code">Zip Code:</label>
-                    <input type="text" id="zip-code" name="zip-code" placeholder="Enter Zip Code" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="phone-number">Phone Number:</label>
-                    <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" class="readonly-input">
-                </div>
-        </div>
-        <div class="payment-options">
-            <h2 class="divider-text">Payment Options</h2>
-                <div class="form-group">
-                    <label for="payment-option">Select Payment Option:</label>
-                    <select id="payment" name="payment-option" class="payment-option-select">
-                        <option value="0" {% if not payment %}selected{% endif %}>Create New Payment Option</option>
-                        {% for payment_option in payment_options %}
-                            <option value="{{ payment_option.id }}" data-card-number="{{ payment_option.card_number }}" data-cardholder-name="{{ payment_option.cardholder_name }}" data-expiration-date="{{ payment_option.expiration_date }}" data-cvv-number="{{ payment_option.cvv_number }}"
-                            {% if payment %}
-                                {% if payment in payment_option.id %}
-                                    selected
-                                {% endif %}
-                            {% endif %}>
-                                Card {{ loop.index }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="card-number">Card Number:</label>
-                    <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="card-name">Cardholder Name:</label>
-                    <input type="text" id="card-name" name="card-name" placeholder="Enter Cardholder Name" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="expiration-date">Expiration Date:</label>
-                    <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" class="readonly-input">
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV Number:</label>
-                    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV Number"y class="readonly-input">
-                </div>
-                <div id="make-changes">
-                  <button type="submit" class="change-button">Submit Order</button>
-                </div>
-                </div>
-            </form>
-            </div>
+        </div>        
         <script>
-
-function setTotalAmount() {
-    const totalValueElement = document.querySelector('.total-value .totalText');
-    const totalAmountText = totalValueElement.textContent;
-    const totalAmount = parseFloat(totalAmountText.replace('Total: $', ''));
-    document.getElementById('total-amount').value = totalAmount;
-  }
-document.getElementById("delivery-option").addEventListener("change", function() {
-    const isCreateNewDeliveryOption = this.value !== "0";
-    toggleReadOnlyStateDelivery(isCreateNewDeliveryOption);
-  });
-
-  document.getElementById("payment").addEventListener("change", function() {
-    const isCreateNewPaymentOption = this.value !== "0";
-    toggleReadOnlyStatePayment(isCreateNewPaymentOption);
-  });
-
-  function toggleReadOnlyStateDelivery(isCreateNewDeliveryOption) {
-    document.getElementById("address1").readOnly = isCreateNewDeliveryOption;
-    document.getElementById("address2").readOnly = isCreateNewDeliveryOption;
-    document.getElementById("country").readOnly = isCreateNewDeliveryOption;
-    document.getElementById("city").readOnly = isCreateNewDeliveryOption;
-    document.getElementById("zip-code").readOnly = isCreateNewDeliveryOption;
-    document.getElementById("phone-number").readOnly = isCreateNewDeliveryOption;
-  }
-
-  function toggleReadOnlyStatePayment(isCreateNewPaymentOption) {
-    document.getElementById("card-number").readOnly = isCreateNewPaymentOption;
-    document.getElementById("card-name").readOnly = isCreateNewPaymentOption;
-    document.getElementById("expiration-date").readOnly = isCreateNewPaymentOption;
-    document.getElementById("cvv").readOnly = isCreateNewPaymentOption;
-  }
-          function updateDeliveryDetails() {
-  var selectOption = document.getElementById("delivery-option");
-  var selectedOptionIndex = selectOption.selectedIndex;
-  var selectedOption = selectOption.options[selectedOptionIndex];
-
-  document.getElementById("address1").placeholder = selectedOption.getAttribute("data-address1") || "";
-  document.getElementById("address2").placeholder = selectedOption.getAttribute("data-address2") || "";
-  document.getElementById("country").placeholder = selectedOption.getAttribute("data-country") || "";
-  document.getElementById("city").placeholder = selectedOption.getAttribute("data-city") || "";
-  document.getElementById("zip-code").placeholder = selectedOption.getAttribute("data-zip-code") || "";
-  document.getElementById("phone-number").placeholder = selectedOption.getAttribute("data-phone-number") || "";
-}
-
-function openPaymentPopup() {
-    document.querySelector(".cart-popup").style.display = "none";
-    document.getElementById("payment-popup").style.display = "block";
-  }
-
-  function closePaymentPopup() {
-    document.querySelector(".cart-popup").style.display = "block";
-    document.getElementById("payment-popup").style.display = "none";
-  }
-
-  document.querySelector(".pay-now-button").addEventListener("click", openPaymentPopup);
-
-function updatePaymentDetails() {
-        var selectOption = document.getElementById("payment");
-        var selectedOptionIndex = selectOption.selectedIndex;
-        var selectedOption = selectOption.options[selectedOptionIndex];
-
-        document.getElementById("card-number").placeholder = selectedOption.getAttribute("data-card-number") || "";
-        document.getElementById("card-name").placeholder = selectedOption.getAttribute("data-cardholder-name") || "";
-        document.getElementById("expiration-date").placeholder = selectedOption.getAttribute("data-expiration-date") || "";
-        document.getElementById("cvv").placeholder = selectedOption.getAttribute("data-cvv-number") || "";
-    }
-    document.getElementById("payment").addEventListener("change", updatePaymentDetails);
-    document.getElementById("delivery-option").addEventListener("change", updateDeliveryDetails);
-
-        function submitForm() {
-          document.getElementById("form-payment").submit();
-        }
+          function submitForm(formId) {
+          document.getElementById(formId).submit();
+          }
          </script>
 
       </div>
