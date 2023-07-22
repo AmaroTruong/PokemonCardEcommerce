@@ -41,6 +41,18 @@
       </div>
     </a>
   {% endfor %}
+  {% if successMessage %}
+  <div class="success-message">{{ successMessage }}</div>
+  <script>
+    // Function to reload the page
+    function reloadPage() {
+      window.location.reload();
+    }
+
+    // Attach the onfocus event listener
+    window.onfocus = reloadPage;
+  </script>
+{% endif %}
     </div>
 </div>
 </div>

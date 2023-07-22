@@ -146,9 +146,44 @@
             {% endfor %}
           </ul>
               <div class="payment-summary">
-                <div>
-                  <button class="pay-now-button">Pay Now</button>
-                </div>
+                <div id="paypal-button"></div>
+
+                <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                
+                <script>
+                  var CREATE_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
+                  var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+                
+                  paypal.Button.render({
+                
+                    env: 'sandbox', // Use 'sandbox' for testing, change to 'production' for live transactions
+                
+                    commit: true, // Show 'Pay Now' button
+                
+                    payment: function() {
+                      return paypal.request.post(CREATE_PAYMENT_URL).then(function(data) {
+                        return data.paymentID;
+                      });
+                    },
+                
+                    onAuthorize: function(data) {
+                      return paypal.request.post(EXECUTE_PAYMENT_URL, {
+                        paymentID: data.paymentID,
+                        payerID: data.payerID,
+                      }).then(function(res) {
+                
+                        console.log(res.success);
+                        alert('Purchase Successful');
+                        
+                        // Redirect to the success page if the response contains the redirect URL
+                        if (res.redirect_url) {
+                          window.location.href = '/execute';
+                        }
+                      });
+                    }
+                
+                  }, '#paypal-button');
+                </script>                
                 <div class="total-value">
                   <span class="totalText">Total: ${{ '%.2f' % total_value }}</span>
                 </div>

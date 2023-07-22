@@ -8,6 +8,8 @@ from flask_mail import Mail, Message
 from flask_caching import Cache
 from sqlalchemy.orm import Session
 from flask_migrate import Migrate
+import paypalrestsdk
+
 
 secretKey = secrets.token_urlsafe(16)
 
@@ -23,6 +25,11 @@ app.secret_key = secretKey
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
+
+paypalrestsdk.configure({
+  "mode": "sandbox", 
+  "client_id": "AUr0qn9zYIZ6dluk0ecGxc4WEcBrInsPhyDEMdHWp-wj5LPPaZxZm8_ZMMjdU9ltqs8ImKQ0ueJbiakW",
+  "client_secret": "EIcOVtwfi9W8C7K-QlZoJ5MR6ZKV-LjjKjYPNXHN5MAfHl3fWtN4Ojd6-dHHRE_6e1ocJeRgXMJE9vlL" })
 
 migrate = Migrate(app, db)
 
@@ -87,6 +94,90 @@ app.config.update(dict(
 ))
 
 mail = Mail(app)
+
+@app.route('/payment', methods=['POST'])
+def payment():
+
+    user = None
+    cart_items = None
+    cart_count = None
+    total_value = None
+    payment_options = None
+    delivery_details = None
+
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        total_value = round(sum(item.price * item.quantity for item in cart_items),2)
+
+    payment = paypalrestsdk.Payment({
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"},
+        "redirect_urls": {
+            "return_url": "http://localhost:3000/payment/execute",
+            "cancel_url": "http://localhost:3000/"},
+        "transactions": [{
+            "item_list": {
+                "items": [{
+                    "name": 'Entire Cart',
+                    "sku": "12345",
+                    "price": total_value,
+                    "currency": "USD",
+                    "quantity": 1}]},
+            "amount": {
+                "total": total_value,
+                "currency": "USD"},
+            "description": "This is the payment transaction description."}]})
+
+    if payment.create():
+        print('Payment success!')
+        session['payment_initiated'] = True
+    else:
+        print(payment.error)
+
+    return jsonify({'paymentID' : payment.id})
+
+@app.route('/execute', methods=['POST'])
+def execute():
+
+    user = None
+    cart_items = None
+    cart_count = None
+    total_value = None
+    payment_options = None
+    delivery_details = None
+
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = 0
+        total_value = 0
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
+    success = False
+
+    payment = paypalrestsdk.Payment.find(request.form['paymentID'])
+
+    if payment.execute({'payer_id': request.form['payerID']}):
+        success = True
+        successMessage = 'Thank you for ordering at PokeFinder.com!'
+        # Build a dictionary with the relevant data to pass as a JSON response
+        response_data = {
+            'success': True,
+            'redirect_url': url_for('index', cart_items=cart_items, user=user, cart_count=cart_count, payment_options=payment_options, delivery_details=delivery_details, successMessage=successMessage)
+        }
+    else:
+        response_data = {'success': False}
+
+    return jsonify(response_data)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
