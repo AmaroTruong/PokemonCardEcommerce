@@ -196,7 +196,7 @@ def execute_Refresh():
         cart_count = sum(cart_item.quantity for cart_item in cart_items)
         total_value = round(sum(item.price * item.quantity for item in cart_items),2)
     sucessMessage = 'Thank you for ordering at PokeFinder.com!'
-    return redirect(url_for('index', sucessMessage=sucessMessage, cart_count=cart_count, cart_items=cart_items, total_value=total_value, user=user, logged_in=logged_in))
+    return redirect(url_for('paymentSucess', sucessMessage=sucessMessage, cart_count=cart_count, cart_items=cart_items, total_value=total_value, user=user, logged_in=logged_in))
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -239,6 +239,32 @@ def login_required(f):
             return redirect(url_for('index'))
         return f(*args, **kwargs)
     return decorated_function
+
+@app.route('/paymentSucess')
+@login_required
+def paymentSucess():
+    file_path = os.path.join(app.static_folder, 'profiles.json')
+    with open(file_path) as file:
+        cards_data = json.load(file)
+
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
+        delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
+    else:
+        cart_items = []
+        cart_count = 0
+        payment_options = None
+        delivery_details = None
+
+    total_value = sum(item.price * item.quantity for item in cart_items)
+    notLoggedInMessage = session.pop('_flashes', None)
+    return render_template('paymentSucess.html',user=user,cart_items=cart_items,cart_count=cart_count,payment_options=payment_options,delivery_details=delivery_details,total_value=total_value,notLoggedInMessage=notLoggedInMessage,logged_in=logged_in)
 
 @app.route('/decrease_quantity', methods=['POST', 'GET'])
 @login_required
