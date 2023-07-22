@@ -179,6 +179,25 @@ def execute():
 
     return jsonify(response_data)
 
+@app.route('/executeRefresh')
+def execute_Refresh():
+    logged_in = session.get('logged_in', False)
+    email = session.get('email')
+    user = None
+    cart_items = None
+    cart_count = None
+    total_value = None
+    if logged_in and email:
+        user = User.query.filter_by(email=email).first()
+        cart_items = user.cart_cards
+        for cart_item in cart_items:
+            db.session.delete(cart_item)
+        db.session.commit()
+        cart_count = sum(cart_item.quantity for cart_item in cart_items)
+        total_value = round(sum(item.price * item.quantity for item in cart_items),2)
+    sucessMessage = 'Thank you for ordering at PokeFinder.com!'
+    return redirect(url_for('index', sucessMessage=sucessMessage, cart_count=cart_count, cart_items=cart_items, total_value=total_value, user=user, logged_in=logged_in))
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     logged_in = session.get('logged_in', False)
