@@ -472,7 +472,7 @@ def save_settings():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', payment_options=payment_options, currentRoute=currentRoute, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+    return render_template('settingsUser.html', payment_options=payment_options, currentRoute=currentRoute, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value,favorite_cards=user.favorite_cards)
 
 @app.route('/settings/payment', methods=['POST'])
 @login_required
@@ -514,7 +514,7 @@ def save_payment_option():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', currentRoute=currentRoute, user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('settingsUser.html', currentRoute=currentRoute, user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value,favorite_cards=user.favorite_cards)
 
 @app.route('/add_to_cart/<card_id>', methods=['POST'])
 @login_required
