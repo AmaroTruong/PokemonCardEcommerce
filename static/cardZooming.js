@@ -1,7 +1,7 @@
 const zoomContainer = document.querySelector(".zoomed-image");
 const zoomOverlay = document.querySelector(".zoomed-overlay");
 const cardImageContainer = document.querySelector(".card-image-container");
-const cardImage = document.querySelector(".card-image");
+const cardImage = document.querySelector(".card-image2");
 
 cardImage.addEventListener("mousemove", (event) => {
   const imageWidth = cardImage.offsetWidth;

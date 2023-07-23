@@ -119,8 +119,8 @@ def payment():
         "payer": {
             "payment_method": "paypal"},
         "redirect_urls": {
-            "return_url": "http://localhost:3000/payment/execute",
-            "cancel_url": "http://localhost:3000/"},
+            "return_url": "http://localhost:3030/payment/execute",
+            "cancel_url": "http://localhost:3030/"},
         "transactions": [{
             "item_list": {
                 "items": [{
@@ -712,7 +712,7 @@ def profiles(card_id):
         cart_count = 0
         total_value = 0
 
-    return render_template('profile.html', notLoggedInMessage=notLoggedInMessage, payment_options=payment_options, delivery_details=delivery_details, card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value)
+    return render_template('profile.html', notLoggedInMessage=notLoggedInMessage, payment_options=payment_options, delivery_details=delivery_details, card=card_profile, is_favorite=is_favorite, logged_in=logged_in, cart_items=cart_items, cart_count=cart_count, user=user, total_value=total_value,_external=True)
 
 @app.route('/all_cards')
 def all_cards():
