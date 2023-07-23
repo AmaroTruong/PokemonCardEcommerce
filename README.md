@@ -51,7 +51,6 @@ The Flask mock e-commerce website allows users to perform the following actions:
 <img width="835" alt="Screenshot 2023-07-23 at 1 52 08 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/ab9f6d7b-f991-46ae-ac31-338b2f93a845">
 
 
-
 <h2 id="technologies-used">Technologies Used</h2>
 <ol>
   <li>Flask (Python Web Development Framework)</li>
@@ -80,4 +79,4 @@ The Flask mock e-commerce website was inspired by various online e-commerce plat
 <h2 id="contact-information">Contact Information</h2>
 If you have any questions or feedback, feel free to contact us through our Contact Us form or directly emailing us, at ecommercepokemon@gmail.com. 
 
-# Thank you for considering our Flask mock e-commerce website! If you have any further questions or need assistance, don't hesitate to reach out to us. We hope you enjoy using our platform!
+# Thank you for considering our Flask PokemonCardEcommerce website! If you have any further questions or need assistance, don't hesitate to reach out to us. We hope you enjoy using our platform!
