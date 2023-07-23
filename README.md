@@ -69,7 +69,7 @@ The Flask mock e-commerce website allows users to perform the following actions:
 <img width="840" alt="Screenshot 2023-07-23 at 1 51 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/93f7e31f-7628-4e63-949a-acb6312620cd">
 
 <h2 id="technologies-used">Technologies Used</h2>
-<ol>
+<ul>
   <li>Flask (Python Web Development Framework)</li>
   <li><a href="https://pokemontcg.io/">Pokemon TCG API</a></li>
   <li><a href="https://developer.paypal.com/api/rest/">Paypal Developer API</a></li>
@@ -78,7 +78,7 @@ The Flask mock e-commerce website allows users to perform the following actions:
   <li>HTML, CSS, and JS</li>
   <li>Docker</li>
   <li>SQLITE</li>
-</ol>
+</ul>
 
 # Dockerization of Website
 Our Docker image is designed to host a mock e-commerce website, providing an easily deployable and scalable solution for running the application in a containerized environment. This image includes all the necessary components and dependencies required to run the mock e-commerce website seamlessly.
