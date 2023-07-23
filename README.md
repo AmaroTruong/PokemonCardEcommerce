@@ -36,21 +36,21 @@ The Flask mock e-commerce website allows users to perform the following actions:
 - Manage profile settings, including username, email, and password.
 - View favorite Pokémon cards, payment options, and delivery details.
 
-<h2 id="usage">Demostration</h2>
+<h1 id="usage">Demostration</h1>
 
-## Create an account
+## Create an Account
 <img width="1724" alt="Screenshot 2023-07-23 at 1 34 18 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/6509db6b-483f-446c-a0bc-fe4ddd9da987">
 
-## Log in
+## Log In
 <img width="1724" alt="Screenshot 2023-07-23 at 1 34 54 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/68cb9c05-1cfe-47b6-aa5c-8536805de1af">
 
 ## Search
 <img width="1724" alt="Screenshot 2023-07-23 at 1 35 57 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/c2a45228-997c-49a9-9a4a-ddd2b39a4ba2">
 
-## Add to cart
+## Add to Cart
 <img width="1724" alt="Screenshot 2023-07-23 at 1 36 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/b56634f3-e204-4354-adde-cd0345d7784f">
 
-## Remove from cart
+## Remove From Cart
 <img width="1724" alt="Screenshot 2023-07-23 at 1 41 30 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/0e241cf1-157b-4068-8bb7-a46b47e67a5d">
 
 ## Checkout
@@ -79,8 +79,39 @@ The Flask mock e-commerce website allows users to perform the following actions:
   <li>Jinja (Python Templating Engine)</li>
   <li>Node.js (JSON Parsing)</li>
   <li>HTML, CSS, and JS</li>
+  <li>Docker</li>
   <li>SQLITE</li>
 </ol>
+
+<h3>Dockerization of Website</h3>
+
+<h8>Windows</h8>
+- Go to the Docker website: https://www.docker.com/products/docker-desktop
+- Click on "Get Docker Desktop for Windows".
+- The installer will be downloaded. Double-click the installer to start the installation process.
+- Follow the on-screen instructions to install Docker. During installation, it might prompt you to enable Hyper-V and other necessary components. Allow the installation to make the required changes.
+- Once the installation is complete, Docker should be running, and you'll see the Docker icon in the system tray.
+
+<h8>macOS</h8>
+- Go to the Docker website: https://www.docker.com/products/docker-desktop
+- Click on "Get Docker Desktop for Mac".
+- The installer will be downloaded. Double-click the installer to start the installation process.
+- Drag and drop the Docker icon into the Applications folder to install it.
+- Open Docker from the Applications folder. It might prompt you to allow the installation of additional components. Allow the installation to make the required changes.
+- Once the installation is complete, Docker should be running, and you'll see the Docker icon in the menu bar.
+
+<h8>Linux</h8>
+- Docker provides different installation methods for various Linux distributions. The following are generic instructions:
+- Go to the Docker website: https://docs.docker.com/engine/install/
+- Choose your Linux distribution from the list of options.
+- Follow the installation instructions specific to your distribution. The steps will typically involve adding Docker's official repository, installing the necessary packages, and configuring Docker to run on startup.
+
+To pull the Docker image from the container registry, run the following command:
+```docker pull amarot29/pokemonecommerce```
+
+To run the application in a Docker container, use the following command:
+```docker run -d -p 3030:3030 pokemonecommerce```
+
 
 <h2 id="code-examples">Code Examples</h2>
 Here are some code examples to demonstrate how to use the Flask mock e-commerce website:
