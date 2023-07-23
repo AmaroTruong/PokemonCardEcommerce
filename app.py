@@ -796,4 +796,4 @@ def privacy():
     return render_template('privacy.html', cart_count=cart_count, total_value=total_value, cart_items=cart_items, logged_in=logged_in, payment_options=payment_options, delivery_details=delivery_details)
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=3030)
