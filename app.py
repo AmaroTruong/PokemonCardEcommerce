@@ -292,7 +292,7 @@ def decrease_quantity():
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('catalogueLogged.html', user=user, favorite_cards=user.favorite_cards, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
 
 @app.route('/update_quantity/<card_id>', methods=['GET', 'POST'])
 @login_required
@@ -328,7 +328,7 @@ def update_quantity(card_id):
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return redirect(url_for('profiles', card_id=card_id, user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value))
+    return redirect(url_for('profiles', card_id=card_id, favorite_cards=user.favorite_cards, user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value))
 
 @app.route('/increase_quantity', methods=['GET', 'POST'])
 @login_required
@@ -351,7 +351,7 @@ def increase_quantity():
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('catalogueLogged.html', favorite_cards=user.favorite_cards, user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
 
 @app.route('/newPassword', methods=['POST'])
 def reset_password():
@@ -472,7 +472,7 @@ def save_settings():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', payment_options=payment_options, currentRoute=currentRoute, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
+    return render_template('settingsUser.html', payment_options=payment_options, favorite_cards=user.favorite_cards, currentRoute=currentRoute, user=user, delivery_details=delivery_details, cart_count=cart_count, cart_items=cart_items, total_value=total_value)
 
 @app.route('/settings/payment', methods=['POST'])
 @login_required
@@ -514,7 +514,7 @@ def save_payment_option():
         payment_options = PaymentOption.query.filter_by(user_id=user.id).all()
         delivery_details = DeliveryDetails.query.filter_by(user_id=user.id).all()
 
-    return render_template('settingsUser.html', currentRoute=currentRoute, user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
+    return render_template('settingsUser.html', currentRoute=currentRoute, favorite_cards=user.favorite_cards, user=user, delivery_details=delivery_details, payment_options=payment_options, cart_items=cart_items, cart_count=cart_count, total_value=total_value)
 
 @app.route('/add_to_cart/<card_id>', methods=['POST'])
 @login_required
@@ -551,7 +551,7 @@ def add_to_cart(card_id):
     with open(file_path) as file:
         cards_data = json.load(file)
 
-    return render_template('catalogueLogged.html', user=user, cards=cards_data, cart_items=cart_items, cart_count=cart_count, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
+    return render_template('catalogueLogged.html', user=user, cards=cards_data, favorite_cards=user.favorite_cards, cart_items=cart_items, cart_count=cart_count, total_value=total_value, notLoggedInMessage=notLoggedInMessage)
 
 
 @app.route('/')
