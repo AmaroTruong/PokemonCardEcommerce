@@ -35,15 +35,33 @@ The Flask mock e-commerce website allows users to perform the following actions:
 - View order details and total value after successful checkout.
 - Manage profile settings, including username, email, and password.
 - View favorite Pokémon cards, payment options, and delivery details.
-  
+
+<h2 id="usage">Demostration</h2>
+
+<img width="1724" alt="Screenshot 2023-07-23 at 1 34 18 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/6509db6b-483f-446c-a0bc-fe4ddd9da987">
+<img width="1724" alt="Screenshot 2023-07-23 at 1 34 54 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/68cb9c05-1cfe-47b6-aa5c-8536805de1af">
+<img width="1724" alt="Screenshot 2023-07-23 at 1 35 57 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/c2a45228-997c-49a9-9a4a-ddd2b39a4ba2">
+<img width="1724" alt="Screenshot 2023-07-23 at 1 36 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/b56634f3-e204-4354-adde-cd0345d7784f">
+<img width="1724" alt="Screenshot 2023-07-23 at 1 41 30 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/0e241cf1-157b-4068-8bb7-a46b47e67a5d">
+<img width="496" alt="Screenshot 2023-07-23 at 1 48 53 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/8a368cff-3589-4cf5-b7c0-77867d196660">
+<img width="1684" alt="Screenshot 2023-07-23 at 1 49 39 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/8e344a6b-facb-4176-8763-36b8642e25cf">
+<img width="844" alt="Screenshot 2023-07-23 at 1 50 29 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/2a43158e-811e-4de4-8e3a-1939e2fb50eb">
+<img width="844" alt="Screenshot 2023-07-23 at 1 51 26 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/70c1a0fd-b4b3-4c30-a882-e9c15112363a">
+<img width="840" alt="Screenshot 2023-07-23 at 1 51 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/93f7e31f-7628-4e63-949a-acb6312620cd">
+<img width="835" alt="Screenshot 2023-07-23 at 1 52 08 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/ab9f6d7b-f991-46ae-ac31-338b2f93a845">
+
+
+
 <h2 id="technologies-used">Technologies Used</h2>
-- Flask (Python Web Development Framework)
-- <a href="https://pokemontcg.io/">Pokemon TCG API</a>
-- <a href="https://developer.paypal.com/api/rest/">Paypal Developer API</a>
-- Jinja (Python Templating Engine)
-- Node.js (JSON Parsing)
-- HTML, CSS, and JS
-- SQLITE
+<ol>
+  <li>Flask (Python Web Development Framework)</li>
+  <li><a href="https://pokemontcg.io/">Pokemon TCG API</a></li>
+  <li><a href="https://developer.paypal.com/api/rest/">Paypal Developer API</a></li>
+  <li>Jinja (Python Templating Engine)</li>
+  <li>Node.js (JSON Parsing)</li>
+  <li>HTML, CSS, and JS</li>
+  <li>SQLITE</li>
+</ol>
 
 <h2 id="code-examples">Code Examples</h2>
 Here are some code examples to demonstrate how to use the Flask mock e-commerce website:
