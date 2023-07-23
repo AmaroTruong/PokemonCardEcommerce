@@ -68,9 +68,6 @@ The Flask mock e-commerce website allows users to perform the following actions:
 ## Manage Account
 <img width="840" alt="Screenshot 2023-07-23 at 1 51 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/93f7e31f-7628-4e63-949a-acb6312620cd">
 
-## Manage Account
-<img width="835" alt="Screenshot 2023-07-23 at 1 52 08 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/ab9f6d7b-f991-46ae-ac31-338b2f93a845">
-
 <h2 id="technologies-used">Technologies Used</h2>
 <ol>
   <li>Flask (Python Web Development Framework)</li>
@@ -83,7 +80,8 @@ The Flask mock e-commerce website allows users to perform the following actions:
   <li>SQLITE</li>
 </ol>
 
-<h3>Dockerization of Website</h3>
+# Dockerization of Website
+Our Docker image is designed to host a mock e-commerce website, providing an easily deployable and scalable solution for running the application in a containerized environment. This image includes all the necessary components and dependencies required to run the mock e-commerce website seamlessly.
 
 <h8>Windows</h8>
 - Go to the Docker website: https://www.docker.com/products/docker-desktop
@@ -112,6 +110,7 @@ To pull the Docker image from the container registry, run the following command:
 To run the application in a Docker container, use the following command:
 ```docker run -d -p 3030:3030 pokemonecommerce```
 
+ Open your web browser and enter http://localhost to access the mock e-commerce website. Voilà! You can now explore the mock e-commerce application and test its functionalities.
 
 <h2 id="code-examples">Code Examples</h2>
 Here are some code examples to demonstrate how to use the Flask mock e-commerce website:
@@ -138,5 +137,5 @@ Email: jc5187@gmail.com
 #### Amaro Truong
 Email: amarotruong619@gmail.com
 
-# Thank you for considering our Flask PokemonCardEcommerce website! If you have any further questions or need assistance, don't hesitate to reach out to us. We hope you enjoy using our platform!
+Thank you for considering our Flask PokemonCardEcommerce website! If you have any further questions or need assistance, don't hesitate to reach out to us. We hope you enjoy using our platform!
 
