@@ -39,34 +39,36 @@ The Flask mock e-commerce website allows users to perform the following actions:
 <h1 id="usage">Demostration</h1>
 
 ## Create an Account
-<img width="1724" alt="Screenshot 2023-07-23 at 1 34 18 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/6509db6b-483f-446c-a0bc-fe4ddd9da987">
+<img width="1724" alt="Screenshot 2023-07-24 at 12 35 19 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/7331b6dd-75fb-4db8-b511-bba6b11d4cb6">
 
 ## Log In
-<img width="1724" alt="Screenshot 2023-07-23 at 1 34 54 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/68cb9c05-1cfe-47b6-aa5c-8536805de1af">
+<img width="1724" alt="Screenshot 2023-07-24 at 12 35 41 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/0c889204-fc08-46a3-a353-3f22a91e7bfa">
 
 ## Search
-<img width="1724" alt="Screenshot 2023-07-23 at 1 35 57 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/c2a45228-997c-49a9-9a4a-ddd2b39a4ba2">
+<img width="1723" alt="Screenshot 2023-07-24 at 12 36 27 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/f9df0bea-3d2a-4936-b0b0-a44da0f369f5">
 
 ## Add to Cart
-<img width="1724" alt="Screenshot 2023-07-23 at 1 36 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/b56634f3-e204-4354-adde-cd0345d7784f">
+<img width="1711" alt="Screenshot 2023-07-24 at 12 39 15 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/ed9d505d-aa30-4531-939d-5bd3ae01a097">
 
 ## Remove From Cart
-<img width="1724" alt="Screenshot 2023-07-23 at 1 41 30 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/0e241cf1-157b-4068-8bb7-a46b47e67a5d">
+<img width="1706" alt="Screenshot 2023-07-24 at 12 39 34 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/816390ac-23a3-41c7-8557-4e4482ed19d2">
 
 ## Checkout
-<img width="496" alt="Screenshot 2023-07-23 at 1 48 53 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/8a368cff-3589-4cf5-b7c0-77867d196660">
+<img width="498" alt="Screenshot 2023-07-24 at 12 43 15 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/dd6eac72-3cdc-443a-a0f0-bb5b80770349">
 
 ## Payment Success 
-<img width="1684" alt="Screenshot 2023-07-23 at 1 49 39 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/8e344a6b-facb-4176-8763-36b8642e25cf">
+<img width="1680" alt="Screenshot 2023-07-24 at 12 43 45 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/1845581a-a0a8-454c-af4a-14afcedf1a21">
 
 ## Manage Account
-<img width="844" alt="Screenshot 2023-07-23 at 1 50 29 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/2a43158e-811e-4de4-8e3a-1939e2fb50eb">
+<img width="829" alt="Screenshot 2023-07-24 at 12 44 08 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/012609d6-dbe1-4e2c-af3d-72049101e073">
 
 ## Favorite Cards
-<img width="844" alt="Screenshot 2023-07-23 at 1 51 26 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/70c1a0fd-b4b3-4c30-a882-e9c15112363a">
+<img width="841" alt="Screenshot 2023-07-24 at 12 44 23 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/03eed652-03b1-495e-83c9-cbe13a96ca47">
 
 ## Manage Account
-<img width="840" alt="Screenshot 2023-07-23 at 1 51 51 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/93f7e31f-7628-4e63-949a-acb6312620cd">
+<img width="817" alt="Screenshot 2023-07-24 at 12 44 37 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/d7ab2bb5-fa28-4881-8e61-74f7460a3de4">
+<img width="831" alt="Screenshot 2023-07-24 at 12 44 45 AM" src="https://github.com/JackieC2027/PokemonCardEcommerce/assets/137460611/1fbfee31-bcb5-4159-b434-5a584c5f7b0b">
+
 
 <h2 id="technologies-used">Technologies Used</h2>
 <ul>
